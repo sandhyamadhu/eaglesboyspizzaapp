@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">EaglesBoys</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_clickskip">Clickskip</string>
+    <string-array name="planets_array">
+        <item>Hyderabad</item>
+    </string-array>
+    <string-array name="locality">
+        <item>Uppal</item>
+        <item>Secundrabad</item>
+        <item>Ameerpet</item>
+    </string-array>
+    <string name="title_activity_add_address">AddAddress</string>
+    <string name="title_activity_full_menu">FullMenu</string>
+    <string name="title_activity_offers_page">OffersPage</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="title_activity_dupe_menu">DupeMenu</string>
+    <string name="title_activity_real_menu">RealMenu</string>
+    <string name="title_activity_cart_page">CartPage</string>
+
+</resources>

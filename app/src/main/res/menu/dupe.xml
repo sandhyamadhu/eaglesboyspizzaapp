@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/menu_zero"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/Profile"
+            android:icon="@drawable/profile"
+            android:title="Profile"
+            android:onClick="profile"/>
+    </group>
+    <group
+        android:id="@+id/menu_one"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/offerss"
+            android:icon="@drawable/bell"
+            android:title="Offers"
+            android:onClick="offers"/>
+    </group>
+    <group
+        android:id="@+id/menu_two"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/neworderss"
+            android:icon="@drawable/orders"
+            android:title="New Orders"
+            android:onClick="neworder"/>
+    </group>
+    <group
+        android:id="@+id/menu_three"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/backtomenu"
+            android:icon="@drawable/backtomneu"
+            android:title="Back to Menu"
+            android:onClick="backtomenu"/>
+    </group>
+    <group
+        android:id="@+id/menu_four"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/every"
+            android:icon="@drawable/offer"
+            android:title="Every day offer values"
+            android:onClick="dailyoffer"/>
+    </group>
+
+    <group
+        android:id="@+id/menu_five"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/orderhistoryy"
+            android:icon="@drawable/history"
+            android:title="Order History" />
+    </group>
+    <group
+        android:id="@+id/menu_six"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/favproduct"
+            android:icon="@drawable/favourite"
+            android:title="Favourite Product" />
+    </group>
+    <group
+        android:id="@+id/menu_seven"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/favorder"
+            android:icon="@drawable/favorder"
+            android:title="Favourite Order" />
+    </group>
+    <group
+        android:id="@+id/menu_eight"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/trackorderr"
+            android:icon="@drawable/track"
+            android:title="Track Order" />
+    </group>
+    <group
+        android:id="@+id/menu_nine"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/tncc"
+            android:icon="@drawable/tnc"
+            android:title="T and C Desclaimer" />
+    </group>
+    <group
+        android:id="@+id/menu_ten"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/feedback"
+            android:icon="@drawable/feedback"
+            android:title="Feedback" />
+    </group>
+
+
+</menu>

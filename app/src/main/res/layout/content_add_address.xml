@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.appcare.eaglesboys.activities.AddAddress"
+    tools:showIn="@layout/activity_add_address">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="-20dp"
+        app:srcCompat="@drawable/pizzafinal" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="180dp"
+        android:layout_height="57dp"
+        android:layout_gravity="right"
+        android:layout_marginLeft="135dp"
+        android:layout_marginTop="9dp"
+        android:background="@drawable/tabbedbtn"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioAndroid"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/rbtn_selector"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Show Full Menu"
+            android:textColor="#ffffff"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/showcart"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/rbtn_selector"
+            android:src="@drawable/cart" />
+    </RadioGroup>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="80dp"
+        android:background="#C72F82"
+        android:id="@+id/view" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:text="Please Enter Your Details"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/view"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="9dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="123dp"
+        android:text="your delivery address to place your order"
+        android:textAlignment="center"
+        android:textColor="#C72F82"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="149dp"
+        android:background="#ffffff" />
+
+    <EditText
+        android:id="@+id/firstname"
+        android:layout_width="320dp"
+        android:layout_height="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="173dp"
+        android:layout_weight="0.07"
+        android:background="@drawable/edittextcorner"
+        android:ems="10"
+        android:hint="Enter your first name"
+        android:inputType="textPersonName"
+        android:paddingLeft="15dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/lastname"
+        android:layout_width="320dp"
+        android:layout_height="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="215dp"
+        android:layout_weight="0.07"
+        android:background="@drawable/edittextcorner"
+        android:ems="10"
+        android:hint="Enter your last name"
+        android:inputType="textPersonName"
+        android:paddingLeft="15dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="320dp"
+        android:layout_height="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="257dp"
+        android:layout_weight="0.07"
+        android:background="@drawable/edittextcorner"
+        android:ems="10"
+        android:hint="Enter your Email Id"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="15dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/street"
+        android:layout_width="320dp"
+        android:layout_height="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="299dp"
+        android:layout_weight="0.07"
+        android:background="@drawable/edittextcorner"
+        android:ems="10"
+        android:hint="Enter your street number"
+        android:inputType="textPersonName"
+        android:paddingLeft="15dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/flat"
+        android:layout_width="320dp"
+        android:layout_height="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="341dp"
+        android:layout_weight="0.07"
+        android:background="@drawable/edittextcorner"
+        android:ems="10"
+        android:hint="Enter your flat number"
+        android:inputType="textPersonName"
+        android:paddingLeft="15dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/mobile"
+        android:layout_width="320dp"
+        android:layout_height="32dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="383dp"
+        android:layout_weight="0.07"
+        android:background="@drawable/edittextcorner"
+        android:ems="10"
+        android:hint="Enter your valid mobile number"
+        android:inputType="number"
+        android:maxLength="10"
+        android:paddingLeft="15dp"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff"
+        android:textSize="18dp" />
+
+    <Button
+        android:layout_width="290dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="462dp"
+        android:background="@drawable/savebtn"
+        android:onClick="saveandcontinue"
+        android:text="Save and Continue"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

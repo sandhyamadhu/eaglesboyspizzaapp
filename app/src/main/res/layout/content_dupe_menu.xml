@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.appcare.eaglesboys.activities.DupeMenu"
+    tools:showIn="@layout/activity_dupe_menu"
+    android:id="@+id/drawlayout">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/mree"/>
+        <ImageView
+            android:layout_width="330dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="300dp"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="330dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/savebtn"
+            android:text="menu"
+            android:textColor="#ffffff"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:onClick="menuclick"/>
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="385dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/savebtn"
+            android:text="everyday value offers"
+            android:textColor="#ffffff"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:onClick="offerclick"/>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/dupe"
+        app:itemIconTint="#000000"
+        app:theme="@style/NavigationViewStyle"
+        android:id="@+id/navview"
+        >
+
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>
