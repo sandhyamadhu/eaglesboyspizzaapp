@@ -31,7 +31,7 @@ public class SplashScreen extends Activity {
         };
         timerThread.start();
     }
-
+//commit
     @Override
     protected void onPause() {
         // TODO Auto-generated method stub
