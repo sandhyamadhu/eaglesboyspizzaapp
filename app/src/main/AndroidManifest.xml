@@ -60,6 +60,10 @@
         <activity
             android:name=".activities.CartPage"
             android:label="@string/title_activity_cart_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.Payment"
+            android:label="@string/title_activity_payment"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
