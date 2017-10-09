@@ -21,6 +21,8 @@ public class DupeMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dupe_menu);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mDrawerLayout=(DrawerLayout) findViewById(R.id.drawlayout);
@@ -40,8 +42,6 @@ public class DupeMenu extends AppCompatActivity {
         return mtoggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
 
     }
-
-
 
     public void offerclick(View view) {
         Intent i=new Intent(DupeMenu

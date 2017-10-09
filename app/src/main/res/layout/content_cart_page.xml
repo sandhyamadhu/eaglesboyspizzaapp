@@ -195,7 +195,7 @@
             android:layout_height="25dp"
             android:text="Grand Total :"
             android:layout_marginTop="545dp"
-            android:layout_marginLeft="215dp"
+            android:layout_marginLeft="218dp"
             android:textColor="@color/customeColor"
             android:textSize="20dp"
             android:textStyle="bold"/>
@@ -205,24 +205,10 @@
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:text="00.00"
-            android:layout_marginTop="545dp"
-            android:layout_marginLeft="335dp"
             android:textColor="@color/customeColor"
             android:textSize="20dp"
             android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/placeorder"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_marginTop="590dp"
-        android:textColor="#ffffff"
-        android:textAllCaps="true"
-        android:layout_centerHorizontal="true"
-        android:text="PLACE YOUR ORDER"
-        android:background="@drawable/savebtn"
-        android:onClick="placeorder"/>
+
 
 </RelativeLayout>

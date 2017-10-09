@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.appcare.eaglesboys">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +13,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.SplashScreen"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,10 +25,11 @@
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.example.appcare.myapplication" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
@@ -35,35 +40,45 @@
         <activity
             android:name=".activities.Clickskip"
             android:label="@string/title_activity_clickskip"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.AddAddress"
             android:label="@string/title_activity_add_address"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.FullMenu"
             android:label="@string/title_activity_full_menu"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.OffersPage"
             android:label="@string/title_activity_offers_page"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.DupeMenu"
             android:label="@string/title_activity_dupe_menu"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.Profile" />
         <activity
             android:name=".activities.RealMenu"
             android:label="@string/title_activity_real_menu"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.CartPage"
             android:label="@string/title_activity_cart_page"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.Payment"
-            android:label="@string/title_activity_payment"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

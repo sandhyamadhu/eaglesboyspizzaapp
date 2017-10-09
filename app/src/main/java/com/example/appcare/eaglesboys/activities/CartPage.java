@@ -27,8 +27,4 @@ public class CartPage extends AppCompatActivity {
         Button applycoupon=(Button) findViewById(R.id.apply);
         applycoupon.setVisibility(View.VISIBLE);
     }
-
-    public void placeorder(View view) {
-
-    }
 }

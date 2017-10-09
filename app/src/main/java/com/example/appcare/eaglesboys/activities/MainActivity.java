@@ -2,6 +2,7 @@ package com.example.appcare.eaglesboys.activities;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.appcare.eaglesboys.R;
 
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         onCreateDialog();
 
     }
@@ -58,19 +61,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void whenclickskip(View view) {
-        Intent i=new Intent(MainActivity.this,Clickskip.class);
-        startActivity(i);
-    }
 
-    public void addnewaddress(View view) {
-        Intent i=new Intent(MainActivity.this,AddAddress.class);
-        startActivity(i);
-    }
     private void onCreateDialog2() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         LayoutInflater inflater = getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.otpagain,null);
+
+        TextView txt = (TextView)dialogView.findViewById(R.id.txtResendOTP);
+        txt.setPaintFlags(txt.getPaintFlags()|Paint.UNDERLINE_TEXT_FLAG);
+
         builder.setView(dialogView);
         AlertDialog dialog = builder.create();
         dialog.show();
@@ -78,7 +77,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void sendnumber(View view) {
+    public void onSendOTP(View view) {
         onCreateDialog2();
+    }
+
+    public void onClickSkip(View view) {
+        Intent i=new Intent(MainActivity.this,Clickskip.class);
+        startActivity(i);
+    }
+
+    public void addNewAddress(View view) {
+        Intent i=new Intent(MainActivity.this,AddAddress.class);
+        startActivity(i);
     }
 }

@@ -1,17 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.appcare.eaglesboys.activities.AddAddress">
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:orientation="vertical"
+    android:background="#000000">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-    </android.support.design.widget.AppBarLayout>
+        android:orientation="horizontal">
 
-    <include layout="@layout/content_add_address" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:gravity="left"
+            app:srcCompat="@drawable/pizzafinal" />
 
-</android.support.design.widget.CoordinatorLayout>
+        <RadioGroup
+            android:layout_weight="1"
+            android:id="@+id/radioGroup1"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/tabbedbtn"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioAndroid"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rbtn_selector"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Show Full Menu"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/showcart"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/rbtn_selector"
+                android:src="@drawable/cart" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C72F82"/>
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Please Enter Your Details"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceLargeInverse"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="your delivery address to place your order"
+        android:textAlignment="center"
+        android:textColor="#C72F82"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.01dp"
+        android:background="@android:color/white" />
+    <ScrollView
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edtFirstName"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextcorner"
+                android:hint="Enter your first name"
+                android:inputType="textPersonName"
+                android:padding="13dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edtLastName"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextcorner"
+                android:hint="Enter your last name"
+                android:inputType="textPersonName"
+                android:padding="13dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/edtEmailAddress"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextcorner"
+                android:hint="Enter your Email Id"
+                android:inputType="textEmailAddress"
+                android:padding="13dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="15sp"  />
+
+            <EditText
+                android:id="@+id/edtStreetNumber"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextcorner"
+                android:ems="10"
+                android:hint="Enter your street number"
+                android:inputType="textPersonName"
+                android:padding="13dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="15sp"  />
+
+            <EditText
+                android:id="@+id/edtFlatNumber"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextcorner"
+                android:hint="Enter your flat number"
+                android:inputType="textPersonName"
+                android:padding="13dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="15sp"  />
+
+            <EditText
+                android:id="@+id/edtMobileNumber"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittextcorner"
+                android:hint="Enter your valid mobile number"
+                android:inputType="number"
+                android:padding="13dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/btnSaveAndContinue"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/savebtn"
+        android:onClick="saveAndContinue"
+        android:text="Save and Continue"
+        android:textColor="@android:color/white"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold" />
+</LinearLayout>

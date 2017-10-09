@@ -15,7 +15,7 @@ public class AddAddress extends AppCompatActivity {
         setContentView(R.layout.activity_add_address);
     }
 
-    public void saveandcontinue(View view) {
+    public void saveAndContinue(View view) {
         Intent i=new Intent(AddAddress.this,Clickskip.class);
         startActivity(i);
     }

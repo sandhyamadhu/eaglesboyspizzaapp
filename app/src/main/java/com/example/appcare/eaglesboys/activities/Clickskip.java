@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.appcare.eaglesboys.R;
+import com.example.appcare.eaglesboys.praser.HttpHandler;
 
 public class Clickskip extends AppCompatActivity {
 
@@ -17,8 +18,21 @@ public class Clickskip extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clickskip);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
-        Spinner spinner2=(Spinner) findViewById(R.id.spinner2);
+
+        initSetUpViews();
+
+        String url = "http://marssofttech.com/demos/eaglepizza/api/cities_api/cities";
+        HttpHandler sh = new HttpHandler();
+        String jsonStr = sh.makeServiceCall(url);
+
+        System.out.println("EAGLES APP::>"+jsonStr);
+
+    }
+
+    private void initSetUpViews() {
+
+        Spinner spinner = (Spinner) findViewById(R.id.spnrCity);
+        Spinner spinner2=(Spinner) findViewById(R.id.spnrArea);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.planets_array,  R.layout.spinner_item);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
@@ -27,13 +41,12 @@ public class Clickskip extends AppCompatActivity {
         adapter2.setDropDownViewResource(R.layout.spinner_layout_item);
         spinner.setAdapter(adapter);
         spinner2.setAdapter(adapter2);
-
     }
 
-    public void showmenu(View view) {
+    public void onShowMenu(View view) {
         Intent i=new Intent(Clickskip.this,DupeMenu.class);
         startActivity(i);
     }
 
-      }
+}
 

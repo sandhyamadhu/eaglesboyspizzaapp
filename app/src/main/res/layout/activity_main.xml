@@ -1,18 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.appcare.eaglesboys.activities.MainActivity">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/black">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@drawable/tryyy"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="15dp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight=".8"
+        android:background="@drawable/logo"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/welcme"/>
+    <Button
+        android:id="@+id/btnLocateMe"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:background="@drawable/cornerdesign"
+        android:text="Locate Me"
+        android:textColor="#C72F82"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLargeInverse"/>
+    <TextView
+        android:id="@+id/skip"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="15dp"
+        android:gravity="bottom"
+        android:background="@drawable/skip"
+        android:onClick="onClickSkip" />
+    <TextView
+        android:id="@+id/txtNewAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="bottom"
+        android:background="@drawable/adres"
+        android:onClick="addNewAddress"/>
 
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_main" />
-
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>
