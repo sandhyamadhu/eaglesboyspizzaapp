@@ -19,4 +19,13 @@
     <string name="title_activity_real_menu">RealMenu</string>
     <string name="title_activity_cart_page">CartPage</string>
 
+
+    <string name="ERROR_SECURITY">Security Exception. You are not permitted to connect to this server.</string>
+    <string name="ERROR_CONNECT">Operation could not be completed. Please check your network connections.</string>
+    <string name="ILLEGAL_ARGUMENT">Network disconnected, while waiting for server response.\nPlease try again.</string>
+    <string name="ERROR_UNKNOWN">Mobile is not able to process the current request.\nPlease try again.</string>
+    <string name="ERROR_NULL">Empty response from server</string>
+    <string name="ERROR_SOCKET_TIMEOUT">Request Timeout.\nPlease try again</string>
+
+
 </resources>

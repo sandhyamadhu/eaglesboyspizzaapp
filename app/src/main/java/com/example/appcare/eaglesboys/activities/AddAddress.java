@@ -16,7 +16,7 @@ public class AddAddress extends AppCompatActivity {
     }
 
     public void saveAndContinue(View view) {
-        Intent i=new Intent(AddAddress.this,Clickskip.class);
+        Intent i=new Intent(AddAddress.this,SkipActivity.class);
         startActivity(i);
     }
 

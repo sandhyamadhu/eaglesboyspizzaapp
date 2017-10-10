@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickSkip(View view) {
-        Intent i=new Intent(MainActivity.this,Clickskip.class);
+        Intent i=new Intent(MainActivity.this,SkipActivity.class);
         startActivity(i);
     }
 

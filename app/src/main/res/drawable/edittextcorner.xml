@@ -14,13 +14,4 @@
         android:color="#C72F82" >
     </stroke>
 
-    <!-- If you want to add some padding -->
-    <padding>
-    </padding>
-
-    <!-- Here is the corner radius -->
-    <corners
-        android:radius="0dp"   >
-    </corners>
-
 </shape>
