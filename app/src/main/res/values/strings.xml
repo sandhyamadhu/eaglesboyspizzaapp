@@ -18,6 +18,7 @@
     <string name="title_activity_dupe_menu">DupeMenu</string>
     <string name="title_activity_real_menu">RealMenu</string>
     <string name="title_activity_cart_page">CartPage</string>
+    <string name="title_activity_payment">Payment</string>
 
 
     <string name="ERROR_SECURITY">Security Exception. You are not permitted to connect to this server.</string>

@@ -30,13 +30,13 @@ import com.example.appcare.eaglesboys.R;
  * A simple {@link Fragment} subclass.
  */
 public class CallsFragment extends Fragment {
-    TextView name,atettext,add;
+    TextView name,atettext,add,cost;
     ImageView im1,addcarthere;
     ImageView up,down;
     CardView one,two;
     Button customizetopping,addtocart,aplus,aminus;
     LinearLayout popup;
-    CheckBox cb1,cb2,cb3;
+    CheckBox cb1,cb2,cb3,cb5;
     CheckBox cb6,cb7,cb8,cb9,cb10;
     FrameLayout f1;
     String abc,bcd;
@@ -56,7 +56,7 @@ public class CallsFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_calls, container, false);
@@ -75,13 +75,16 @@ public class CallsFragment extends Fragment {
         cb6=(CheckBox) rootView.findViewById(R.id.checkBox6);
         cb7=(CheckBox) rootView.findViewById(R.id.checkBox7);
         cb8=(CheckBox) rootView.findViewById(R.id.checkBox8);
-        cb9=(CheckBox) rootView.findViewById(R.id.checkBox9);
-        cb10=(CheckBox) rootView.findViewById(R.id.checkBox10);
+//        cb9=(CheckBox) rootView.findViewById(R.id.checkBox9);
+//        cb10=(CheckBox) rootView.findViewById(R.id.checkBox10);
+        cb5=(CheckBox) rootView.findViewById(R.id.checkBox5);
         aplus=(Button) rootView.findViewById(R.id.plus);
         aminus=(Button) rootView.findViewById(R.id.minus);
         atettext=(TextView) rootView.findViewById(R.id.texttext);
         add=(TextView) rootView.findViewById(R.id.add);
         addcarthere=(ImageView) rootView.findViewById(R.id.showcart);
+        cost=(TextView) rootView.findViewById(R.id.costexp);
+
 
 
 
@@ -92,6 +95,7 @@ public class CallsFragment extends Fragment {
                 abc=atettext.getText().toString();
                 String getcount= increment(abc);
                 atettext.setText(getcount);
+//                multiplyprice(atettext.getText().toString());
 
             }
         });
@@ -104,6 +108,7 @@ public class CallsFragment extends Fragment {
                     int b = a - 1;
                     String c = String.valueOf(b);
                     atettext.setText(c);
+//                    multiplyprice(atettext.getText().toString());
                 }
             }
         });
@@ -127,6 +132,7 @@ public class CallsFragment extends Fragment {
             public void onClick(View v) {
                 two.setVisibility(View.INVISIBLE);
                 one.setVisibility(View.VISIBLE);
+
             }
         });
 //        addtocart.setOnClickListener(new View.OnClickListener() {
@@ -145,71 +151,162 @@ public class CallsFragment extends Fragment {
         cb1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cb2.setChecked(false);
-                cb3.setChecked(false);
+                cb8.setVisibility(View.INVISIBLE);
+                cb8.setChecked(false);
+                cb6.setChecked(true);
+                cb1.setChecked(true);
+
+                if(cb2.isChecked()) {
+                    cb3.setChecked(false);
+                    cb2.setChecked(false);
+                    changeprice(-100);
+                }
+                if(cb3.isChecked())
+                {
+                    cb3.setChecked(false);
+                    cb2.setChecked(false);
+                    changeprice(-200);
+                }
+
+
             }
         });
         cb3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cb2.setChecked(false);
-                cb1.setChecked(false);
+                cb8.setVisibility(View.INVISIBLE);
+                cb3.setChecked(true);
+                cb8.setChecked(false);
+                cb6.setChecked(true);
+
+                if(cb1.isChecked()) {
+                    cb1.setChecked(false);
+                    cb2.setChecked(false);
+                    changeprice(200);
+                }
+                if(cb2.isChecked())
+                {
+                    cb1.setChecked(false);
+                    cb2.setChecked(false);
+                    changeprice(100);
+                }
+
+
             }
         });
         cb2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cb1.setChecked(false);
-                cb3.setChecked(false);
+                cb8.setVisibility(View.VISIBLE);
+                cb2.setChecked(true);
+                if(cb1.isChecked()) {
+                    cb1.setChecked(false);
+                    cb3.setChecked(false);
+                    changeprice(100);
+                }
+                if(cb3.isChecked())
+                { cb1.setChecked(false);
+                    cb3.setChecked(false);
+                    changeprice(-100);
+
+                }
+
+
             }
         });
 
+        cb5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(cb5.isChecked())
+                {
+                    changeprice(50);
+                }
+                else
+                {
+                    changeprice(-50);
+                }
+
+
+            }
+        });
         cb6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cb7.setChecked(false);
-                cb8.setChecked(false);
-                cb9.setChecked(false);
-                cb10.setChecked(false);
+                cb6.setChecked(true);
+                if(cb7.isChecked())
+                {
+                    cb7.setChecked(false);
+                    cb8.setChecked(false);
+                    changeprice(-10);
+                }
+               if(cb8.isChecked())
+                {
+                    cb7.setChecked(false);
+                    cb8.setChecked(false);
+                    changeprice(-20);
+                }
+
             }
         });
 
         cb7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cb6.setChecked(false);
-                cb8.setChecked(false);
-                cb9.setChecked(false);
-                cb10.setChecked(false);
+
+                cb7.setChecked(true);
+                if(cb6.isChecked())
+                {
+                    cb6.setChecked(false);
+                    cb8.setChecked(false);
+                    changeprice(10);
+                }
+                if(cb8.isChecked())
+                {
+                    cb6.setChecked(false);
+                    cb8.setChecked(false);
+                    changeprice(-10);
+                }
             }
         });
         cb8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cb6.setChecked(false);
-                cb7.setChecked(false);
-                cb9.setChecked(false);
-                cb10.setChecked(false);
+
+                cb8.setChecked(true);
+                if(cb7.isChecked())
+                {
+                    cb7.setChecked(false);
+                    cb6.setChecked(false);
+                    changeprice(10);
+                }
+                if(cb6.isChecked())
+                {
+                    cb7.setChecked(false);
+                    cb6.setChecked(false);
+                    changeprice(20);
+                }
+
             }
         });
-        cb9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cb6.setChecked(false);
-                cb8.setChecked(false);
-                cb7.setChecked(false);
-                cb10.setChecked(false);
-            }
-        });
-        cb10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cb6.setChecked(false);
-                cb8.setChecked(false);
-                cb9.setChecked(false);
-                cb7.setChecked(false);
-            }
-        });
+//        cb9.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                cb6.setChecked(false);
+//                cb8.setChecked(false);
+//                cb7.setChecked(false);
+//                cb10.setChecked(false);
+//            }
+//        });
+//        cb10.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                cb6.setChecked(false);
+//                cb8.setChecked(false);
+//                cb9.setChecked(false);
+//                cb7.setChecked(false);
+//            }
+//        });
 //
 
         CheckBox cb = (CheckBox) rootView.findViewById(R.id.checkBox1);
@@ -224,6 +321,21 @@ public class CallsFragment extends Fragment {
 
         return rootView;
     }
+
+//    private void multiplyprice( String newwprice) {
+//        int oldcost=Integer.parseInt(cost.getText().toString());
+//        int intoldcost=Integer.parseInt(newwprice);
+//        int newcost=(oldcost*intoldcost);
+//        cost.setText(String.valueOf(newcost));    }
+
+    private void changeprice(int newprice) {
+
+        int oldcost=Integer.parseInt(cost.getText().toString());
+        int newcost=oldcost+newprice;
+        cost.setText(String.valueOf(newcost));
+
+    }
+
     protected void showInputDialog() {
         LayoutInflater layoutInflater = LayoutInflater.from(CallsFragment.this.getActivity());
         View promptView = layoutInflater.inflate(R.layout.topping, null);

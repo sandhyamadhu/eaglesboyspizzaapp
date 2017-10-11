@@ -1,5 +1,6 @@
 package com.example.appcare.eaglesboys.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -165,6 +166,11 @@ public class RealMenu extends AppCompatActivity {
         String c = String.valueOf(bz);
 
         return c;
+    }
+
+    public void gotocartpage(View view) {
+        Intent i=new Intent(RealMenu.this,CartPage.class);
+        startActivity(i);
     }
 
 //    private View prepareTabView(int pos) {

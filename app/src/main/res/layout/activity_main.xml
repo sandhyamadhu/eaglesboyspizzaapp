@@ -48,7 +48,7 @@
         android:layout_marginTop="15dp"
         android:gravity="bottom"
         android:background="@drawable/skip"
-        android:onClick="onClickSkip" />
+        android:onClick="skip"/>
     <TextView
         android:id="@+id/txtNewAddress"
         android:layout_width="wrap_content"

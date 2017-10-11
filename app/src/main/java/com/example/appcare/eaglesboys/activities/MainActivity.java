@@ -81,13 +81,14 @@ public class MainActivity extends AppCompatActivity {
         onCreateDialog2();
     }
 
-    public void onClickSkip(View view) {
-        Intent i=new Intent(MainActivity.this,SkipActivity.class);
-        startActivity(i);
-    }
 
     public void addNewAddress(View view) {
         Intent i=new Intent(MainActivity.this,AddAddress.class);
+        startActivity(i);
+    }
+
+    public void skip(View view) {
+        Intent i=new Intent(MainActivity.this,SkipActivity.class);
         startActivity(i);
     }
 }

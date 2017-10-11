@@ -1,5 +1,6 @@
 package com.example.appcare.eaglesboys.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -26,5 +27,10 @@ public class CartPage extends AppCompatActivity {
         coupon.setVisibility(View.VISIBLE);
         Button applycoupon=(Button) findViewById(R.id.apply);
         applycoupon.setVisibility(View.VISIBLE);
+    }
+
+    public void placeorder(View view) {
+           Intent in=new Intent(this,Payment.class);
+        startActivity(in);
     }
 }

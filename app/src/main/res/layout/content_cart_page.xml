@@ -76,73 +76,83 @@
             android:textColor="@color/customeColor"
             android:textAllCaps="true"
             android:textStyle="bold"
-            android:textSize="23dp"
+            android:textSize="20dp"
 
-            />
+            android:id="@+id/textView8" />
 
         <Button
             android:layout_width="70dp"
-            android:layout_height="35dp"
+            android:layout_height="30dp"
             android:layout_marginTop="85dp"
-            android:layout_marginLeft="300dp"
+            android:layout_marginLeft="280dp"
             android:text="edit"
 
             android:textAllCaps="false"
             android:textSize="20dp"
             android:textColor="#ffffff"
             android:background="@drawable/savebtn"/>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="25dp"
+    android:background="#ffffff"
+    android:layout_marginTop="340dp"/>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="#ffffff"
         android:text="GST:42.00"
         android:textSize="19dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="340dp"
         android:textColor="@color/customeColor"
         android:textStyle="bold"
-        android:textAlignment="textEnd"
+        android:layout_marginLeft="255dp"
+
 
         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#C72F82"
+        android:layout_marginTop="365dp"/>
         <TextView
-            android:layout_width="330dp"
-            android:layout_height="30dp"
-            android:background="#C72F82"
-            android:layout_marginTop="410dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="365dp"
             android:text="Net Price :"
-            android:textSize="19dp"
+            android:textSize="21dp"
             android:textColor="#ffffff"
             android:textStyle="bold"
-            android:textAlignment="textEnd"
+            android:layout_marginLeft="200dp"
 
             />
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="330dp"
-            android:layout_marginTop="410dp"
+            android:layout_marginTop="385dp"
             android:background="#C72F82"
             android:textSize="19dp"
             android:textColor="#ffffff"
             android:textStyle="bold"
 
-            android:gravity="center"
             />
     <TextView
         android:id="@+id/textdisplay"
         android:layout_width="145dp"
         android:layout_height="wrap_content"
         android:text="Have a Coupon ?"
-        android:layout_marginTop="470dp"
+        android:layout_marginTop="415dp"
         android:textStyle="bold"
         android:textSize="19dp"
-        android:layout_marginLeft="240dp"
+        android:layout_marginLeft="210dp"
         android:textColor="@color/customeColor"
         android:onClick="havecoupon"/>
     <View
         android:layout_width="145dp"
         android:layout_height="1dp"
-        android:layout_marginLeft="240dp"
-        android:layout_marginTop="490dp"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="435dp"
         android:background="#C72F82"/>
     <EditText
         android:id="@+id/coupon"
@@ -153,8 +163,8 @@
         android:textColorHint="#000000"
         android:textStyle="bold"
         android:backgroundTint="#ffffff"
-        android:layout_marginTop="465dp"
-        android:layout_marginLeft="240dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginLeft="210dp"
         android:background="@drawable/cornerdesign"
         android:visibility="invisible"/>
     <Button
@@ -166,8 +176,8 @@
         android:textSize="18dp"
         android:textColorHint="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="465dp"
-        android:layout_marginLeft="325dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginLeft="295dp"
         android:background="@drawable/savebtn"
         android:visibility="invisible"/>
 
@@ -177,15 +187,15 @@
             android:text="Discount :"
             android:textColor="@color/customeColor"
             android:textSize="20dp"
-            android:layout_marginTop="510dp"
-            android:layout_marginLeft="235dp"
+            android:layout_marginTop="450dp"
+            android:layout_marginLeft="205dp"
             android:textStyle="bold"/>
         <TextView
             android:layout_width="100dp"
             android:layout_height="25dp"
             android:text="00.00"
-            android:layout_marginTop="510dp"
-            android:layout_marginLeft="335dp"
+            android:layout_marginTop="450dp"
+            android:layout_marginLeft="305dp"
             android:textColor="@color/customeColor"
             android:textSize="20dp"
             android:textStyle="bold"/>
@@ -194,8 +204,8 @@
             android:layout_width="130dp"
             android:layout_height="25dp"
             android:text="Grand Total :"
-            android:layout_marginTop="545dp"
-            android:layout_marginLeft="218dp"
+            android:layout_marginTop="480dp"
+            android:layout_marginLeft="184dp"
             android:textColor="@color/customeColor"
             android:textSize="20dp"
             android:textStyle="bold"/>
@@ -207,8 +217,25 @@
             android:text="00.00"
             android:textColor="@color/customeColor"
             android:textSize="20dp"
-            android:textStyle="bold"/>
-
+            android:textStyle="bold"
+            android:layout_marginLeft="305dp"
+            android:layout_marginTop="480dp"/>
+    <Button
+        android:id="@+id/placeorder"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:text="PLACE YOUR ORDER"
+        android:background="@drawable/savebtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView8"
+        android:onClick="placeorder"
+       />
 
 
 </RelativeLayout>

@@ -46,7 +46,8 @@
                     android:layout_marginLeft="220dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/rbtn_selector"/>
+                    android:background="@drawable/rbtn_selector"
+                    android:onClick="gotocartpage"/>
                 <TextView
                     android:id="@+id/addd"
                     android:layout_width="33dp"
