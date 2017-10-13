@@ -28,5 +28,8 @@
     <string name="ERROR_NULL">Empty response from server</string>
     <string name="ERROR_SOCKET_TIMEOUT">Request Timeout.\nPlease try again</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

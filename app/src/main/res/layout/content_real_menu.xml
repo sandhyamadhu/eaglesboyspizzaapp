@@ -47,7 +47,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/rbtn_selector"
-                    android:onClick="gotocartpage"/>
+                  />
                 <TextView
                     android:id="@+id/addd"
                     android:layout_width="33dp"
@@ -69,6 +69,17 @@
 
         </android.support.design.widget.AppBarLayout>
 
+        <TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@android:id/tabhost"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+        <HorizontalScrollView android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="none">
         <android.support.design.widget.TabLayout
             android:id="@+id/tablayout"
             android:layout_width="match_parent"
@@ -80,12 +91,14 @@
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/customeColor"
             app:tabTextColor="#ffffff" />
-
+        </HorizontalScrollView>
+        </LinearLayout>
+        </TabHost>
         <android.support.v4.view.ViewPager
             android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tablayout"
+            android:layout_marginTop="110dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </RelativeLayout>

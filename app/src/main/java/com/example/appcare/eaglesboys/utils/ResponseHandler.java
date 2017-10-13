@@ -7,11 +7,11 @@ import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
+import com.example.appcare.eaglesboys.Constants.AppConstants;
+import com.example.appcare.eaglesboys.R;
 
 import org.json.JSONArray;
 
-import com.example.appcare.eaglesboys.Constants.AppConstants;
-import com.example.appcare.eaglesboys.R;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
 
@@ -91,5 +91,8 @@ public class ResponseHandler implements JSONResponseListener{
 
         }
 
+
     }
+
+
 }

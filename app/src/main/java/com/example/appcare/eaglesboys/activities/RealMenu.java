@@ -10,9 +10,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.appcare.eaglesboys.R;
-import com.example.appcare.eaglesboys.fragments.CallsFragment;
-import com.example.appcare.eaglesboys.fragments.ChatFragment;
-import com.example.appcare.eaglesboys.fragments.ContactsFragment;
+import com.example.appcare.eaglesboys.fragments.Deserts;
+import com.example.appcare.eaglesboys.fragments.Drinks;
+import com.example.appcare.eaglesboys.fragments.Nonveg;
+import com.example.appcare.eaglesboys.fragments.Pasta;
+import com.example.appcare.eaglesboys.fragments.Pizzamates;
+import com.example.appcare.eaglesboys.fragments.Sides;
+import com.example.appcare.eaglesboys.fragments.Veg;
 
 
 public class RealMenu extends AppCompatActivity {
@@ -23,9 +27,15 @@ public class RealMenu extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
-    ChatFragment chatFragment;
-    CallsFragment callsFragment;
-    ContactsFragment contactsFragment;
+    Nonveg nonveg;
+    Veg veg;
+    Pizzamates pizzamates;
+    Pasta pasta;
+    Sides sides;
+    Deserts deserts;
+    Drinks drinks;
+
+
     TextView addcart;
 
 //    String[] tabTitle={"CALLS","CHAT","CONTACTS"};
@@ -145,12 +155,21 @@ public class RealMenu extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager)
     {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        callsFragment=new CallsFragment();
-        chatFragment=new ChatFragment();
-        contactsFragment=new ContactsFragment();
-        adapter.addFragment(callsFragment,"VEG PIZZA");
-        adapter.addFragment(chatFragment,"NON-VEG PIZZA");
-        adapter.addFragment(contactsFragment,"SIDES");
+        veg =new Veg();
+        nonveg =new Nonveg();
+        pizzamates =new Pizzamates();
+        pasta=new Pasta();
+        deserts=new Deserts();
+        drinks=new Drinks();
+        sides=new Sides();
+
+        adapter.addFragment(veg,"VEG PIZZA");
+        adapter.addFragment(nonveg,"NON-VEG PIZZA");
+        adapter.addFragment(pizzamates,"PIZZAMATES");
+        adapter.addFragment(pasta,"PASTA");
+        adapter.addFragment(sides,"SIDES");
+        adapter.addFragment(deserts,"DESERTS");
+        adapter.addFragment(drinks,"DRINKS");
         viewPager.setAdapter(adapter);
     }
 
@@ -168,10 +187,11 @@ public class RealMenu extends AppCompatActivity {
         return c;
     }
 
-    public void gotocartpage(View view) {
-        Intent i=new Intent(RealMenu.this,CartPage.class);
+    public void showmycart(View view) {
+        Intent i=new Intent(this,CartPage.class);
         startActivity(i);
     }
+
 
 //    private View prepareTabView(int pos) {
 //        View view = getLayoutInflater().inflate(R.layout.custom_tab,null);

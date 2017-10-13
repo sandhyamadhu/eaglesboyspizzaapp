@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import com.example.appcare.eaglesboys.R;
 
@@ -18,7 +20,16 @@ public class CartPage extends AppCompatActivity {
         setContentView(R.layout.activity_cart_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        populatelistview();
 
+
+    }
+
+    private void populatelistview() {
+        String[] items1 = {"one", "two", "three", "podlskos","lpelKDOWQK","LWQPOS"};
+        ArrayAdapter<String> arrayadapter=new ArrayAdapter<>(this,R.layout.listitems,items1);
+        ListView listview=(ListView) findViewById(R.id.list);
+        listview.setAdapter(arrayadapter);
 
     }
 
