@@ -1,25 +1,10 @@
 package com.example.appcare.eaglesboys.activities;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.TextView;
-
-import com.example.appcare.eaglesboys.R;
-import com.example.appcare.eaglesboys.fragments.Deserts;
-import com.example.appcare.eaglesboys.fragments.Drinks;
-import com.example.appcare.eaglesboys.fragments.Nonveg;
-import com.example.appcare.eaglesboys.fragments.Pasta;
-import com.example.appcare.eaglesboys.fragments.Pizzamates;
-import com.example.appcare.eaglesboys.fragments.Sides;
-import com.example.appcare.eaglesboys.fragments.Veg;
 
 
 public class RealMenu extends AppCompatActivity {
+/*
 
 //    public DrawerLayout mDrawerLayout;
 //    public ActionBarDrawerToggle mtoggle;
@@ -124,9 +109,11 @@ public class RealMenu extends AppCompatActivity {
 //
 //        for(int i=0;i<tabTitle.length;i++)
 //        {
-//            /*TabLayout.Tab tabitem = tabLayout.newTab();
+//            */
+/*TabLayout.Tab tabitem = tabLayout.newTab();
 //            tabitem.setCustomView(prepareTabView(i));
-//            tabLayout.addTab(tabitem);*/
+//            tabLayout.addTab(tabitem);*//*
+
 //
 //            tabLayout.getTabAt(i).setCustomView(prepareTabView(i));
 //        }//
@@ -210,6 +197,7 @@ public class RealMenu extends AppCompatActivity {
 //        return view;
 //    }
 
+*/
 
 
     }

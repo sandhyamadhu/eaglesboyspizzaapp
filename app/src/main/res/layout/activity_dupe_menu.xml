@@ -44,7 +44,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_dupe_menu" />
+    <include layout="@layout/content_menu" />
 
 
 

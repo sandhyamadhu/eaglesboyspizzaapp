@@ -1,10 +1,8 @@
 package com.example.appcare.eaglesboys.utils;
 
-import org.json.JSONArray;
-
 public interface EagleResponseListener {
 
-    void handleResponse(JSONArray response);
+    void handleResponse(Object response, String tag);
 
     void handleError(int errorCode, String volleyError);
 }

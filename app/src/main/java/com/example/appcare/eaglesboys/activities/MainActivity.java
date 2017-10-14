@@ -4,83 +4,129 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.RelativeLayout;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.appcare.eaglesboys.Constants.CommonActivity;
 import com.example.appcare.eaglesboys.R;
+import com.example.appcare.eaglesboys.utils.HttpHandler;
 
-public class MainActivity extends AppCompatActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
 
-    private AlertDialog.Builder builder;
-    RelativeLayout one,two;
+public class MainActivity extends CommonActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        onCreateDialog();
+        initEnterMobileDialog();
 
     }
 
-    private void onCreateDialog() {
+    private String mMobileNumber = "";
+    private void initEnterMobileDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.otppopup,null);
-        builder.setView(dialogView);
+        View mOTPViews = inflater.inflate(R.layout.request_otp,null);
+
+        builder.setView(mOTPViews);
         final AlertDialog dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawableResource(R.color.windowColor);
         dialog.show();
 
 
+        final EditText mEdtPhoneNumber = (EditText)mOTPViews.findViewById(R.id.edtPhoneNumber);
+        Button btnSubmit = (Button)mOTPViews.findViewById(R.id.btnSubmit);
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMobileNumber = mEdtPhoneNumber.getText().toString();
+                if(!"".equals(mMobileNumber)){
+                    HttpHandler.sendRequest("auth_api/send_otp?phone="+mMobileNumber,mResponseHandler,"MobileNumber");
+                    dialog.dismiss();
+                }else{
+                    Toast.makeText(getApplication(),"Please Enter the Mobile Number.",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    private void initOTPDialog() {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    private void onCreateDialog2() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
         LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.otpagain,null);
+        final View dialogView = inflater.inflate(R.layout.enter_otp,null);
+
+        builder.setView(dialogView);
+        final AlertDialog dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawableResource(R.color.windowColor);
+        dialog.show();
 
         TextView txt = (TextView)dialogView.findViewById(R.id.txtResendOTP);
         txt.setPaintFlags(txt.getPaintFlags()|Paint.UNDERLINE_TEXT_FLAG);
 
-        builder.setView(dialogView);
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        final EditText mEdtEnterOTP = (EditText)dialogView.findViewById(R.id.edtEnterOTP);
+
+        Button mVerifyButton = (Button)dialogView.findViewById(R.id.btnVerify);
+        mVerifyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!"".equals(mEdtEnterOTP.getText().toString())){
+
+                    String mPoneURL = "auth_api/login?phone="+mMobileNumber+"&otp="+mEdtEnterOTP.getText().toString();
+                    HttpHandler.sendRequest("auth_api/send_otp?phone="+mPoneURL,mResponseHandler,"OTP");
+                    mMobileNumber = "";
+                    dialog.dismiss();
+                }else{
+                    Toast.makeText(getApplication(),"Please Enter OTP.",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
 
     }
 
+    @Override
+    public void handleResponse(Object response,String tag) {
+        super.handleResponse(response,tag);
 
-    public void onSendOTP(View view) {
-        onCreateDialog2();
+        System.out.println("Nikhil 2222::>"+response+ "tag::>"+tag);
+
+        try {
+            if(tag.equals("OTP")){
+                System.out.println("Nikhil OTP::>"+response);
+                if ("true".equals(((JSONObject) response).getString("status"))) {
+                    Toast.makeText(getApplication(), ((JSONObject) response).getString("message"), Toast.LENGTH_SHORT).show();
+                } else if ("false".equals(((JSONObject) response).getString("status"))) {
+                    Toast.makeText(getApplication(), ((JSONObject) response).getString("error"), Toast.LENGTH_SHORT).show();
+                }
+            }else if(tag.equals("MobileNumber")){
+                System.out.println("Nikhil MobileNumber::>"+response);
+
+                initOTPDialog();
+            }
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
+    @Override
+    public void handleError(int errorCode, String volleyError) {
+        super.handleError(errorCode, volleyError);
+        mMobileNumber = "";
+    }
 
     public void addNewAddress(View view) {
         Intent i=new Intent(MainActivity.this,AddAddress.class);

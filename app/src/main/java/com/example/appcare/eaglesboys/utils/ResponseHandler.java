@@ -11,6 +11,7 @@ import com.example.appcare.eaglesboys.Constants.AppConstants;
 import com.example.appcare.eaglesboys.R;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
@@ -28,8 +29,8 @@ public class ResponseHandler implements JSONResponseListener{
     }
 
     @Override
-    public void handleResponse(JSONArray response) {
-        mEagleResponseListener.handleResponse(response);
+    public void handleResponse(Object response, String tag) {
+        mEagleResponseListener.handleResponse(response,tag);
     }
 
     @Override
