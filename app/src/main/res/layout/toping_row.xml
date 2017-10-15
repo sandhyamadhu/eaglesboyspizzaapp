@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:background="@drawable/topingcorners">
+        <ImageView
+            android:id="@+id/imgTopinsImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="2dp"
+            android:background="@drawable/corn"/>
+        <TextView
+            android:id="@+id/txtToppins"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Golden corn"
+            android:textAppearance="?android:attr/textAppearanceMediumInverse"
+            android:textColor="@color/customeColor"
+            android:gravity="center"/>
+    </LinearLayout>
+
+</LinearLayout>

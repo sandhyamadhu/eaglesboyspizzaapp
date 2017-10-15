@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.appcare.eaglesboys.activities.CartPage"
     tools:showIn="@layout/activity_cart_page"
     android:background="#000000">
     <ImageView
@@ -14,7 +13,7 @@
         android:layout_height="120dp"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="-20dp"
-        app:srcCompat="@drawable/pizzafinal" />
+        android:src="@drawable/pizzafinal" />
 
     <RadioGroup
         android:id="@+id/radioGroup1"

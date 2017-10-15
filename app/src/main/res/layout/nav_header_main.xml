@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark" android:orientation="vertical"
+    android:gravity="center_vertical">
+
+
+    <TextView
+        android:id="@+id/txtOffers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Offers"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorAccent"/>
+    <TextView
+        android:id="@+id/txtNewOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Orders"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorAccent"/>
+    <TextView
+        android:id="@+id/txtBackToMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back Menu"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorAccent"/>
+    <TextView
+        android:id="@+id/txtEveryDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Every Day Value Offers"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorAccent"/>
+    <TextView
+        android:id="@+id/txtOrderHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order History"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorAccent"/>
+    <TextView
+        android:id="@+id/txtFavouriteProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Favourite Product"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorAccent"/>
+    <TextView
+        android:id="@+id/txtFavouriteOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Favourite Order"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorAccent"/>
+    <TextView
+        android:id="@+id/txtTradeOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Trade Order"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorAccent"/>
+    <TextView
+        android:id="@+id/txtDisclaimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="T &amp; C Disclaimer"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/txtFeedBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FeedBack"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+    <view
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/colorAccent"/>-->
+
+</LinearLayout>
