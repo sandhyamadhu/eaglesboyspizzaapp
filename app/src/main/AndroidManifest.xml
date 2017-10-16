@@ -3,6 +3,9 @@
     package="com.appcare.eaglesboys">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 
     <application
         android:name="com.appcare.eaglesboys.utils.AppController"
@@ -34,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".cities.SkipActivity"
+            android:name=".delivery.DeliveryActivity"
             android:label="@string/title_activity_clickskip"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"

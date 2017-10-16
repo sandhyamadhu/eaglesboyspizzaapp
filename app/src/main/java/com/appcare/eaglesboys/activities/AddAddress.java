@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.appcare.eaglesboys.R;
-import com.appcare.eaglesboys.cities.SkipActivity;
+import com.appcare.eaglesboys.delivery.DeliveryActivity;
 
 public class AddAddress extends AppCompatActivity {
 
@@ -17,7 +17,7 @@ public class AddAddress extends AppCompatActivity {
     }
 
     public void saveAndContinue(View view) {
-        Intent i=new Intent(AddAddress.this,SkipActivity.class);
+        Intent i=new Intent(AddAddress.this,DeliveryActivity.class);
         startActivity(i);
     }
 

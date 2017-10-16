@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.appcare.eaglesboys.Constants.CommonActivity;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.activities.AddAddress;
-import com.appcare.eaglesboys.cities.SkipActivity;
+import com.appcare.eaglesboys.delivery.DeliveryActivity;
 import com.appcare.eaglesboys.utils.HttpHandler;
 
 import org.json.JSONException;
@@ -159,7 +159,7 @@ public class MainActivity extends CommonActivity {
     }
 
     public void skip(View view) {
-        Intent i=new Intent(MainActivity.this,SkipActivity.class);
+        Intent i=new Intent(MainActivity.this,DeliveryActivity.class);
         startActivity(i);
     }
 }
