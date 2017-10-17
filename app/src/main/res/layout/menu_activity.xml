@@ -64,8 +64,6 @@
 
                 </LinearLayout>
 
-
-
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
         <FrameLayout
@@ -81,8 +79,14 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@android:color/white"
         android:fitsSystemWindows="true"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_drawer"
+        app:itemTextAppearance="?android:attr/textAppearanceMediumInverse"
+        app:itemBackground="@android:color/white"
+        app:itemTextColor="@drawable/nav_item_text"
+        app:theme="@style/NavigationViewStyle">
+    </android.support.design.widget.NavigationView>
        <!-- app:headerLayout="@layout/nav_header_main"-->
 
 

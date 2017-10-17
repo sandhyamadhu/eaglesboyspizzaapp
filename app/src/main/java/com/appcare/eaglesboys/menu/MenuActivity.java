@@ -51,20 +51,17 @@ public class MenuActivity extends CommonActivity {
     private void initNavigationBarView() {
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        //View header = navigationView.getHeaderView(0);
-        // initMenuViews(headerView);
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 int id = item.getItemId();
 
-                if (id == R.id.nav_preferences) {
+                /*if (id == R.id.nav_preferences) {
                     // Handle the preference  action
                 } else if (id == R.id.nav_about) {
                     // Handle the About action
                 }
-
+*/
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
@@ -80,11 +77,6 @@ public class MenuActivity extends CommonActivity {
         } else {
             super.onBackPressed();
         }
-    }
-
-    private void initMenuViews(View headerView) {
-
-
     }
 
 }

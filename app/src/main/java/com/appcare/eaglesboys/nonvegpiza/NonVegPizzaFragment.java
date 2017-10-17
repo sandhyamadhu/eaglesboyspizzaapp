@@ -23,8 +23,9 @@ public class NonVegPizzaFragment extends CommonFragment {
         return mNonVegPizza;
     }
 
-    String mNonVegPizza = "{\"NonVegPizza\":[{\"name\":\"Veg Piza\",\"description\":\"Onion | Capsium | Olive | Mushrom\",\"price\":\"365\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/39_2017/dafc942952aab8e3fb6a29e99a14b1a4.png\",\"selectCrust\":[{\"crustSelect\":\"true\",\"crustName\":\"New Hand Tossed\"},{\"crustSelect\":\"false\",\"crustName\":\"Wheet Thin Crush\"},{\"crustSelect\":\"false\",\"crustName\":\"Cheese Crush\"},{\"crustSelect\":\"false\",\"crustName\":\"Fresh Pan Pizza\"},{\"crustSelect\":\"false\",\"crustName\":\"Classic Hand Tossed\"}]}]}";
+    //String mNonVegPizza = "{\"NonVegPizza\":[{\"name\":\"Veg Piza\",\"description\":\"Onion | Capsium | Olive | Mushrom\",\"price\":\"365\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/39_2017/dafc942952aab8e3fb6a29e99a14b1a4.png\",\"selectCrust\":[{\"crustSelect\":\"true\",\"crustName\":\"New Hand Tossed\"},{\"crustSelect\":\"false\",\"crustName\":\"Wheet Thin Crush\"},{\"crustSelect\":\"false\",\"crustName\":\"Cheese Crush\"},{\"crustSelect\":\"false\",\"crustName\":\"Fresh Pan Pizza\"},{\"crustSelect\":\"false\",\"crustName\":\"Classic Hand Tossed\"}]}]}";
 
+    String mNonVegPizza = "{\"NonVegPizza\":[{\"name\":\"Veg Piza\",\"description\":\"Onion | Capsium | Olive | Mushrom\",\"price\":\"365\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/39_2017/dafc942952aab8e3fb6a29e99a14b1a4.png\",\"selectCrust\":[{\"crustSelect\":\"true\",\"crustName\":\"New Hand Tossed\"},{\"crustSelect\":\"false\",\"crustName\":\"Wheet Thin Crush\"}],\"pizzaPrice\":[{\"crustSelect\":\"true\",\"crustName\":\"New Hand Tossed\"},{\"crustSelect\":\"false\",\"crustName\":\"Wheet Thin Crush\"}]}]}";
 
     ArrayList<NonVegPizza> mNonVegPizzas = new ArrayList<>();
     ArrayList<SelectCrust> mSelectCrusts = new ArrayList<>();

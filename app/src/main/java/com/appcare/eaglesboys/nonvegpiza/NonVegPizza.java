@@ -12,6 +12,7 @@ public class NonVegPizza {
     private String price;
     private String image;
     private List<SelectCrust> selectCrust = null;
+    private List<PizzaPrice> pizzaPrice = null;
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     public String getName() {
@@ -52,6 +53,14 @@ public class NonVegPizza {
 
     public void setSelectCrust(List<SelectCrust> selectCrust) {
         this.selectCrust = selectCrust;
+    }
+
+    public List<PizzaPrice> getPizzaPrice() {
+        return pizzaPrice;
+    }
+
+    public void setPizzaPrice(List<PizzaPrice> pizzaPrice) {
+        this.pizzaPrice = pizzaPrice;
     }
 
     public Map<String, Object> getAdditionalProperties() {

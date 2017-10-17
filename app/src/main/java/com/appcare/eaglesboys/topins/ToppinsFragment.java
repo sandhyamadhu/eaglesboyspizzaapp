@@ -43,6 +43,7 @@ public class ToppinsFragment extends CommonFragment{
     @Override
     public void handleResponse(Object response, String tag) {
         super.handleResponse(response, tag);
+
         mTopinsName.clear();
         try {
 
@@ -51,8 +52,8 @@ public class ToppinsFragment extends CommonFragment{
             for (int i=0; i<mJsonArray.length(); i++) {
                 JSONObject jsonObject = mJsonArray.getJSONObject(i);
                 String cityID = jsonObject.getString("id");
-                String cityName = jsonObject.getString("name");
-                mTopinsName.add(cityName);
+                String name = jsonObject.getString("name");
+                mTopinsName.add(name);
             }
             initTopinAdapter(mTopinsName);
         } catch (JSONException e) {
