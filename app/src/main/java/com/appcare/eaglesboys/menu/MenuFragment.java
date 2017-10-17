@@ -1,8 +1,5 @@
 package com.appcare.eaglesboys.menu;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,12 +7,17 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TabHost;
-import android.widget.TextView;
 
 import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
+import com.appcare.eaglesboys.beverages.BerveragesFragment;
+import com.appcare.eaglesboys.burger.BurgerPizzaFragment;
+import com.appcare.eaglesboys.deserts.DessertsFragment;
 import com.appcare.eaglesboys.nonvegpiza.NonVegPizzaFragment;
+import com.appcare.eaglesboys.pasta.PizzaManiaFragment;
+import com.appcare.eaglesboys.pizzamates.PizzaMatesFragment;
+import com.appcare.eaglesboys.sides.SidesFragment;
+import com.appcare.eaglesboys.vegpizza.VegPizzaFragment;
 
 import java.util.ArrayList;
 
@@ -40,7 +42,7 @@ public class MenuFragment extends CommonFragment{
         final ArrayList<Fragment> fragments = new ArrayList<Fragment>();
         VegPizzaFragment mVegPizzaFragment = new VegPizzaFragment();
         NonVegPizzaFragment mNonVegPizzaFragment = new NonVegPizzaFragment();
-        SpecialChickenFragment mSpecialChickenFragment = new SpecialChickenFragment();
+        PizzaMatesFragment mSpecialChickenFragment = new PizzaMatesFragment();
         PizzaManiaFragment mPizzaManiaFragment = new PizzaManiaFragment();
         DessertsFragment mDessertsFragment = new DessertsFragment();
         BerveragesFragment mBerveragesFragment = new BerveragesFragment();
@@ -69,8 +71,8 @@ public class MenuFragment extends CommonFragment{
        final TabLayout tabLayout = (TabLayout) mPizzaView.findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("VEG PIZZA"));
         tabLayout.addTab(tabLayout.newTab().setText("NON_VEG PIZZA"));
-        tabLayout.addTab(tabLayout.newTab().setText("SPECIALTY CHICKEN"));
-        tabLayout.addTab(tabLayout.newTab().setText("PIZZA MANIA"));
+        tabLayout.addTab(tabLayout.newTab().setText("PIZZAMATES"));
+        tabLayout.addTab(tabLayout.newTab().setText("PASTA"));
         tabLayout.addTab(tabLayout.newTab().setText("DESSERTS"));
         tabLayout.addTab(tabLayout.newTab().setText("BEVERAGES"));
         tabLayout.addTab(tabLayout.newTab().setText("BURGER PIZZA"));

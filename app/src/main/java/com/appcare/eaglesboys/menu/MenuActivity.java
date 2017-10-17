@@ -6,11 +6,8 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
 
 import com.appcare.eaglesboys.Constants.CommonActivity;
 import com.appcare.eaglesboys.R;
@@ -34,8 +31,8 @@ public class MenuActivity extends CommonActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        EditText mEditText = (EditText)toolbar.findViewById(R.id.edtPizzaSearch);
-        ImageView mImageView = (ImageView)toolbar.findViewById(R.id.imgOrderCount);
+//        EditText mEditText = (EditText)toolbar.findViewById(R.id.edtPizzaSearch);
+//        ImageView mImageView = (ImageView)toolbar.findViewById(R.id.imgOrderCount);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -87,4 +84,6 @@ public class MenuActivity extends CommonActivity {
 
     }
 
-}
+
+    }
+

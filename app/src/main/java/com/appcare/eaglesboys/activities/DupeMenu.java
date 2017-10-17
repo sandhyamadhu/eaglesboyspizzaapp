@@ -6,7 +6,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -23,24 +22,25 @@ public class DupeMenu extends AppCompatActivity {
         setContentView(R.layout.activity_dupe_menu);
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        mDrawerLayout=(DrawerLayout) findViewById(R.id.drawlayout);
-        nav=(NavigationView) findViewById(R.id.navview);
-        mtoggle=new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
-        mDrawerLayout.addDrawerListener(mtoggle);
-        mtoggle.syncState();
-        nav.setItemIconTintList(null);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
-
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return mtoggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
-
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        mDrawerLayout=(DrawerLayout) findViewById(R.id.drawlayout);
+//        nav=(NavigationView) findViewById(R.id.navview);
+//        mtoggle=new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
+//        mDrawerLayout.addDrawerListener(mtoggle);
+//        mtoggle.syncState();
+//        nav.setItemIconTintList(null);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//
+//
+//
+//
+//    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        return mtoggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+//
+//    }
     }
 
     public void offerclick(View view) {

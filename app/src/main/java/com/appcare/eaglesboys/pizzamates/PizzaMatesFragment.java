@@ -1,4 +1,4 @@
-package com.appcare.eaglesboys.menu;
+package com.appcare.eaglesboys.pizzamates;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,9 +7,8 @@ import android.view.ViewGroup;
 
 import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
-import com.appcare.eaglesboys.utils.HttpHandler;
 
-public class SpecialChickenFragment extends CommonFragment{
+public class PizzaMatesFragment extends CommonFragment{
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
