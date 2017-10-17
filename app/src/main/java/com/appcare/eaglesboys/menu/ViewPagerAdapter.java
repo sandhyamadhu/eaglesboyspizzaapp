@@ -4,9 +4,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.appcare.eaglesboys.beverages.BerveragesFragment;
+import com.appcare.eaglesboys.burger.BurgerPizzaFragment;
+import com.appcare.eaglesboys.deserts.DessertsFragment;
 import com.appcare.eaglesboys.nonvegpiza.NonVegPizzaFragment;
-
-import java.util.ArrayList;
+import com.appcare.eaglesboys.pasta.PizzaManiaFragment;
+import com.appcare.eaglesboys.sides.SidesFragment;
+import com.appcare.eaglesboys.vegpizza.VegPizzaFragment;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
@@ -31,7 +35,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 return new NonVegPizzaFragment();
             case 2:
-                return new SpecialChickenFragment();
+                return new NonVegPizzaFragment();
+                //return new SpecialChickenFragment();
             case 3:
                 return new PizzaManiaFragment();
             case 4:

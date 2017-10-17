@@ -1,4 +1,4 @@
-package com.appcare.eaglesboys.menu;
+package com.appcare.eaglesboys.deserts;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
 
 
-public class PizzaManiaFragment extends CommonFragment{
+public class DessertsFragment extends CommonFragment{
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 

@@ -44,7 +44,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".menu.MenuActivity"
-            android:label="@string/title_activity_clickskip"
+            android:label="@string/title_activity_dupe_menu"
             android:configChanges="keyboard|keyboardHidden|orientation"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
