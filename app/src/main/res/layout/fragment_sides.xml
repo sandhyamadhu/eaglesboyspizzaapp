@@ -4,10 +4,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.appcare.eaglesboys.fragments.Sides">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/sideslist"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="sides" />
+        android:layout_height="wrap_content">
+
+    </ListView>
+
 
 </FrameLayout>

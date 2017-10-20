@@ -26,7 +26,7 @@ dependencies {
     })
 
     // appcompat library
-
+    compile 'com.github.aakira:expandable-layout:1.4.2@aar'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.mcxiaoke.volley:library:1.+'
     compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'

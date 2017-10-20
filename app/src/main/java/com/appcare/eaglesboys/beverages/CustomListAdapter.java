@@ -1,4 +1,4 @@
-package com.appcare.eaglesboys.vegpizza;
+package com.appcare.eaglesboys.beverages;
 
 import android.app.Activity;
 import android.content.Context;
@@ -29,7 +29,7 @@ public class CustomListAdapter extends ArrayAdapter<Product> {
     int resource;
     Button up,down;
     CardView one,two;
-    private CardView cardView;
+
 
     public CustomListAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Product> products) {
         super(context, resource, products);
@@ -53,7 +53,7 @@ public class CustomListAdapter extends ArrayAdapter<Product> {
             TextView textView1=(TextView) convertView.findViewById(R.id.nonvegname1);
             TextView textView2=(TextView) convertView.findViewById(R.id.nonvegname2);
             textView1.setText(product.getName());
-            textView1.setText(product.getName());
+            textView2.setText(product.getName());
             TextView textView3=(TextView) convertView.findViewById(R.id.nonvegcost1);
             TextView textView4=(TextView) convertView.findViewById(R.id.nonvegcost2);
             textView3.setText(product.getPrice());
