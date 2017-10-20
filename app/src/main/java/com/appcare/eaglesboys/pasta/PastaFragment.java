@@ -9,11 +9,11 @@ import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
 
 
-public class PizzaManiaFragment extends CommonFragment{
+public class PastaFragment extends CommonFragment{
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View mTopinsView = inflater.inflate(R.layout.fragment_topins,null);
+        View mTopinsView = inflater.inflate(R.layout.fragment_pasta,null);
         return mTopinsView;
     }
 }

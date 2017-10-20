@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <android.support.v7.widget.CardView
+        android:id="@+id/card1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="visible">
@@ -30,7 +31,7 @@
             android:textColor="@color/customeColor"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="310dp"
+            android:layout_marginLeft="285dp"
             android:layout_marginTop="30dp"
             />
         <TextView
@@ -40,7 +41,7 @@
             android:textColor="@color/customeColor"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="325dp"
+            android:layout_marginLeft="300dp"
             android:layout_marginTop="30dp"
             />
         <TextView
@@ -57,13 +58,14 @@
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:background="@drawable/dwnarw"
-            android:layout_marginLeft="330dp"
+            android:layout_marginLeft="310dp"
             android:layout_marginTop="125dp"/>
     </android.support.v7.widget.CardView>
     <android.support.v7.widget.CardView
+        android:id="@+id/card2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible">
+        android:visibility="invisible">
         <com.github.siyamed.shapeimageview.CircularImageView
             android:id="@+id/nonvegimg"
             android:layout_width="wrap_content"
@@ -88,7 +90,7 @@
             android:textColor="@color/blackcolor"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="310dp"
+            android:layout_marginLeft="285dp"
             android:layout_marginTop="40dp"
             />
         <TextView
@@ -98,9 +100,9 @@
             android:textColor="@color/blackcolor"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="325dp"
+            android:layout_marginLeft="300dp"
             android:layout_marginTop="40dp"
-            android:text="90"
+
             />
         <TextView
             android:layout_width="wrap_content"
@@ -110,18 +112,20 @@
             android:textColor="@color/customeColor"
             android:textSize="19dp"
             />
+
         <Button
             android:id="@+id/up"
             android:layout_width="40dp"
             android:layout_height="50dp"
             android:background="@drawable/upp"
-            android:layout_marginLeft="325dp"
-            android:layout_marginTop="320dp"/>
+            android:layout_marginLeft="305dp"
+            android:layout_marginTop="320dp"
+           />
         <CheckBox
             android:id="@+id/checkBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="180dp"
+            android:layout_marginLeft="165dp"
             android:layout_marginTop="140dp"
             android:buttonTint="#C72F82"
             android:scaleX="1.5"
@@ -134,7 +138,7 @@
             android:id="@+id/checkBox2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="250dp"
+            android:layout_marginLeft="235dp"
             android:layout_marginTop="140dp"
             android:buttonTint="#C72F82"
             android:scaleX="1.5"
@@ -147,7 +151,7 @@
             android:id="@+id/checkBox3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="320dp"
+            android:layout_marginLeft="305dp"
             android:layout_marginTop="140dp"
             android:buttonTint="#C72F82"
             android:scaleX="1.5"

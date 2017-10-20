@@ -12,7 +12,7 @@ public class SidesFragment extends CommonFragment{
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View mTopinsView = inflater.inflate(R.layout.fragment_topins,null);
+        View mTopinsView = inflater.inflate(R.layout.fragment_sides,null);
         return mTopinsView;
     }
 }

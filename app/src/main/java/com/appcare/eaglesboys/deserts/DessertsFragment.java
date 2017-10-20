@@ -13,7 +13,7 @@ public class DessertsFragment extends CommonFragment{
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View mTopinsView = inflater.inflate(R.layout.fragment_topins,null);
+        View mTopinsView = inflater.inflate(R.layout.fragment_deserts,null);
         return mTopinsView;
     }
 }

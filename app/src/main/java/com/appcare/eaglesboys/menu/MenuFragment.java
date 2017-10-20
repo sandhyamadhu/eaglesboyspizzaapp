@@ -9,16 +9,6 @@ import android.view.ViewGroup;
 
 import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
-import com.appcare.eaglesboys.beverages.BerveragesFragment;
-import com.appcare.eaglesboys.burger.BurgerPizzaFragment;
-import com.appcare.eaglesboys.deserts.DessertsFragment;
-import com.appcare.eaglesboys.nonvegpiza.NonVegPizzaFragment;
-import com.appcare.eaglesboys.pasta.PizzaManiaFragment;
-import com.appcare.eaglesboys.pizzamates.PizzaMatesFragment;
-import com.appcare.eaglesboys.sides.SidesFragment;
-import com.appcare.eaglesboys.vegpizza.VegPizzaFragment;
-
-import java.util.ArrayList;
 
 public class MenuFragment extends CommonFragment{
 

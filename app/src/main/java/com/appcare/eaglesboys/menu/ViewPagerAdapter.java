@@ -5,17 +5,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.appcare.eaglesboys.beverages.BerveragesFragment;
-import com.appcare.eaglesboys.burger.BurgerPizzaFragment;
 import com.appcare.eaglesboys.deserts.DessertsFragment;
 import com.appcare.eaglesboys.nonvegpiza.NonVegPizzaFragment;
-import com.appcare.eaglesboys.pasta.PizzaManiaFragment;
+import com.appcare.eaglesboys.pasta.PastaFragment;
+import com.appcare.eaglesboys.pizzamates.PizzaMatesFragment;
 import com.appcare.eaglesboys.sides.SidesFragment;
 import com.appcare.eaglesboys.vegpizza.VegPizzaFragment;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
-    private String[] tabTitles = new String[]{"VEG PIZZA", "NON_VEG PIZZA", "SPECIALTY CHICKEN",
-            "PIZZA MANIA", "DESSERTS", "BEVERAGES","BURGER PIZZA", "SIDES"};
+    private String[] tabTitles = new String[]{"VEG PIZZA", "NON-VEG PIZZA", "PASTA",
+            "PIZZAMATES", "DESSERTS", "BEVERAGES", "SIDES"};
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -35,17 +35,14 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 return new NonVegPizzaFragment();
             case 2:
-                return new NonVegPizzaFragment();
-                //return new SpecialChickenFragment();
+                return new PastaFragment();
             case 3:
-                return new PizzaManiaFragment();
+                return new PizzaMatesFragment();
             case 4:
                 return new DessertsFragment();
             case 5:
                 return new BerveragesFragment();
             case 6:
-                return new BurgerPizzaFragment();
-            case 7:
                 return new SidesFragment();
             default:
                 return null;
