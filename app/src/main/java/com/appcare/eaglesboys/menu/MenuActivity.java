@@ -53,12 +53,11 @@ public class MenuActivity extends CommonActivity {
             public boolean onNavigationItemSelected(MenuItem item) {
                 int id = item.getItemId();
 
-                /*if (id == R.id.nav_preferences) {
+                if (id == R.id.menuOffers) {
                     // Handle the preference  action
-                } else if (id == R.id.nav_about) {
+                } else if (id == R.id.menuNewOrders) {
                     // Handle the About action
                 }
-*/
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
                 return true;

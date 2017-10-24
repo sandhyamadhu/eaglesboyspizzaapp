@@ -9,8 +9,6 @@ import android.widget.ListView;
 import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.utils.HttpHandler;
-import com.appcare.eaglesboys.beverages.CustomListAdapter;
-import com.appcare.eaglesboys.beverages.Product;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,41 +17,49 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class SidesFragment extends CommonFragment{
-    ArrayList<Product> arrayList;
-    ListView listView;
+    ListView mSideListView;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View mTopinsView = inflater.inflate(R.layout.fragment_sides,null);
-        createviews(mTopinsView);
+        initCreateView(mTopinsView);
         return mTopinsView;
     }
 
-    private void createviews(View mTopinsView) {
-        arrayList=new ArrayList<>();
-        listView=(ListView) mTopinsView.findViewById(R.id.sideslist);
+    private void initCreateView(View mTopinsView) {
+        mSideListView = (ListView)mTopinsView.findViewById(R.id.sideslist);
         HttpHandler.sendJSONRequest("foods_api/sides",mResponseHandler,"sides");
     }
+
+    ArrayList<SideDetails> mSideDetails = new ArrayList<>();
 
     @Override
     public void handleResponse(Object response, String tag) {
         super.handleResponse(response, tag);
+        mSideDetails.clear();
+
         try {
             JSONArray jsonarray= new JSONArray(response.toString());
-            for (int i=0;i<jsonarray.length();i++)
-            {
+            for (int i=0;i<jsonarray.length();i++){
+
+                SideDetails mDetails = new SideDetails();
+
+
+                String image = "http://marssofttech.com/demos/eaglepizza//uploads/beverage/39_2017/6f34a7e82ed234ffbe9fceb26735fc3f.jpg";
                 JSONObject jsonObj=jsonarray.getJSONObject(i);
-                arrayList.add(new Product(
-                        jsonObj.getString("image"),
-                        jsonObj.getString("name"),
-                        jsonObj.getString("price")
-                ));
+                mDetails.setSideImage(image);
+                mDetails.setSideName(jsonObj.getString("name"));
+                mDetails.setSidePrice(jsonObj.getString("price"));
+
+                mSideDetails.add(mDetails);
             }
+
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        CustomListAdapter customListAdapter=new CustomListAdapter(getContext(),R.layout.nonveglist,arrayList);
-        listView.setAdapter(customListAdapter);
+        SideListAdapter mSideListAdapter = new SideListAdapter(getContext(),mSideDetails);
+        mSideListView.setAdapter(mSideListAdapter);
+        mSideListAdapter.notifyDataSetChanged();
     }
 }

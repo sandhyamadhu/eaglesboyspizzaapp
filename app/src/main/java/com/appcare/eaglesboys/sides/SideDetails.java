@@ -6,57 +6,50 @@ package com.appcare.eaglesboys.sides;
 
 public class SideDetails {
 
-    private String image;
-    private String name;
-    private String product_type;
-    private String category;
-    private String price;
-
-    public SideDetails(String image, String name, String product_type, String category, String price) {
-        this.image = image;
-        this.name = name;
-        this.product_type = product_type;
-        this.category = category;
-        this.price = price;
+    private String mSideImage;
+    private String mSideName;
+    private String mSidePrice;
+    private String mSideProductType;
+    private String mSideCategory;
+    public String getSideImage() {
+        return mSideImage;
     }
 
-    public String getImage() {
-        return image;
+    public void setSideImage(String mSideImage) {
+        this.mSideImage = mSideImage;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public String getSideName() {
+        return mSideName;
     }
 
-    public String getName() {
-        return name;
+    public void setSideName(String mSideName) {
+        this.mSideName = mSideName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getSidePrice() {
+        return mSidePrice;
     }
 
-    public String getProduct_type() {
-        return product_type;
+    public void setSidePrice(String mSidePrice) {
+        this.mSidePrice = mSidePrice;
     }
 
-    public void setProduct_type(String product_type) {
-        this.product_type = product_type;
+    public String getSideProductType() {
+        return mSideProductType;
     }
 
-    public String getCategory() {
-        return category;
+    public void setSideProductType(String mSideProductType) {
+        this.mSideProductType = mSideProductType;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public String getSideCategory() {
+        return mSideCategory;
     }
 
-    public String getPrice() {
-        return price;
+    public void setSideCategory(String mSideCategory) {
+        this.mSideCategory = mSideCategory;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
+
 }

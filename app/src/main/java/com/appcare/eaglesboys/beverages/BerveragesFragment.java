@@ -8,6 +8,8 @@ import android.widget.ListView;
 
 import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
+import com.appcare.eaglesboys.sides.SideDetails;
+import com.appcare.eaglesboys.sides.SideListAdapter;
 import com.appcare.eaglesboys.utils.HttpHandler;
 
 import org.json.JSONArray;
@@ -18,8 +20,7 @@ import java.util.ArrayList;
 
 
 public class BerveragesFragment extends CommonFragment{
-    ArrayList<Product> arrayList;
-    ListView listView;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View mTopinsView = inflater.inflate(R.layout.fragment_beverages,null);
@@ -27,32 +28,41 @@ public class BerveragesFragment extends CommonFragment{
         return mTopinsView;
     }
 
+    ListView mBeveragesListView;
     private void createviews(View mTopinsView) {
-        arrayList=new ArrayList<>();
-        listView=(ListView) mTopinsView.findViewById(R.id.beverageslist);
+        mBeveragesListView=(ListView) mTopinsView.findViewById(R.id.beverageslist);
         HttpHandler.sendJSONRequest("foods_api/beverage",mResponseHandler,"beverages");
     }
+
+    ArrayList<BerveragesDetails> mBerveragesDetails = new ArrayList<>();
 
     @Override
     public void handleResponse(Object response, String tag) {
         super.handleResponse(response, tag);
+
+        mBerveragesDetails.clear();
         try {
             JSONArray jsonarray= new JSONArray(response.toString());
-            for (int i=0;i<jsonarray.length();i++)
-            {
+            for (int i=0;i<jsonarray.length();i++){
+
+                BerveragesDetails mDetails = new BerveragesDetails();
+
+
                 JSONObject jsonObj=jsonarray.getJSONObject(i);
-                arrayList.add(new Product(
-                        jsonObj.getString("image"),
-                        jsonObj.getString("name"),
-                        jsonObj.getString("price")
-                ));
+                mDetails.setBerveragesImage(jsonObj.getString("image"));
+                mDetails.setBerveragesName(jsonObj.getString("name"));
+                mDetails.setBerveragesPrice(jsonObj.getString("price"));
+
+                mBerveragesDetails.add(mDetails);
             }
+
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        CustomListAdapter customListAdapter=new CustomListAdapter(getContext(),R.layout.nonveglist,arrayList);
-        listView.setAdapter(customListAdapter);
 
+        BerveragesListAdapter mBerveragesListAdapter = new BerveragesListAdapter(getContext(),mBerveragesDetails);
+        mBeveragesListView.setAdapter(mBerveragesListAdapter);
+        mBerveragesListAdapter.notifyDataSetChanged();
     }
 }
