@@ -27,7 +27,7 @@ public class SidesFragment extends CommonFragment{
     }
 
     private void initCreateView(View mTopinsView) {
-        mSideListView = (ListView)mTopinsView.findViewById(R.id.sideslist);
+        mSideListView = (ListView)mTopinsView.findViewById(R.id.sidesList);
         HttpHandler.sendJSONRequest("foods_api/sides",mResponseHandler,"sides");
     }
 

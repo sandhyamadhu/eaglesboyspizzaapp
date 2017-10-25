@@ -24,13 +24,13 @@ public class BerveragesFragment extends CommonFragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View mTopinsView = inflater.inflate(R.layout.fragment_beverages,null);
-        createviews(mTopinsView);
+        initCreateViews(mTopinsView);
         return mTopinsView;
     }
 
     ListView mBeveragesListView;
-    private void createviews(View mTopinsView) {
-        mBeveragesListView=(ListView) mTopinsView.findViewById(R.id.beverageslist);
+    private void initCreateViews(View mTopinsView) {
+        mBeveragesListView=(ListView) mTopinsView.findViewById(R.id.beveragesList);
         HttpHandler.sendJSONRequest("foods_api/beverage",mResponseHandler,"beverages");
     }
 

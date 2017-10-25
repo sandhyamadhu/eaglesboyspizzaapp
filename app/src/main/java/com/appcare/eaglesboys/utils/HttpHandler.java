@@ -29,7 +29,7 @@ public class HttpHandler {
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.println("Nikhil Error::>"+error);
-                mJsonResponseListener.handleError(error);
+                //mJsonResponseListener.handleError(error);
             }
 
         });
@@ -54,7 +54,7 @@ public class HttpHandler {
             @Override
             public void onErrorResponse(VolleyError error) {
                 System.out.println("Nikhil Error::>"+error);
-                mJsonResponseListener.handleError(error);
+                //mJsonResponseListener.handleError(error);
             }
 
         });

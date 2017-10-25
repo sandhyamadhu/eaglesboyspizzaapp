@@ -4,15 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
+import com.appcare.eaglesboys.utils.HttpHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class NonVegPizzaFragment extends CommonFragment {
@@ -20,18 +24,69 @@ public class NonVegPizzaFragment extends CommonFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View mNonVegPizza = inflater.inflate(R.layout.fragment_nonvegpizza,null);
+
+        initNonVegPizzaViews(mNonVegPizza);
         return mNonVegPizza;
+    }
+
+    private ExpandableListView mNonVegPizzaListView;
+    private void initNonVegPizzaViews(View mNonVegPizza) {
+        mNonVegPizzaListView = (ExpandableListView)mNonVegPizza.findViewById(R.id.lvNonVegPizza);
+        init();
     }
 
     //String mNonVegPizza = "{\"NonVegPizza\":[{\"name\":\"Veg Piza\",\"description\":\"Onion | Capsium | Olive | Mushrom\",\"price\":\"365\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/39_2017/dafc942952aab8e3fb6a29e99a14b1a4.png\",\"selectCrust\":[{\"crustSelect\":\"true\",\"crustName\":\"New Hand Tossed\"},{\"crustSelect\":\"false\",\"crustName\":\"Wheet Thin Crush\"},{\"crustSelect\":\"false\",\"crustName\":\"Cheese Crush\"},{\"crustSelect\":\"false\",\"crustName\":\"Fresh Pan Pizza\"},{\"crustSelect\":\"false\",\"crustName\":\"Classic Hand Tossed\"}]}]}";
 
-    String mNonVegPizza = "{\"NonVegPizza\":[{\"name\":\"Veg Piza\",\"description\":\"Onion | Capsium | Olive | Mushrom\",\"price\":\"365\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/39_2017/dafc942952aab8e3fb6a29e99a14b1a4.png\",\"selectCrust\":[{\"crustSelect\":\"true\",\"crustName\":\"New Hand Tossed\"},{\"crustSelect\":\"false\",\"crustName\":\"Wheet Thin Crush\"}],\"pizzaPrice\":[{\"crustSelect\":\"true\",\"crustName\":\"New Hand Tossed\"},{\"crustSelect\":\"false\",\"crustName\":\"Wheet Thin Crush\"}]}]}";
-
+    String mNonVegPizza = "{\"NonVegPizza\":[{\"name\":\"Veg Piza\",\"description\":\"Onion | Capsium | Olive | Mushrom\",\"price\":\"365\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/39_2017/dafc942952aab8e3fb6a29e99a14b1a4.png\",\"selectCrust\":[{\"crustSelect\":\"true\",\"crustName\":\"New Hand Tossed\"},{\"crustSelect\":\"false\",\"crustName\":\"Wheet Thin Crush\"}],\"pizzaPrice\":[{\"crustSelect\":\"true\",\"crustName\":\"New Hand Tossed\"},{\"crustSelect\":\"false\",\"crustName\":\"Wheet Thin Crush\"}]},{\"name\":\"Veg Piza\",\"description\":\"Onion | Capsium | Olive | Mushrom\",\"price\":\"365\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/39_2017/dafc942952aab8e3fb6a29e99a14b1a4.png\",\"selectCrust\":[{\"crustSelect\":\"true\",\"crustName\":\"New Hand Tossed\"},{\"crustSelect\":\"false\",\"crustName\":\"Wheet Thin Crush\"}],\"pizzaPrice\":[{\"crustSelect\":\"true\",\"crustName\":\"New Hand Tossed\"},{\"crustSelect\":\"false\",\"crustName\":\"Wheet Thin Crush\"}]}]}";
     ArrayList<NonVegPizza> mNonVegPizzas = new ArrayList<>();
-    ArrayList<SelectCrust> mSelectCrusts = new ArrayList<>();
+    ArrayList<String> mSelectCrusts = new ArrayList<>();
     ArrayList<NVegPizza> mNVegPizzas = new ArrayList<>();
 
-    @Override
+
+
+    private void init(){
+
+        mSelectCrusts.add("Nikhil");
+
+        try {
+            JSONObject mJSObject = new JSONObject(mNonVegPizza.toString());
+            JSONArray mJsonArray = mJSObject.getJSONArray("NonVegPizza");
+            for (int i=0; i<mJsonArray.length(); i++){
+
+
+                NonVegPizza mNonVegPizza = new NonVegPizza();
+
+                JSONObject jsonObject = mJsonArray.getJSONObject(i);
+
+                mNonVegPizza.setName(jsonObject.getString("name"));
+                mNonVegPizza.setDescription(jsonObject.getString("description"));
+                mNonVegPizza.setImage(jsonObject.getString("image"));
+                mNonVegPizza.setPrice(jsonObject.getString("price"));
+
+
+                mNonVegPizzas.add(mNonVegPizza);
+
+/*
+                JSONArray mSelectCrustArray = jsonObject.getJSONArray("selectCrust");
+
+                for (int j = 0; j< mSelectCrustArray.length(); j++) {
+                    SelectCrust mSelectCrust = new SelectCrust();
+                    JSONObject mSelectCrustObject = mJsonArray.getJSONObject(i);
+                    mSelectCrust.setCrustName(mSelectCrustObject.getString("crustName"));
+                    mSelectCrust.setCrustSelect(mSelectCrustObject.getString("crustSelect"));
+
+                    mSelectCrusts.add(mSelectCrust);
+                }*/
+            }
+
+            initNonVegPizzaAdapter();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*@Override
     public void handleResponse(Object response, String tag) {
         super.handleResponse(response, tag);
 
@@ -53,7 +108,9 @@ public class NonVegPizzaFragment extends CommonFragment {
                 mNonVegPizza.setPrice(jsonObject.getString("price"));
 
 
-                JSONArray mSelectCrustArray = jsonObject.getJSONArray("selectCrust");
+                mNonVegPizzas.add(mNonVegPizza);
+
+               *//* JSONArray mSelectCrustArray = jsonObject.getJSONArray("selectCrust");
 
                 for (int j = 0; j< mSelectCrustArray.length(); j++) {
                     SelectCrust mSelectCrust = new SelectCrust();
@@ -65,15 +122,32 @@ public class NonVegPizzaFragment extends CommonFragment {
                     mNonVegPizza.setSelectCrust(mSelectCrusts);
                 }
 
+
                 mNonVegPizzas.add(mNonVegPizza);
                 NVegPizza mNVegPizza = new NVegPizza();
                 mNVegPizza.setNonVegPizza(mNonVegPizzas);
-                mNVegPizzas.add(mNVegPizza);
+                mNVegPizzas.add(mNVegPizza);*//*
             }
+
+            initNonVegPizzaAdapter();
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        
+
+
+    }*/
+
+    private void initNonVegPizzaAdapter() {
+
+        NonVegListAdapter mNonVegListAdapter = new NonVegListAdapter(getContext(), mNonVegPizzas, mSelectCrusts);
+        mNonVegPizzaListView.setAdapter(mNonVegListAdapter);
+
+
+        mNonVegListAdapter.notifyDataSetChanged();
+
+
 
     }
 

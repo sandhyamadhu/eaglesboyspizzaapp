@@ -23,7 +23,9 @@
             android:id="@+id/txtSideName"
             android:layout_weight=".8"
             android:padding="10dp"
-            android:textColor="@android:color/black"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/customeColor"
+            android:textStyle="bold"
             android:textAppearance="?android:attr/textAppearanceMediumInverse"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -37,7 +39,8 @@
             android:paddingBottom="10dp"
             android:textAppearance="?android:attr/textAppearanceMediumInverse"
             android:layout_weight="1"
-            android:textColor="@color/customeColor"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
@@ -60,20 +63,23 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
+            <Button
                 android:id="@+id/imgSidePlusPrice"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
-                android:contentDescription="@null"
-                android:src="@android:drawable/btn_plus">
-            </ImageView>
+                android:text=" + "
+                android:textColor="@color/customeColor"
+                android:background="@drawable/circle">
+            </Button>
 
             <TextView
                 android:id="@+id/edtStartPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:inputType="number"
                 android:text="1"
                 android:textAppearance="?android:attr/textAppearanceMediumInverse"
@@ -81,27 +87,29 @@
                 android:textColor="@color/customeColor">
             </TextView>
 
-            <ImageView
+            <Button
                 android:id="@+id/imgSideMinusPrice"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:contentDescription="@null"
-                android:src="@android:drawable/btn_minus">
-            </ImageView>
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:textAppearance="?android:attr/textAppearanceLargeInverse"
+                android:text=" - "
+                android:textColor="@color/customeColor"
+                android:background="@drawable/circle">
+            </Button>
         </LinearLayout>
 
         <Button
             android:id="@+id/btnSideAddToCart"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:layout_margin="5dp"
             android:textAppearance="?android:attr/textAppearanceMediumInverse"
             android:background="@color/customeColor"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:text="Add To Cart" />
     </RelativeLayout>
 

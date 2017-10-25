@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:background="@android:color/white"
+    android:paddingRight="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#C72F82"
+                android:maxLines="1"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:text="Extra Cheese"
+                android:textColor="#C72F82"/>
+
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/imgSidePlusPrice"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:text=" + "
+                    android:textColor="@color/customeColor"
+                    android:background="@drawable/circle">
+                </Button>
+
+                <TextView
+                    android:id="@+id/edtStartPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:inputType="number"
+                    android:text="1"
+                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                    android:maxLines="1"
+                    android:textColor="@color/customeColor">
+                </TextView>
+
+                <Button
+                    android:id="@+id/imgSideMinusPrice"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:text=" - "
+                    android:textColor="@color/customeColor"
+                    android:background="@drawable/circle">
+                </Button>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnCustomizeTopping"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:maxLines="1"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:background="@color/customeColor"
+                android:textColor="@android:color/white"
+                android:text="Customize Topping" />
+
+            <Button
+                android:id="@+id/btnNVSideAddToCart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="5dp"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:background="@color/customeColor"
+                android:textColor="@android:color/white"
+                android:text="Add To Cart" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#C72F82"
+                    android:maxLines="1"
+                    android:text="Regular"
+                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                    android:textColor="#C72F82" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#C72F82"
+                    android:maxLines="1"
+                    android:text="Medium"
+                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                    android:textColor="#C72F82" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#C72F82"
+                    android:maxLines="1"
+                    android:text="Extra Cheese"
+                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                    android:textColor="#C72F82" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#C72F82"
+                    android:maxLines="1"
+                    android:text="Extra Cheese"
+                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                    android:textColor="#C72F82" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="Select Crust"
+                android:textAllCaps="true"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="@color/customeColor" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#C72F82"
+                android:maxLines="1"
+                android:text="Extra Cheese"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="#C72F82" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#C72F82"
+                android:maxLines="1"
+                android:text="Extra Cheese"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="#C72F82" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#C72F82"
+                android:maxLines="1"
+                android:text="Extra Cheese"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="#C72F82" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#C72F82"
+                android:maxLines="1"
+                android:text="Extra Cheese"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="#C72F82" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imgNVCloseChild"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="right"
+        android:src="@drawable/upp" />
+</LinearLayout>

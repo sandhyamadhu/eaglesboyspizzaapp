@@ -71,6 +71,8 @@
                         android:id="@+id/edtPizzaSearch"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
+                        android:hint="Search your Favourites"
+                        android:textColorHint="@android:color/darker_gray"
                         android:layout_height="wrap_content"
                         style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
                         android:layout_gravity="center" />
