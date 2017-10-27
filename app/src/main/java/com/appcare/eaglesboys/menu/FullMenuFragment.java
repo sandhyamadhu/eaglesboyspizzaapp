@@ -24,6 +24,20 @@ public class FullMenuFragment extends CommonFragment{
         });
 
 
+        initMenuVisibility();
+
         return mMenuView;
+    }
+
+    @Override
+    public void onFragmentResume() {
+        super.onFragmentResume();
+        initMenuVisibility();
+    }
+
+    private void initMenuVisibility() {
+
+        hideHeaderImageVisibility(View.VISIBLE);
+        hideHeaderSearchVisibility(View.GONE);
     }
 }

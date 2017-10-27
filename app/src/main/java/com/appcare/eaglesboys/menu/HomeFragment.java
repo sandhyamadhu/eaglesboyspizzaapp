@@ -9,9 +9,7 @@ import android.widget.Button;
 import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
 
-public class
-
-HomeFragment extends CommonFragment{
+public class HomeFragment extends CommonFragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
@@ -34,6 +32,20 @@ HomeFragment extends CommonFragment{
             }
         });
 
+        initMenuVisibility();
+
         return mMenuView;
+    }
+
+    @Override
+    public void onFragmentResume() {
+        super.onFragmentResume();
+        initMenuVisibility();
+    }
+
+    private void initMenuVisibility() {
+
+        hideHeaderImageVisibility(View.VISIBLE);
+        hideHeaderSearchVisibility(View.GONE);
     }
 }

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:paddingLeft="5dp"
-    android:background="@android:color/white"
-    android:paddingRight="5dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
+        android:padding="5dp"
         android:orientation="horizontal"
+        android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
@@ -68,6 +67,12 @@
                 </Button>
             </LinearLayout>
 
+            <LinearLayout
+                android:gravity="bottom"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
             <Button
                 android:id="@+id/btnCustomizeTopping"
                 android:layout_width="match_parent"
@@ -80,7 +85,8 @@
                 android:textAppearance="?android:attr/textAppearanceMediumInverse"
                 android:background="@color/customeColor"
                 android:textColor="@android:color/white"
-                android:text="Customize Topping" />
+                android:text="Customize Topping"
+                android:layout_gravity="bottom"/>
 
             <Button
                 android:id="@+id/btnNVSideAddToCart"
@@ -93,6 +99,7 @@
                 android:background="@color/customeColor"
                 android:textColor="@android:color/white"
                 android:text="Add To Cart" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -103,100 +110,38 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/layout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="#C72F82"
-                    android:maxLines="1"
-                    android:text="Regular"
-                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                    android:textColor="#C72F82" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="#C72F82"
-                    android:maxLines="1"
-                    android:text="Medium"
-                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                    android:textColor="#C72F82" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="#C72F82"
-                    android:maxLines="1"
-                    android:text="Extra Cheese"
-                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                    android:textColor="#C72F82" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="#C72F82"
-                    android:maxLines="1"
-                    android:text="Extra Cheese"
-                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                    android:textColor="#C72F82" />
 
             </LinearLayout>
 
             <TextView
+                android:id="@+id/txtSelectCrust"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:gravity="center"
                 android:text="Select Crust"
                 android:textAllCaps="true"
                 android:textAppearance="?android:attr/textAppearanceMediumInverse"
                 android:textColor="@color/customeColor" />
 
-            <CheckBox
+            <LinearLayout
+                android:id="@+id/crustLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="#C72F82"
-                android:maxLines="1"
-                android:text="Extra Cheese"
-                android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                android:textColor="#C72F82" />
+                android:orientation="vertical">
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#C72F82"
-                android:maxLines="1"
-                android:text="Extra Cheese"
-                android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                android:textColor="#C72F82" />
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#C72F82"
-                android:maxLines="1"
-                android:text="Extra Cheese"
-                android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                android:textColor="#C72F82" />
+            </LinearLayout>
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#C72F82"
-                android:maxLines="1"
-                android:text="Extra Cheese"
-                android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                android:textColor="#C72F82" />
         </LinearLayout>
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imgNVCloseChild"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="right"
-        android:src="@drawable/upp" />
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@android:color/black"/>
 </LinearLayout>

@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.menu.HomeFragment;
+import com.appcare.eaglesboys.menu.MenuActivity;
 import com.appcare.eaglesboys.utils.EagleResponseListener;
 import com.appcare.eaglesboys.utils.ResponseHandler;
 
@@ -107,9 +108,24 @@ public class CommonFragment extends Fragment implements EagleResponseListener {
     }
 
     public void onFragmentResume() {
+
+        System.out.println("1111 onFragmentResume");
     }
 
     public void onFragmentPause() {
+    }
+
+    public void hideHeaderImageVisibility(int mVisibility){
+        ((MenuActivity)mContext).hideImageLayout(mVisibility);
+    }
+
+    public void hideHeaderSearchVisibility(int mVisibility){
+        ((MenuActivity)mContext).hideSearchLayout(mVisibility);
+    }
+
+    public void onCartItemSelected(){
+        System.out.println("33333");
+        ((MenuActivity)mContext).onCartSelected();
     }
 
 

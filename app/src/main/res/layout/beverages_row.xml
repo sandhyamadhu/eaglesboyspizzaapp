@@ -91,8 +91,10 @@
                 android:id="@+id/imgBeveragesMinusPrice"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
                 android:text=" - "
-                android:textAppearance="?android:attr/textAppearanceLargeInverse"
                 android:textColor="@color/customeColor"
                 android:background="@drawable/circle">
             </Button>
@@ -101,7 +103,7 @@
         <Button
             android:id="@+id/btnBeveragesAddToCart"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:paddingLeft="20dp"

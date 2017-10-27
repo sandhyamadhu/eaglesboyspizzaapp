@@ -1,14 +1,14 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.appcare.eaglesboys.fragments.Deserts">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/desertsList"
+        android:dividerHeight="10dp"
+        android:divider="@android:color/black"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="deserts"
-        />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+    </ListView>
+
+</LinearLayout>

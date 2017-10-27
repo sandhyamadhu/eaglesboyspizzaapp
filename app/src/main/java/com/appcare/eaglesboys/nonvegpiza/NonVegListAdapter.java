@@ -3,34 +3,51 @@ package com.appcare.eaglesboys.nonvegpiza;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Paint;
+import android.os.Build;
+import android.support.v4.view.ViewCompat;
+import android.support.v7.widget.AppCompatCheckBox;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
-import com.appcare.eaglesboys.sides.SideDetails;
-import com.appcare.eaglesboys.sides.SideListAdapter;
+import com.appcare.eaglesboys.menu.MenuActivity;
+import com.appcare.eaglesboys.topins.ToppinsFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class NonVegListAdapter extends BaseExpandableListAdapter {
 
-    private Context mContext;
-    private List<NonVegPizza> mListDataHeader; // header titles
-    private ArrayList<String> mListDataChild;
 
-    public NonVegListAdapter(Context context, ArrayList<NonVegPizza> mNonVegPizzas, ArrayList<String>  mListDataChild) {
+
+
+
+    private Context mContext;
+    private int mColorCode = 0XFFC72F82;
+
+    int[][] states = new int[][] {new int[] { mColorCode}};
+    int[] colors = new int[] {mColorCode};
+    ColorStateList mColorStateList = new ColorStateList(states, colors);
+    private List<NonVegPizza> mListDataHeader; // header titles
+    private ArrayList<Child> mListDataChild;
+
+    public NonVegListAdapter(Context context, ArrayList<NonVegPizza> mNonVegPizzas, ArrayList<Child>  mListDataChild) {
 
         this.mContext = context;
         this.mListDataHeader = mNonVegPizzas;
         this.mListDataChild = mListDataChild;
-
     }
 
     @Override
@@ -53,17 +70,88 @@ public class NonVegListAdapter extends BaseExpandableListAdapter {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = mLayoutInflater.inflate(R.layout.non_veg_child, null);
         }
-/*
-        TextView txtListChild = (TextView) convertView
-                .findViewById(R.id.lblListItem);
 
-        txtListChild.setText(childText);*/
+        TextView mTxtSelectCrust = (TextView)convertView.findViewById(R.id.txtSelectCrust);
+        mTxtSelectCrust.setPaintFlags(mTxtSelectCrust.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        Button mBtnCustomizeTopping = (Button)convertView.findViewById(R.id.btnCustomizeTopping);
+        mBtnCustomizeTopping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MenuActivity)mContext).addFragment(R.id.fragmentContent,new ToppinsFragment(),true,false);
+            }
+        });
+
+        LinearLayout mChildLayout = (LinearLayout) convertView.findViewById(R.id.layout1);
+        LinearLayout mCrustLayout = (LinearLayout) convertView.findViewById(R.id.crustLayout);
+        mChildLayout.removeAllViews();
+        mCrustLayout.removeAllViews();
+
+        Child rowItem = (Child) getChild(groupPosition,childPosition);
+        int nRow = 0;
+        LinearLayout myLayout = new LinearLayout(mContext);
+
+        List<PizzaPrice> mPizzaPrices = rowItem.getPizzaPrice();
+        for (PizzaPrice content : mPizzaPrices) {
+            if(nRow % 2 == 0) {
+                mChildLayout.addView(myLayout);
+                myLayout = new LinearLayout(mContext);
+                myLayout.setGravity(Gravity.CENTER);
+            }
+
+            myLayout.addView(createPizzaItemsRow(content.getCrustName()));
+            nRow++;
+        }
+
+        List<SelectCrust> mCrust = rowItem.getSelectCrust();
+        for (SelectCrust content : mCrust) {
+            createCrustItemsRow(content.getCrustName(),mCrustLayout);
+        }
+
+        mChildLayout.addView(myLayout);
+
         return convertView;
+    }
+
+    private LinearLayout createPizzaItemsRow(String key) {
+
+        LinearLayout.LayoutParams mGreeksLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        mGreeksLayoutParams.weight = 1f;
+
+        LinearLayout mainLayout = new LinearLayout(mContext);
+        mainLayout.setOrientation(LinearLayout.VERTICAL);
+        mainLayout.setGravity(Gravity.CENTER);
+        mainLayout.setClickable(true);
+
+        CheckBox mCheckBox = new CheckBox(mContext);
+        mCheckBox.setTextColor(mColorCode);
+        mCheckBox.setPadding(3,0,3,3);
+        mCheckBox.setText(key);
+        mCheckBox.setSingleLine(true);
+        setButtonTint(mCheckBox,mColorStateList);
+
+        mainLayout.addView(mCheckBox);
+        mainLayout.setLayoutParams(mGreeksLayoutParams);
+
+        return mainLayout;
+    }
+
+    private LinearLayout createCrustItemsRow(String key, LinearLayout mCrustLayout) {
+
+        CheckBox mCheckBox = new CheckBox(mContext);
+        mCheckBox.setTextColor(mColorCode);
+        mCheckBox.setText(key);
+        mCheckBox.setPadding(5,0,0,5);
+        mCheckBox.setSingleLine(true);
+        setButtonTint(mCheckBox,mColorStateList);
+
+        mCrustLayout.addView(mCheckBox);
+        return mCrustLayout;
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return this.mListDataChild.size();
+        return this.mListDataHeader.get(groupPosition).getChild().size();
     }
 
     @Override
@@ -93,7 +181,7 @@ public class NonVegListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded,View convertView, ViewGroup parent) {
 
-        NonVegListAdapter.ViewHolder holder = null;
+        NonVegListAdapter.ViewHolder holder ;
         LayoutInflater mInflater = (LayoutInflater)mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.non_veg_header, null);
@@ -133,5 +221,14 @@ public class NonVegListAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+
+    public static void setButtonTint(CheckBox button, ColorStateList tint) {
+        if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP && button instanceof AppCompatCheckBox) {
+            ((AppCompatCheckBox) button).setBackgroundTintList(tint);
+        } else {
+            ViewCompat.setBackgroundTintList(button, tint);
+        }
     }
 }

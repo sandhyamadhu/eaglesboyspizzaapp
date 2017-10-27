@@ -31,7 +31,7 @@ public class BerveragesFragment extends CommonFragment{
     ListView mBeveragesListView;
     private void initCreateViews(View mTopinsView) {
         mBeveragesListView=(ListView) mTopinsView.findViewById(R.id.beveragesList);
-        HttpHandler.sendJSONRequest("foods_api/beverage",mResponseHandler,"beverages");
+        HttpHandler.sendRequest("foods_api/beverage",mResponseHandler,"beverages");
     }
 
     ArrayList<BerveragesDetails> mBerveragesDetails = new ArrayList<>();
@@ -42,13 +42,13 @@ public class BerveragesFragment extends CommonFragment{
 
         mBerveragesDetails.clear();
         try {
-            JSONArray jsonarray= new JSONArray(response.toString());
+            JSONObject mJSObject = new JSONObject(response.toString());
+            JSONArray jsonarray= mJSObject.getJSONArray("beverages");
             for (int i=0;i<jsonarray.length();i++){
 
                 BerveragesDetails mDetails = new BerveragesDetails();
-
-
                 JSONObject jsonObj=jsonarray.getJSONObject(i);
+                System.out.println("Nikhil::>"+jsonObj.getString("image"));
                 mDetails.setBerveragesImage(jsonObj.getString("image"));
                 mDetails.setBerveragesName(jsonObj.getString("name"));
                 mDetails.setBerveragesPrice(jsonObj.getString("price"));

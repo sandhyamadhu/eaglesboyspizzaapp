@@ -8,9 +8,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.appcare.eaglesboys.Constants.CommonActivity;
 import com.appcare.eaglesboys.R;
+import com.appcare.eaglesboys.placeorder.CartFragment;
 
 
 public class MenuActivity extends CommonActivity {
@@ -25,10 +28,22 @@ public class MenuActivity extends CommonActivity {
         addFragment(R.id.fragmentContent,new HomeFragment(),false,true);
     }
 
+    private ImageView mImgOrderCount;
+    private LinearLayout mHeaderImageLayout;
+    private LinearLayout mHeaderSearchLayout;
 
 
     private void initDrawerLayoutView() {
 
+        mImgOrderCount = (ImageView)findViewById(R.id.imgOrderCount);
+        mImgOrderCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCartSelected();
+            }
+        });
+        mHeaderImageLayout = (LinearLayout)findViewById(R.id.headerImageLayout);
+        mHeaderSearchLayout = (LinearLayout)findViewById(R.id.headerSearchLayout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 //        EditText mEditText = (EditText)toolbar.findViewById(R.id.edtPizzaSearch);
@@ -42,6 +57,19 @@ public class MenuActivity extends CommonActivity {
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+    }
+
+    public void onCartSelected(){
+
+        addFragment(R.id.fragmentContent,new CartFragment(),true,false);
+    }
+
+    public void hideImageLayout(int mVisibility){
+        mHeaderImageLayout.setVisibility(mVisibility);
+    }
+
+    public void hideSearchLayout(int mVisibility){
+        mHeaderSearchLayout.setVisibility(mVisibility);
     }
 
 

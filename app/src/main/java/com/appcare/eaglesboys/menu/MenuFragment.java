@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
+import com.appcare.eaglesboys.placeorder.CartFragment;
 
 public class MenuFragment extends CommonFragment{
 
@@ -19,7 +20,23 @@ public class MenuFragment extends CommonFragment{
         View mPizzaView = inflater.inflate(R.layout.fragment_menu,null);
         initSetUPPizzaTypes(mPizzaView);
 
+        initMenuVisibility();
+
         return mPizzaView;
+    }
+
+    private void initMenuVisibility() {
+
+        hideHeaderImageVisibility(View.GONE);
+        hideHeaderSearchVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onFragmentResume() {
+        initMenuVisibility();
+        super.onFragmentResume();
+        System.out.println("222 onFragmentResume");
+
     }
 
     private ViewPager mPizzaPager;
@@ -35,5 +52,13 @@ public class MenuFragment extends CommonFragment{
         final TabLayout tabLayout = (TabLayout) mPizzaView.findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(mPizzaPager);
 
+    }
+
+    @Override
+    public void onCartItemSelected() {
+        super.onCartItemSelected();
+
+        System.out.println("22222");
+        addFragment(new CartFragment(),true,false);
     }
 }

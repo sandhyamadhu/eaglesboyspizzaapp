@@ -31,7 +31,7 @@ public class BerveragesListAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        BerveragesListAdapter.ViewHolder holder = null;
+        BerveragesListAdapter.ViewHolder holder;
         LayoutInflater mInflater = (LayoutInflater)context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.beverages_row, null);

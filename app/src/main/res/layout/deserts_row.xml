@@ -13,14 +13,14 @@
 
         <ImageView
             android:layout_marginLeft="5dp"
-            android:id="@+id/imgSide"
+            android:id="@+id/imgDeserts"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:src="@drawable/capsicum" />
 
         <TextView
-            android:id="@+id/txtSideName"
+            android:id="@+id/txtDesertsName"
             android:layout_weight=".8"
             android:padding="10dp"
             android:layout_marginLeft="5dp"
@@ -32,7 +32,7 @@
 
         <TextView
             android:gravity="right"
-            android:id="@+id/txtSidePrice"
+            android:id="@+id/txtDesertsPrice"
             android:paddingRight="10dp"
             android:maxLines="1"
             android:paddingTop="10dp"
@@ -64,7 +64,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/imgSidePlusPrice"
+                android:id="@+id/imgDesertsPlusPrice"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
@@ -88,7 +88,7 @@
             </TextView>
 
             <Button
-                android:id="@+id/imgSideMinusPrice"
+                android:id="@+id/imgDesertsMinusPrice"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:textSize="18sp"
@@ -101,7 +101,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnSideAddToCart"
+            android:id="@+id/btnDesertsAddToCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
