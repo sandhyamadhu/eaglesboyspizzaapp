@@ -7,14 +7,14 @@
 
     <ImageView
         android:layout_marginLeft="5dp"
-        android:id="@+id/imgNonVegPizza"
+        android:id="@+id/imgpasta"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/capsicum" />
 
     <LinearLayout
         android:id="@+id/lrPizzaName"
-        android:layout_toRightOf="@id/imgNonVegPizza"
+        android:layout_toRightOf="@id/imgpasta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -58,13 +58,7 @@
         android:textStyle="italic"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lrPizzaName"
-        android:layout_toEndOf="@+id/imgNonVegPizza" />
+        android:layout_toEndOf="@+id/imgpasta" />
 
-    <ImageView
-        android:id="@+id/imgNVOpenChild"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignBottom="@+id/imgNonVegPizza"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/dwnarw" />
+
 </RelativeLayout>

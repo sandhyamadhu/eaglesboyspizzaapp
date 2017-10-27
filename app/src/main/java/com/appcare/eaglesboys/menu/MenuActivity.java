@@ -81,10 +81,28 @@ public class MenuActivity extends CommonActivity {
             public boolean onNavigationItemSelected(MenuItem item) {
                 int id = item.getItemId();
 
-                if (id == R.id.menuOffers) {
+                if (id == R.id.menuProfile) {
                     // Handle the preference  action
-                } else if (id == R.id.menuNewOrders) {
+                } else if (id == R.id.menuDeals) {
                     // Handle the About action
+                }else if (id==R.id.menuNewOrders) {
+
+                }else if (id==R.id.menuBackToMenu){
+
+                }else if(id==R.id.menuEveryDay){
+
+                }else if(id==R.id.menuOrderHistory){
+
+                }else if(id==R.id.menuFavouriteProduct){
+
+                }else if(id==R.id.menuFavouriteOrder){
+
+                }else if(id==R.id.menuTradeOrder){
+
+                }else if(id==R.id.menuDisclaimer){
+
+                }else if(id==R.id.menuFeedBack){
+
                 }
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
