@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.appcare.eaglesboys.Constants.CommonFragment;
+import com.appcare.eaglesboys.constants.CommonFragment;
 import com.appcare.eaglesboys.R;
 
 public class HomeFragment extends CommonFragment{
@@ -21,7 +21,7 @@ public class HomeFragment extends CommonFragment{
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addFragment(new FullMenuFragment(),false,true);
+                addFragment(new FullMenuFragment(),true,false);
 
             }
         });

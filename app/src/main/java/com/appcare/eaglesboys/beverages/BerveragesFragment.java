@@ -6,10 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.appcare.eaglesboys.Constants.CommonFragment;
+import com.appcare.eaglesboys.constants.CommonFragment;
 import com.appcare.eaglesboys.R;
-import com.appcare.eaglesboys.sides.SideDetails;
-import com.appcare.eaglesboys.sides.SideListAdapter;
 import com.appcare.eaglesboys.utils.HttpHandler;
 
 import org.json.JSONArray;

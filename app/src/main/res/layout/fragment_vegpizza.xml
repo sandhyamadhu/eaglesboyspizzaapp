@@ -2,12 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <ListView
-        android:id="@+id/vegpizzalist"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:paddingTop="10dp"
+    android:layout_height="match_parent">
 
-    </ListView>
+    <ExpandableListView
+        android:id="@+id/lvVegPizza"
+        android:dividerHeight="10dp"
+        android:childDivider="@android:color/white"
+        android:divider="@android:color/black"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
 
 </LinearLayout>

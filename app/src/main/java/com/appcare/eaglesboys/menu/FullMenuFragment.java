@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.appcare.eaglesboys.Constants.CommonFragment;
+import com.appcare.eaglesboys.constants.CommonFragment;
 import com.appcare.eaglesboys.R;
 
 public class FullMenuFragment extends CommonFragment{
@@ -19,7 +19,7 @@ public class FullMenuFragment extends CommonFragment{
         vegpizza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addFragment(new MenuFragment(),false,true);
+                addFragment(new MenuFragment(),true,false);
             }
         });
 

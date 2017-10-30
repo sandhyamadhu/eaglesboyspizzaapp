@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.appcare.eaglesboys.Constants.CommonFragment;
+import com.appcare.eaglesboys.constants.CommonFragment;
 import com.appcare.eaglesboys.R;
 
 

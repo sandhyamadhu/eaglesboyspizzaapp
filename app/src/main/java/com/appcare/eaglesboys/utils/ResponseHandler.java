@@ -7,7 +7,7 @@ import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
-import com.appcare.eaglesboys.Constants.AppConstants;
+import com.appcare.eaglesboys.constants.AppConstants;
 import com.appcare.eaglesboys.R;
 
 import javax.net.ssl.SSLException;

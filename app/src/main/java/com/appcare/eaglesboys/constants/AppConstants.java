@@ -1,4 +1,4 @@
-package com.appcare.eaglesboys.Constants;
+package com.appcare.eaglesboys.constants;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

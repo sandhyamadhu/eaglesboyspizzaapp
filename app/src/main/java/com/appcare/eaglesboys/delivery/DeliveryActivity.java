@@ -15,7 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.appcare.eaglesboys.Constants.CommonActivity;
+import com.appcare.eaglesboys.constants.CommonActivity;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.location.AppLocationService;
 import com.appcare.eaglesboys.location.LocationAddress;

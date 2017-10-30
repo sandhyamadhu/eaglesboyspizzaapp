@@ -1,4 +1,4 @@
-package com.appcare.eaglesboys.Constants;
+package com.appcare.eaglesboys.constants;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -12,7 +12,6 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.appcare.eaglesboys.R;
-import com.appcare.eaglesboys.menu.HomeFragment;
 import com.appcare.eaglesboys.menu.MenuActivity;
 import com.appcare.eaglesboys.utils.EagleResponseListener;
 import com.appcare.eaglesboys.utils.ResponseHandler;
@@ -117,6 +116,10 @@ public class CommonFragment extends Fragment implements EagleResponseListener {
 
     public void hideHeaderImageVisibility(int mVisibility){
         ((MenuActivity)mContext).hideImageLayout(mVisibility);
+    }
+
+    public void handleAppBarVisibility(int mVisibility){
+        ((MenuActivity)mContext).hideAppBarLayout(mVisibility);
     }
 
     public void hideHeaderSearchVisibility(int mVisibility){

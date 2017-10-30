@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.appcare.eaglesboys.Constants.CommonActivity;
+import com.appcare.eaglesboys.constants.CommonActivity;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.activities.AddAddress;
 import com.appcare.eaglesboys.delivery.DeliveryActivity;

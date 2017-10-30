@@ -15,11 +15,11 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.appcare.eaglesboys.Constants.CommonFragment;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.menu.MenuActivity;
 import com.appcare.eaglesboys.topins.ToppinsFragment;

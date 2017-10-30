@@ -1,5 +1,5 @@
 
-package com.appcare.eaglesboys.model;
+package com.appcare.eaglesboys.vegpizza;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,6 +1,7 @@
 package com.appcare.eaglesboys.menu;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,7 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.appcare.eaglesboys.Constants.CommonActivity;
+import com.appcare.eaglesboys.constants.CommonActivity;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.placeorder.CartFragment;
 
@@ -29,6 +30,7 @@ public class MenuActivity extends CommonActivity {
     }
 
     private ImageView mImgOrderCount;
+    private AppBarLayout mAppBarLayout;
     private LinearLayout mHeaderImageLayout;
     private LinearLayout mHeaderSearchLayout;
 
@@ -44,6 +46,9 @@ public class MenuActivity extends CommonActivity {
         });
         mHeaderImageLayout = (LinearLayout)findViewById(R.id.headerImageLayout);
         mHeaderSearchLayout = (LinearLayout)findViewById(R.id.headerSearchLayout);
+
+        mAppBarLayout = (AppBarLayout)findViewById(R.id.appBarLayout);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 //        EditText mEditText = (EditText)toolbar.findViewById(R.id.edtPizzaSearch);
@@ -70,6 +75,10 @@ public class MenuActivity extends CommonActivity {
 
     public void hideSearchLayout(int mVisibility){
         mHeaderSearchLayout.setVisibility(mVisibility);
+    }
+
+    public void hideAppBarLayout(int mVisibility){
+        mAppBarLayout.setVisibility(mVisibility);
     }
 
 

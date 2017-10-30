@@ -1,22 +1,15 @@
-package com.appcare.eaglesboys.Constants;
+package com.appcare.eaglesboys.constants;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.ImageView;
 
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.utils.EagleResponseListener;
 import com.appcare.eaglesboys.utils.ResponseHandler;
-
-import java.io.InputStream;
 
 public class CommonActivity extends AppCompatActivity implements EagleResponseListener{
 

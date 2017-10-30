@@ -5,18 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
 
-import com.appcare.eaglesboys.Constants.CommonFragment;
+import com.appcare.eaglesboys.constants.CommonFragment;
 import com.appcare.eaglesboys.R;
-import com.appcare.eaglesboys.utils.HttpHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class NonVegPizzaFragment extends CommonFragment {

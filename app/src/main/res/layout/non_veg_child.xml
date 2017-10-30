@@ -16,7 +16,7 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/checkBox5"
+                android:id="@+id/chkExtraCheese"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#C72F82"
@@ -76,7 +76,7 @@
             <Button
                 android:id="@+id/btnCustomizeTopping"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:layout_marginTop="5dp"
@@ -91,7 +91,7 @@
             <Button
                 android:id="@+id/btnNVSideAddToCart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:layout_marginTop="5dp"
