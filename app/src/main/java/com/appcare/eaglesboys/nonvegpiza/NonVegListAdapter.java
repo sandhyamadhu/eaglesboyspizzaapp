@@ -187,7 +187,7 @@ public class NonVegListAdapter extends BaseExpandableListAdapter {
             convertView = mInflater.inflate(R.layout.non_veg_header, null);
             holder = new NonVegListAdapter.ViewHolder();
             holder.mImgNVOpenChild = (ImageView) convertView.findViewById(R.id.imgNVOpenChild);
-            holder.mImgNonVegPizza = (ImageView) convertView.findViewById(R.id.imgNonVegPizza);
+            holder.mImgNonVegPizza = (ImageView) convertView.findViewById(R.id.imgpasta);
             holder.mTxtNonVegPizzaName = (TextView) convertView.findViewById(R.id.txtNonVegPizzaName);
             holder.mTxtNonVegPizzaPrice = (TextView) convertView.findViewById(R.id.txtNonVegPizzaPrice);
             holder.mTxtNonVegPizzaDesc = (TextView) convertView.findViewById(R.id.txtNonVegPizzaDesc);
