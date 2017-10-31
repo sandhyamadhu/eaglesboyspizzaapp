@@ -26,6 +26,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class VegListAdapter extends BaseExpandableListAdapter {
 
@@ -38,9 +39,9 @@ public class VegListAdapter extends BaseExpandableListAdapter {
     int[] colors = new int[] {mColorCode};
     ColorStateList mColorStateList = new ColorStateList(states, colors);
     private List<ClassicVeg> mListDataHeader; // header titles
-    private ArrayList<Child> mListDataChild;
+    private Map<Integer, List<Child>> mListDataChild;
 
-    public VegListAdapter(Context context, ArrayList<ClassicVeg> mVegPizzas, ArrayList<Child>  mListDataChild) {
+    public VegListAdapter(Context context, ArrayList<ClassicVeg> mVegPizzas, Map<Integer, List<Child>>  mListDataChild) {
 
         this.mContext = context;
         this.mListDataHeader = mVegPizzas;
@@ -48,8 +49,8 @@ public class VegListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public Object getChild(int groupPosition, int childPosititon) {
-        return this.mListDataChild.get(childPosititon);
+    public List<Child> getChild(int groupPosition, int childPosititon) {
+        return this.mListDataChild.get(groupPosition);
     }
 
     @Override
@@ -85,11 +86,11 @@ public class VegListAdapter extends BaseExpandableListAdapter {
         mChildLayout.removeAllViews();
         mCrustLayout.removeAllViews();
 
-        Child rowItem = (Child) getChild(groupPosition,childPosition);
+        List<Child> rowItem = getChild(groupPosition,childPosition);
         int nRow = 0;
         LinearLayout myLayout = new LinearLayout(mContext);
 
-        List<Size> mPizzaPrices = rowItem.getSize();
+        List<Size> mPizzaPrices = rowItem.get(0).getSize();
 
         for (int i = 0; i < mPizzaPrices.size() ; i++) {
             if(nRow % 2 == 0) {
@@ -105,7 +106,7 @@ public class VegListAdapter extends BaseExpandableListAdapter {
             nRow++;
 
         }
-        mChildLayout.addView(myLayout);
+       mChildLayout.addView(myLayout);
 
         final TextView mTxtNonVegPizzaPrice = (TextView) parent.findViewById(R.id.txtNonVegPizzaPrice);
 
@@ -126,6 +127,8 @@ public class VegListAdapter extends BaseExpandableListAdapter {
 
     ArrayList<CheckBox> mCheckBoxes = new ArrayList<CheckBox>();
     private int mSelectedPosition = -1;
+    LinearLayout mPreviousCrustLayout;
+    CheckBox previousCheckBoxl;
     private LinearLayout createPizzaItemsRow(final String key, final List<Crust> crust,final LinearLayout mCrustLayout) {
 
         LinearLayout.LayoutParams mGreeksLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -136,7 +139,7 @@ public class VegListAdapter extends BaseExpandableListAdapter {
         mainLayout.setGravity(Gravity.CENTER);
         mainLayout.setClickable(true);
 
-        CheckBox mCheckBox = new CheckBox(mContext);
+        final CheckBox mCheckBox = new CheckBox(mContext);
         mCheckBox.setTextColor(mColorCode);
         mCheckBox.setPadding(3,0,3,3);
         mCheckBox.setText(key);
@@ -148,29 +151,29 @@ public class VegListAdapter extends BaseExpandableListAdapter {
         mCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
-                    for (int i = 0; i < mCheckBoxes.size(); i++) {
 
-                        if (mCheckBoxes.get(i) == buttonView)
-                            mSelectedPosition = i;
-                        else
-                            mCheckBoxes.get(i).setChecked(false);
+
+                if(isChecked) {
+
+                    if(mPreviousCrustLayout != null) {
+                        mPreviousCrustLayout.removeAllViews();
+                        //TODO: Handle same click
+
+                        previousCheckBoxl.setChecked(false);
                     }
 
-
-                }
-                else{
-                    mSelectedPosition=-1;
-                }
-
-                if (isChecked) {
-                    for (int i = 0; i < crust.size() ; i++) {
-                        createCrustItemsRow(crust.get(i).getName(),mCrustLayout);
+                    for (int i = 0; i < crust.size(); i++) {
+                        createCrustItemsRow(crust.get(i).getName(), mCrustLayout);
                     }
+                }else {
+                    mCrustLayout.removeAllViews();
                 }
-
+                mPreviousCrustLayout = mCrustLayout;
+                previousCheckBoxl = (CheckBox) buttonView;
             }
         });
+
+
 
         mainLayout.addView(mCheckBox);
         mainLayout.setLayoutParams(mGreeksLayoutParams);
@@ -179,7 +182,6 @@ public class VegListAdapter extends BaseExpandableListAdapter {
     }
 
     private LinearLayout createCrustItemsRow(String key, LinearLayout mCrustLayout) {
-        mCrustLayout.removeAllViews();
         CheckBox mCheckBox = new CheckBox(mContext);
         mCheckBox.setTextColor(mColorCode);
         mCheckBox.setText(key);
@@ -193,7 +195,7 @@ public class VegListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return this.mListDataHeader.get(groupPosition).getChild().size();
+        return mListDataChild.get(groupPosition).size();
     }
 
     @Override

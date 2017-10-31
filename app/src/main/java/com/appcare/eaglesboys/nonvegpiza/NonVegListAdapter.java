@@ -201,7 +201,7 @@ public class NonVegListAdapter extends BaseExpandableListAdapter {
         holder.mTxtNonVegPizzaName.setText(rowItem.getName());
         holder.mTxtNonVegPizzaPrice.setText("\u20B9 "+rowItem.getPrice());
         holder.mTxtNonVegPizzaDesc.setText(rowItem.getDescription());
-        Picasso.with(mContext).load(rowItem.getImage()).into(holder.mImgNonVegPizza);
+//        Picasso.with(mContext).load(rowItem.getImage()).into(holder.mImgNonVegPizza);
         holder.mImgNVOpenChild.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

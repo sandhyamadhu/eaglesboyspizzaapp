@@ -46,10 +46,6 @@ public class ClassicVeg {
         this.image = image;
     }
 
-    public List<Child> getChild() {
-        return child;
-    }
-
     public void setChild(List<Child> child) {
         this.child = child;
     }

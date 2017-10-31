@@ -90,11 +90,7 @@ public class MenuActivity extends CommonActivity {
             public boolean onNavigationItemSelected(MenuItem item) {
                 int id = item.getItemId();
 
-                if (id == R.id.menuProfile) {
-                    // Handle the preference  action
-                } else if (id == R.id.menuDeals) {
-                    // Handle the About action
-                }else if (id==R.id.menuNewOrders) {
+                if (id==R.id.menuNewOrders) {
 
                 }else if (id==R.id.menuBackToMenu){
 

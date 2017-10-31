@@ -15,6 +15,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class VegPizzaFragment extends CommonFragment{
 
@@ -35,18 +38,16 @@ public class VegPizzaFragment extends CommonFragment{
 
     }
 
-    String mString = "{\"Classic Veg\":[{\"name\":\"Pizza Hut\",\"description\":\"test descrition\",\"price\":\"365\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/43_2017/679a0ae57b87dcb61cb783ad265d2fb2.jpg\",\"child\":[{\"size\":[{\"size_id\":\"24\",\"name\":\"13 inches\",\"price\":\"21\",\"extracheese\":\"55\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"30\"},{\"name\":\"Thick\",\"price\":\"50\"},{\"name\":\"Thin\",\"price\":\"10\"}]},{\"size_id\":\"25\",\"name\":\"10 inches\",\"price\":\"23\",\"extracheese\":\"65\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"20\"},{\"name\":\"Thick\",\"price\":\"50\"},{\"name\":\"Thin\",\"price\":\"15\"}]},{\"size_id\":\"26\",\"name\":\"7 inches\",\"price\":\"45\",\"extracheese\":\"80\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"10\"},{\"name\":\"Thick\",\"price\":\"60\"},{\"name\":\"Thin\",\"price\":\"25\"}]}]}]},{\"name\":\"Delux Pizza\",\"description\":\"Onion  Capsicum\",\"price\":\"380\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/43_2017/0aee2cd4fd15f77d984c68b4c06d1c0c.jpg\",\"child\":[{\"size\":[{\"size_id\":\"24\",\"name\":\"24 inches\",\"price\":\"380\",\"extracheese\":\"55\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"30\"},{\"name\":\"Thick\",\"price\":\"50\"},{\"name\":\"Thin\",\"price\":\"10\"}]},{\"size_id\":\"25\",\"name\":\"25 inches\",\"price\":\"440\",\"extracheese\":\"65\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"20\"},{\"name\":\"Thick\",\"price\":\"50\"},{\"name\":\"Thin\",\"price\":\"15\"}]},{\"size_id\":\"26\",\"name\":\"26 inches\",\"price\":\"520\",\"extracheese\":\"80\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"10\"},{\"name\":\"Thick\",\"price\":\"60\"},{\"name\":\"Thin\",\"price\":\"25\"}]}]}]}]}";
+    String mString = "{\"Classic Veg\":[{\"name\":\"Pizza Hut\",\"description\":\"test descrition\",\"price\":\"365\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/43_2017/679a0ae57b87dcb61cb783ad265d2fb2.jpg\",\"child\":[{\"size\":[{\"size_id\":\"24\",\"name\":\"13 inches\",\"price\":\"21\",\"extracheese\":\"55\",\"crust\":[{\"name\":\"New Hand \",\"price\":\"10\"},{\"name\":\"Tossed\",\"price\":\"20\"},{\"name\":\"Thin\",\"price\":\"30\"}]},{\"size_id\":\"25\",\"name\":\"10 inches\",\"price\":\"23\",\"extracheese\":\"65\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"40\"},{\"name\":\"Thick\",\"price\":\"50\"}]},{\"size_id\":\"26\",\"name\":\"7 inches\",\"price\":\"45\",\"extracheese\":\"80\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"60\"}]}]}]},{\"name\":\"Delux Pizza\",\"description\":\"Onion  Capsicum\",\"price\":\"380\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/43_2017/0aee2cd4fd15f77d984c68b4c06d1c0c.jpg\",\"child\":[{\"size\":[{\"size_id\":\"24\",\"name\":\"90 inches\",\"price\":\"90\",\"extracheese\":\"55\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"70\"},{\"name\":\"Thick\",\"price\":\"80\"},{\"name\":\"Thin\",\"price\":\"90\"}]},{\"size_id\":\"25\",\"name\":\"110 inches\",\"price\":\"110\",\"extracheese\":\"65\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"100\"},{\"name\":\"Thick\",\"price\":\"110\"}]},{\"size_id\":\"26\",\"name\":\"201 inches\",\"price\":\"120\",\"extracheese\":\"80\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"120\"}]}]}]}]}";
+
     ArrayList<ClassicVeg> mClassicHeaderVegs = new ArrayList<ClassicVeg>();
-    ArrayList<Child> mChild = new ArrayList<>();
-    ArrayList<Size> mPizzaSizes = new ArrayList<>();
-    ArrayList<Crust> mCrustPrice = new ArrayList<>();
+    Map<Integer, List<Child>> mChild = new HashMap<>();
 
     @Override
     public void handleResponse(Object response, String tag) {
         super.handleResponse(response, tag);
 
 
-        response = mString;
         try {
             JSONObject mJSObject = new JSONObject(response.toString());
             JSONArray mClassicVegArray = mJSObject.getJSONArray("Classic Veg");
@@ -63,13 +64,14 @@ public class VegPizzaFragment extends CommonFragment{
                 mClassicVeg.setPrice(mClassVegJSonObject.getString("price"));
 
                 JSONArray mChildArray = mClassVegJSonObject.getJSONArray("child");
-
+                List<Child> childrens = new ArrayList<>();
                 for (int j = 0; j< mChildArray.length(); j++) {
 
                     Child mInnerChild = new Child();
                     JSONObject mChildJsonObject = mChildArray.getJSONObject(j);
                     JSONArray mSizeArray = mChildJsonObject.getJSONArray("size");
 
+                    ArrayList<Size> mPizzaSizes = new ArrayList<>();
                     for (int k = 0; k < mSizeArray.length(); k++) {
 
                         Size mSize = new Size();
@@ -80,6 +82,8 @@ public class VegPizzaFragment extends CommonFragment{
                         mSize.setExtracheese(mSizeValues.getString("extracheese"));
 
                         JSONArray mCrustArray = mSizeValues.getJSONArray("crust");
+
+                        ArrayList<Crust> mCrustPrice = new ArrayList<>();
 
                         for (int l = 0; l < mCrustArray.length(); l++) {
 
@@ -96,12 +100,11 @@ public class VegPizzaFragment extends CommonFragment{
                         mSize.setCrust(mCrustPrice);
                         mPizzaSizes.add(mSize);
                     }
-                    mChild.clear();
                     mInnerChild.setSize(mPizzaSizes);
-                    mChild.add(mInnerChild);
+                    childrens.add(mInnerChild);
 
                 }
-                mClassicVeg.setChild(mChild);
+                mChild.put(i, childrens);
                 mClassicHeaderVegs.add(mClassicVeg);
             }
 
