@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,7 +22,7 @@ import java.util.List;
 public class PastaListAdapter extends BaseAdapter {
     Context context;
     List<PastaDetails> rowItems;
-
+    String currentitem,newitem;
     public PastaListAdapter(Context context, List<PastaDetails> Items) {
         this.context = context;
         this.rowItems = Items;
@@ -31,10 +32,14 @@ public class PastaListAdapter extends BaseAdapter {
         TextView mTxtPastaName;
         TextView mTxtPastaPrice;
         TextView mTxtPastaDesc;
+        Button plus,minus;
+        TextView price;
+
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         PastaListAdapter.ViewHolder holder=null;
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if(convertView==null)
@@ -45,6 +50,11 @@ public class PastaListAdapter extends BaseAdapter {
             holder.mTxtPastaName = (TextView) convertView.findViewById(R.id.txtPastaName);
             holder.mTxtPastaPrice = (TextView) convertView.findViewById(R.id.txtPastaPrice);
             holder.mTxtPastaDesc=(TextView) convertView.findViewById(R.id.txtPastaDesc);
+            holder.plus=(Button) convertView.findViewById(R.id.imgBeveragesPlusPrice);
+            holder.minus=(Button) convertView.findViewById(R.id.imgBeveragesMinusPrice);
+            holder.price=(TextView) convertView.findViewById(R.id.edtStartPrice);
+
+
             convertView.setTag(holder);
 
         }
@@ -53,11 +63,15 @@ public class PastaListAdapter extends BaseAdapter {
         }
 
         PastaDetails rowItem = (PastaDetails) getItem(position);
-
         holder.mTxtPastaName.setText(rowItem.getmPastaName());
         holder.mTxtPastaPrice.setText("\u20B9 "+rowItem.getmPastaPrice());
         holder.mTxtPastaDesc.setText(rowItem.getmPastaDesc());
         Picasso.with(context).load(rowItem.getmPastaImage()).into(holder.mImgPasta);
+
+
+
+
+
         return convertView;
 
     }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:weightSum="2">
+    <TextView
+        android:id="@+id/txttimings"
+        android:maxLines="1"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_weight="1.5"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/txtsymbol"
+        android:maxLines="1"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_weight="0.1"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="₹"/>
+    <TextView
+        android:id="@+id/txtcost"
+        android:maxLines="1"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:layout_weight="0.4"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+</LinearLayout>

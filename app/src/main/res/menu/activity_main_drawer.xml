@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:id="@+id/grp1" android:checkableBehavior="single">
-        <item android:id="@+id/menuProfile" android:icon="@drawable/profile"
+        <item android:id="@+id/menuProfile" android:icon="@mipmap/profile"
             android:title="Profile"/>
     </group>
     <group android:id="@+id/grp2" android:checkableBehavior="single">
-        <item android:id="@+id/menuDeals" android:icon="@drawable/bell"
+        <item android:id="@+id/menuDeals" android:icon="@mipmap/bell"
             android:title="Deals"/>
     </group>
 
     <group android:id="@+id/grp3" android:checkableBehavior="single" >
-        <item android:id="@+id/menuNewOrders" android:icon="@drawable/bell"
+        <item android:id="@+id/menuNewOrders" android:icon="@mipmap/neworders"
             android:title="New Orders" />
     </group>
     <group android:id="@+id/grp4" android:checkableBehavior="single" >
-        <item android:id="@+id/menuBackToMenu" android:icon="@drawable/bell"
+        <item android:id="@+id/menuBackToMenu" android:icon="@mipmap/backtomenu"
             android:title="Back Menu"/>
     </group>
 
     <group android:id="@+id/grp5" android:checkableBehavior="single" >
-        <item android:id="@+id/menuEveryDay" android:icon="@drawable/bell"
+        <item android:id="@+id/menuEveryDay" android:icon="@mipmap/everydayoffer"
             android:title="Every Day Value Offers"/>
     </group>
 
     <group android:id="@+id/grp6" android:checkableBehavior="single" >
-        <item android:id="@+id/menuOrderHistory" android:icon="@drawable/bell"
+        <item android:id="@+id/menuOrderHistory" android:icon="@mipmap/orderhistory"
             android:title="Order History"/>
     </group>
 
     <group android:id="@+id/grp7" android:checkableBehavior="single" >
-        <item android:id="@+id/menuFavouriteProduct" android:icon="@drawable/favourite"
+        <item android:id="@+id/menuFavouriteProduct" android:icon="@mipmap/favproduct"
             android:title="Favourite Product"/>
     </group>
 
     <group android:id="@+id/grp8" android:checkableBehavior="single" >
-        <item android:id="@+id/menuFavouriteOrder" android:icon="@drawable/bell"
+        <item android:id="@+id/menuFavouriteOrder" android:icon="@mipmap/favourite"
             android:title="Favourite Order"/>
     </group>
 
     <group android:id="@+id/grp9" android:checkableBehavior="single" >
-        <item android:id="@+id/menuTradeOrder" android:icon="@drawable/bell"
+        <item android:id="@+id/menuTradeOrder" android:icon="@mipmap/trackorder"
             android:title="Trade Order"/>
     </group>
 
     <group android:id="@+id/grp10" android:checkableBehavior="single" >
-        <item android:id="@+id/menuDisclaimer" android:icon="@drawable/tnc"
+        <item android:id="@+id/menuDisclaimer" android:icon="@mipmap/tnc"
             android:title="T &amp; C Disclaimer"/>
     </group>
 
     <group android:id="@+id/grp11" android:checkableBehavior="single" >
-        <item android:id="@+id/menuFeedBack" android:icon="@drawable/feedback"
+        <item android:id="@+id/menuFeedBack" android:icon="@mipmap/feedback"
             android:title="FeedBack"/>
     </group>
 </menu>

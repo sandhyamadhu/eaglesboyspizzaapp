@@ -115,7 +115,7 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
                 break;
 
             case R.id.btnMenuScreen:
-                addFragment(new MenuFragment(),false,true);
+                addFragment(R.id.fragmentContent, new MenuFragment(),false,true);
                 break;
 
             default:

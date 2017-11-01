@@ -156,7 +156,8 @@ public class VegListAdapter extends BaseExpandableListAdapter {
                 if(isChecked) {
 
                     if(mPreviousCrustLayout != null) {
-                        mPreviousCrustLayout.removeAllViews();
+
+
                         //TODO: Handle same click
 
                         previousCheckBoxl.setChecked(false);

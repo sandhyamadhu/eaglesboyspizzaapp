@@ -39,8 +39,7 @@ public class OffersPage extends AppCompatActivity {
     }
 
     public void profile(MenuItem item) {
-        Intent in=new Intent(OffersPage.this, Profile.class);
-        startActivity(in);
+
     }
 
     public void offers(MenuItem item) {

@@ -56,8 +56,7 @@ public class DupeMenu extends AppCompatActivity {
 
 
     public void profile(MenuItem item) {
-        Intent in=new Intent(DupeMenu.this, Profile.class);
-        startActivity(in);
+
     }
 
     public void offers(MenuItem item) {

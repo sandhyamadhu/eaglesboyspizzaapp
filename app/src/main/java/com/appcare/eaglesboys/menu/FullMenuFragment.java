@@ -19,7 +19,7 @@ public class FullMenuFragment extends CommonFragment{
         vegpizza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addFragment(new MenuFragment(),true,false);
+                addFragment(R.id.fragmentContent, new MenuFragment(),true,false);
             }
         });
 

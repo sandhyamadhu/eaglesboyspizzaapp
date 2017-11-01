@@ -12,8 +12,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.appcare.eaglesboys.constants.CommonActivity;
+import com.appcare.eaglesboys.Feedback.FeedbackFragment;
+import com.appcare.eaglesboys.OrderHistory.OrderHistoryFragment;
+import com.appcare.eaglesboys.Profile.ProfileFragment;
 import com.appcare.eaglesboys.R;
+import com.appcare.eaglesboys.TnCDesclaimer.TCDesclaimerFragment;
+import com.appcare.eaglesboys.constants.CommonActivity;
 import com.appcare.eaglesboys.placeorder.CartFragment;
 
 
@@ -27,6 +31,7 @@ public class MenuActivity extends CommonActivity {
         initNavigationBarView();
 
         addFragment(R.id.fragmentContent,new HomeFragment(),false,true);
+
     }
 
     private ImageView mImgOrderCount;
@@ -88,15 +93,18 @@ public class MenuActivity extends CommonActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
+
                 int id = item.getItemId();
 
-                if (id==R.id.menuNewOrders) {
+                if (id==R.id.menuProfile) {
+                    addFragment(R.id.fragmentContent,new ProfileFragment(),true,false);
 
                 }else if (id==R.id.menuBackToMenu){
 
                 }else if(id==R.id.menuEveryDay){
 
                 }else if(id==R.id.menuOrderHistory){
+                    addFragment(R.id.fragmentContent,new OrderHistoryFragment(),true,false);
 
                 }else if(id==R.id.menuFavouriteProduct){
 
@@ -105,16 +113,21 @@ public class MenuActivity extends CommonActivity {
                 }else if(id==R.id.menuTradeOrder){
 
                 }else if(id==R.id.menuDisclaimer){
+                    addFragment(R.id.fragmentContent,new TCDesclaimerFragment(),true,false);
 
                 }else if(id==R.id.menuFeedBack){
+                    addFragment(R.id.fragmentContent,new FeedbackFragment(),true,false);
 
                 }
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
+
             }
         });
     }
+
+
 
     @Override
     public void onBackPressed() {

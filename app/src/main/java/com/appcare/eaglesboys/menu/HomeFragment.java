@@ -21,14 +21,14 @@ public class HomeFragment extends CommonFragment{
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addFragment(new FullMenuFragment(),true,false);
+                addFragment(R.id.fragmentContent, new FullMenuFragment(),true,false);
 
             }
         });
         btnEveryDayOffers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addFragment(new OffersFragment(),false,true);
+                addFragment(R.id.fragmentContent, new OffersFragment(),false,true);
             }
         });
 

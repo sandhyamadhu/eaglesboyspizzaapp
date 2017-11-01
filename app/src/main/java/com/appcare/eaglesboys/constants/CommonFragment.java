@@ -41,7 +41,7 @@ public class CommonFragment extends Fragment implements EagleResponseListener {
 
     }
 
-    public void addFragment(Fragment fragment, boolean addStack, boolean isReplace){
+    public void addFragment(int fragmentContent, Fragment fragment, boolean addStack, boolean isReplace){
         ((CommonActivity)mContext).addFragment(R.id.fragmentContent,fragment,addStack,isReplace);
     }
 

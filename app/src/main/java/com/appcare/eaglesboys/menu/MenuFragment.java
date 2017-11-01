@@ -59,6 +59,6 @@ public class MenuFragment extends CommonFragment{
         super.onCartItemSelected();
 
         System.out.println("22222");
-        addFragment(new CartFragment(),true,false);
+        addFragment(R.id.fragmentContent, new CartFragment(),true,false);
     }
 }
