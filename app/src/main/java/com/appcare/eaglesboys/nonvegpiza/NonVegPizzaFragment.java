@@ -6,8 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
-import com.appcare.eaglesboys.constants.CommonFragment;
 import com.appcare.eaglesboys.R;
+import com.appcare.eaglesboys.constants.CommonFragment;
+import com.appcare.eaglesboys.utils.HttpHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,6 +22,7 @@ public class NonVegPizzaFragment extends CommonFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View mNonVegPizza = inflater.inflate(R.layout.fragment_nonvegpizza,null);
+        HttpHandler.sendRequest("categories_api/allcat_pizza?categories_id=2",mResponseHandler,"NonVegPizza");
 
         initNonVegPizzaViews(mNonVegPizza);
         return mNonVegPizza;
@@ -155,10 +157,10 @@ public class NonVegPizzaFragment extends CommonFragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        
+
+*/
 
 
-    }*/
 
     private void initNonVegPizzaAdapter() {
 

@@ -118,4 +118,16 @@
         android:textStyle="bold"
         android:layout_marginTop="30dp"
          />
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/customeColor"
+        android:layout_width="wrap_content"
+        android:textColor="#ffffff"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:text="LogOut"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        />
 </LinearLayout>

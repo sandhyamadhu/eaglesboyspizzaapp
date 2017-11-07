@@ -50,6 +50,7 @@ public class OrderHistoryListAdapter extends BaseAdapter {
         holder.mTxtOderTime.setText(details.getMtiming());
         holder.mTxtOrderCost.setText(details.getMcost());
 
+
         return convertView;
 
     }

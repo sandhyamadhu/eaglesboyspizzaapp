@@ -1,6 +1,7 @@
 package com.appcare.eaglesboys.placeorder;
 
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,11 +10,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import com.appcare.eaglesboys.constants.CommonFragment;
 import com.appcare.eaglesboys.R;
+import com.appcare.eaglesboys.activities.Payment;
+import com.appcare.eaglesboys.constants.CommonFragment;
 import com.appcare.eaglesboys.menu.MenuFragment;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class CartFragment extends CommonFragment implements View.OnClickListener{
 
@@ -61,6 +70,8 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
     private Button mBtnMenuScreen;
     private Button mBtnPlaceOrder;
     private Button mBtnDeliveryASAP;
+    private ListView mLvCartItems;
+    private Button mBtnDel;
     private void initViews(View mChartViews){
         mEdtCoupon = (EditText)mChartViews.findViewById(R.id.edtCoupon);
         mTxtDiscount = (TextView)mChartViews.findViewById(R.id.txtDiscount);
@@ -80,13 +91,55 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
         mBtnApply.setOnClickListener(this);
 
         mBtnEdit = (Button)mChartViews.findViewById(R.id.btnEdit);
-        mBtnEdit.setOnClickListener(this);
+
 
         mBtnDeliveryASAP = (Button)mChartViews.findViewById(R.id.btnDeliveryASAP);
         mBtnDeliveryASAP.setOnClickListener(this);
 
         mBtnMenuScreen = (Button)mChartViews.findViewById(R.id.btnMenuScreen);
         mBtnMenuScreen.setOnClickListener(this);
+        mLvCartItems=(ListView)mChartViews.findViewById(R.id.cartitemslv);
+        mBtnDel=(Button) mChartViews.findViewById(R.id.btnDelItem);
+
+        init();
+    }
+    ArrayList<CartDetails> mCartItems=new ArrayList<>();
+    String cartList="{\"cartdetails\":[{\"item\":\"pizza\",\"qty\":\"2\",\"price\":\"250\"},{\"item\":\"pizza\",\"qty\":\"2\",\"price\":\"250\"},{\"item\":\"pizza\",\"qty\":\"2\",\"price\":\"250\"},{\"item\":\"pizza\",\"qty\":\"2\",\"price\":\"250\"},{\"item\":\"pizza\",\"qty\":\"2\",\"price\":\"250\"}]}";
+    private void init() {
+        try {
+            JSONObject mJsonObject=new JSONObject(cartList);
+            JSONArray mJsonArray=mJsonObject.getJSONArray("cartdetails") ;
+
+            for(int i=0;i<mJsonArray.length();i++)
+            {
+                CartDetails mCDetails=new CartDetails();
+                JSONObject mInnerJsonObject=mJsonArray.getJSONObject(i);
+
+                mCDetails.setPizzaName(mInnerJsonObject.getString("item"));
+                mCDetails.setPizzaQty(mInnerJsonObject.getString("qty"));
+                mCDetails.setPizzaPrice(mInnerJsonObject.getString("price"));
+                mCartItems.add(mCDetails);
+            }
+            initsetAdp();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void initsetAdp() {
+      final CartListAdapter mCartListAdapter=new CartListAdapter(mContext,mCartItems);
+        mLvCartItems.setAdapter(mCartListAdapter);
+        mBtnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//
+                mCartListAdapter.setButtonVisibility(false);
+               mLvCartItems.setAdapter(mCartListAdapter);
+            }
+        });
+        mCartListAdapter.notifyDataSetChanged();
 
     }
 
@@ -96,7 +149,8 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
         switch (v.getId()) {
 
             case R.id.btnPlaceOrder:
-                // do your code
+                Intent i=new Intent(getActivity(), Payment.class);
+                startActivity(i);
                 break;
 
             case R.id.btnApply:
@@ -106,16 +160,14 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
             case R.id.btnDeliveryASAP:
                 // do your code
                 break;
-            case R.id.btnEdit:
-                // do your code
-                break;
+
             case R.id.txtHaveACoupon:
                 mTxtHaveACoupon.setVisibility(View.GONE);
                 mCouponLayout.setVisibility(View.VISIBLE);
                 break;
 
             case R.id.btnMenuScreen:
-                addFragment(R.id.fragmentContent, new MenuFragment(),false,true);
+                addFragment(R.id.fragmentContent, new MenuFragment(), false, true);
                 break;
 
             default:

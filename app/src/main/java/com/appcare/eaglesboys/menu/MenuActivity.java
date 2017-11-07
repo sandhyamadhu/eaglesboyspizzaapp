@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.appcare.eaglesboys.Feedback.FeedbackFragment;
+import com.appcare.eaglesboys.MealDeal.MealDealFragment;
 import com.appcare.eaglesboys.OrderHistory.OrderHistoryFragment;
 import com.appcare.eaglesboys.Profile.ProfileFragment;
 import com.appcare.eaglesboys.R;
@@ -97,16 +98,24 @@ public class MenuActivity extends CommonActivity {
                 int id = item.getItemId();
 
                 if (id==R.id.menuProfile) {
-                    addFragment(R.id.fragmentContent,new ProfileFragment(),true,false);
+                    addFragment(R.id.fragmentContent,new ProfileFragment(),false,true);
 
-                }else if (id==R.id.menuBackToMenu){
+                }else if(id==R.id.menuDeals)
+                {
+                    addFragment(R.id.fragmentContent,new MealDealFragment(),false,true);
+                }
+                else if(id==R.id.menuNewOrders)
+                {
+                    addFragment(R.id.fragmentContent,new MenuFragment(),false,true);
+                }
+                else if (id==R.id.menuBackToMenu){
+                    addFragment(R.id.fragmentContent,new HomeFragment(),false,true );
 
                 }else if(id==R.id.menuEveryDay){
+                    addFragment(R.id.fragmentContent,new OffersFragment(),false,true);
 
-                }else if(id==R.id.menuOrderHistory){
-                    addFragment(R.id.fragmentContent,new OrderHistoryFragment(),true,false);
-
-                }else if(id==R.id.menuFavouriteProduct){
+                }else if(id==R.id.menuOrderHistory) {
+                    addFragment(R.id.fragmentContent, new OrderHistoryFragment(), true, false);
 
                 }else if(id==R.id.menuFavouriteOrder){
 

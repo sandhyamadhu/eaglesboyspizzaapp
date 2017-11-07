@@ -29,8 +29,8 @@
     </group>
 
     <group android:id="@+id/grp7" android:checkableBehavior="single" >
-        <item android:id="@+id/menuFavouriteProduct" android:icon="@mipmap/favproduct"
-            android:title="Favourite Product"/>
+        <item android:id="@+id/menuCopoun" android:icon="@mipmap/favproduct"
+            android:title="Coupons"/>
     </group>
 
     <group android:id="@+id/grp8" android:checkableBehavior="single" >

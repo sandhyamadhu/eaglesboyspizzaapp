@@ -21,7 +21,7 @@ public class HomeFragment extends CommonFragment{
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addFragment(R.id.fragmentContent, new FullMenuFragment(),true,false);
+                addFragment(R.id.fragmentContent, new FullMenuFragment(),false,true);
 
             }
         });

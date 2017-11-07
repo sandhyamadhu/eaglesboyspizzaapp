@@ -1,5 +1,6 @@
 package com.appcare.eaglesboys.Profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.constants.CommonFragment;
+import com.appcare.eaglesboys.menuotp.MainActivity;
 
 /**
  * Created by Appcare on 01-11-2017.
@@ -24,6 +26,7 @@ public class ProfileFragment extends CommonFragment {
 
     private void initCreateViews(View mProfile) {
         Button edtBtn=(Button) mProfile.findViewById(R.id.btnEdit);
+        Button logoutBtn=(Button) mProfile.findViewById(R.id.btnLogout);
         final EditText ename=(EditText)mProfile.findViewById(R.id.txtname);
         EditText enumber=(EditText)mProfile.findViewById(R.id.txtnumber);
         final EditText eaddress=(EditText)mProfile.findViewById(R.id.txtaddress);
@@ -34,5 +37,14 @@ public class ProfileFragment extends CommonFragment {
                 eaddress.setFocusableInTouchMode(true);
             }
         });
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(), MainActivity.class);
+                startActivity(i);
+
+            }
+        });
+
     }
 }

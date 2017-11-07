@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingTop="10dp"
+    android:layout_height="match_parent"
+    android:background="@color/blackcolor">
+    <ExpandableListView
+        android:id="@+id/dealsList"
+        android:dividerHeight="5dp"
+        android:divider="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ExpandableListView>
+</LinearLayout>

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class VegListAdapter extends BaseExpandableListAdapter {
+ public class VegListAdapter extends BaseExpandableListAdapter {
 
 
 
@@ -121,7 +121,6 @@ public class VegListAdapter extends BaseExpandableListAdapter {
                 }
             }
         });
-
         return convertView;
     }
 
@@ -154,6 +153,12 @@ public class VegListAdapter extends BaseExpandableListAdapter {
 
 
                 if(isChecked) {
+                    if(mPreviousCrustLayout==null)
+                    {
+                        for (int i = 0; i < crust.size(); i++) {
+                            createCrustItemsRow(crust.get(i).getName(), mCrustLayout);
+                        }
+                    }
 
                     if(mPreviousCrustLayout != null) {
 
@@ -163,9 +168,7 @@ public class VegListAdapter extends BaseExpandableListAdapter {
                         previousCheckBoxl.setChecked(false);
                     }
 
-                    for (int i = 0; i < crust.size(); i++) {
-                        createCrustItemsRow(crust.get(i).getName(), mCrustLayout);
-                    }
+
                 }else {
                     mCrustLayout.removeAllViews();
                 }
@@ -182,14 +185,13 @@ public class VegListAdapter extends BaseExpandableListAdapter {
         return mainLayout;
     }
 
-    private LinearLayout createCrustItemsRow(String key, LinearLayout mCrustLayout) {
-        CheckBox mCheckBox = new CheckBox(mContext);
+    private LinearLayout createCrustItemsRow(String key, final LinearLayout mCrustLayout) {
+        final CheckBox mCheckBox = new CheckBox(mContext);
         mCheckBox.setTextColor(mColorCode);
         mCheckBox.setText(key);
         mCheckBox.setPadding(5,0,0,5);
         mCheckBox.setSingleLine(true);
         setButtonTint(mCheckBox,mColorStateList);
-
         mCrustLayout.addView(mCheckBox);
         return mCrustLayout;
     }
@@ -275,7 +277,7 @@ public class VegListAdapter extends BaseExpandableListAdapter {
     public static void setButtonTint(CheckBox button, ColorStateList tint) {
         if (Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP && button instanceof AppCompatCheckBox) {
             ((AppCompatCheckBox) button).setBackgroundTintList(tint);
-        } else {
+        } else{
             ViewCompat.setBackgroundTintList(button, tint);
         }
     }

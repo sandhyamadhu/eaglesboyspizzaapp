@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,16 +22,11 @@ import android.widget.TextView;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.menu.MenuActivity;
 import com.appcare.eaglesboys.topins.ToppinsFragment;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NonVegListAdapter extends BaseExpandableListAdapter {
-
-
-
-
 
     private Context mContext;
     private int mColorCode = 0XFFC72F82;
@@ -152,6 +146,7 @@ public class NonVegListAdapter extends BaseExpandableListAdapter {
     @Override
     public int getChildrenCount(int groupPosition) {
         return this.mListDataHeader.get(groupPosition).getChild().size();
+
     }
 
     @Override
