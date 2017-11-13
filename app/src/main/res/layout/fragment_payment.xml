@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/blackcolor"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:gravity="center"
+        android:text="CHOOSE PAYMENT METHODS"
+        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textColor="@color/customeColor"
+        android:background="@color/blackcolor"/>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/cornerdesign"
+        >
+       <ImageView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:src="@mipmap/pay"/>
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <android.support.v7.widget.CardView
+            android:layout_width="95dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:src="@mipmap/ruby"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cash On Delivery"
+                    android:textColor="@color/customeColor"
+                    android:textStyle="bold"
+
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"/>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="95dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:src="@mipmap/card"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Credit Card"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
+                    android:textColor="@color/customeColor"
+
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <android.support.v7.widget.CardView
+            android:layout_width="95dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:src="@mipmap/card"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Debit Card"
+                    android:textColor="@color/customeColor"
+                    android:textStyle="bold"
+
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"/>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="95dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:src="@mipmap/net"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Net Banking"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
+                    android:textColor="@color/customeColor"
+
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <android.support.v7.widget.CardView
+            android:layout_width="95dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:src="@mipmap/wallet"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wallet"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
+                    android:textColor="@color/customeColor"
+
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:layout_width="95dp"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:src="@mipmap/voucher"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="E Voucher"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
+                    android:textColor="@color/customeColor"
+
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+</LinearLayout>

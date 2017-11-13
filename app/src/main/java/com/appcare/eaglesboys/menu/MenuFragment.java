@@ -1,6 +1,8 @@
 package com.appcare.eaglesboys.menu;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -41,6 +43,7 @@ public class MenuFragment extends CommonFragment{
 
     private ViewPager mPizzaPager;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initSetUPPizzaTypes(View mPizzaView) {
 
         mPizzaPager = (ViewPager) mPizzaView.findViewById(R.id.pizzaPager);
@@ -50,6 +53,7 @@ public class MenuFragment extends CommonFragment{
         mPizzaPager.setClipToPadding(false);
 
         final TabLayout tabLayout = (TabLayout) mPizzaView.findViewById(R.id.tab_layout);
+
         tabLayout.setupWithViewPager(mPizzaPager);
 
     }

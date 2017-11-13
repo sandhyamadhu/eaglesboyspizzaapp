@@ -28,7 +28,7 @@ public class PastaFragment extends CommonFragment{
     private ListView mPastaListview;
     private void initPastaViews(View mpastaView) {
         mPastaListview=(ListView) mpastaView.findViewById(R.id.pastaListview);
-        HttpHandler.sendRequest("foods_api/sides",mResponseHandler,"sides");
+        HttpHandler.sendRequest("foods_api/beverage",mResponseHandler,"beverages");
     }
     ArrayList<PastaDetails> mPastaDetails = new ArrayList<>();
 
@@ -38,7 +38,7 @@ public class PastaFragment extends CommonFragment{
         mPastaDetails.clear();
         try {
             JSONObject mJSObject = new JSONObject(response.toString());
-            JSONArray jsonarray= mJSObject.getJSONArray("sides");
+            JSONArray jsonarray= mJSObject.getJSONArray("beverages");
             for (int i=0;i<jsonarray.length();i++){
 
                 PastaDetails mDetails = new PastaDetails();
@@ -49,7 +49,7 @@ public class PastaFragment extends CommonFragment{
                 mDetails.setmPastaImage(image);
                 mDetails.setmPastaName(jsonObj.getString("name"));
                 mDetails.setmPastaPrice(jsonObj.getString("price"));
-                mDetails.setmPastaDesc(desc);
+
 
                 mPastaDetails.add(mDetails);
             }

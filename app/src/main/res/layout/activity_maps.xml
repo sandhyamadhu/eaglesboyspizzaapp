@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/map"
+        tools:context=".MapsActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+
+    <!--<com.arlib.floatingsearchview.FloatingSearchView-->
+    <!--android:id="@+id/floating_search_view1"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--app:floatingSearch_suggestionsListAnimDuration="250"-->
+    <!--app:floatingSearch_showSearchKey="false"-->
+    <!--app:floatingSearch_leftActionMode="showHamburger"-->
+    <!--app:floatingSearch_menu="@menu/menu_main"-->
+    <!--android:visibility="invisible"-->
+    <!--app:floatingSearch_close_search_on_keyboard_dismiss="true"/>-->
+
+    <Button
+        android:id="@+id/okLocation"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Add This Location"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/customeColor"
+        android:layout_marginBottom="60dp"
+        android:textColor="#ffffff"
+        android:onClick="addThisLocation"
+
+        />
+    <Button
+        android:id="@+id/addLocation"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Add new Location"
+        android:layout_alignBottom="@+id/okLocation"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/customeColor"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="5dp"
+        android:onClick="addNewLocation"
+
+        />
+
+    <fragment
+        android:id="@+id/place_autocomplete_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+        />
+
+
+</RelativeLayout>

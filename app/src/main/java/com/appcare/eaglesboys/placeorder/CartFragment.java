@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.appcare.eaglesboys.R;
@@ -26,7 +28,7 @@ import java.util.ArrayList;
 
 public class CartFragment extends CommonFragment implements View.OnClickListener{
 
-
+    String colors[] = {"10.30 AM","11.30 AM","12.30 pM","1.30 PM"};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -69,7 +71,7 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
     private Button mBtnEdit;
     private Button mBtnMenuScreen;
     private Button mBtnPlaceOrder;
-    private Button mBtnDeliveryASAP;
+    private Spinner mBtnDeliveryASAP;
     private ListView mLvCartItems;
     private Button mBtnDel;
     private void initViews(View mChartViews){
@@ -93,8 +95,9 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
         mBtnEdit = (Button)mChartViews.findViewById(R.id.btnEdit);
 
 
-        mBtnDeliveryASAP = (Button)mChartViews.findViewById(R.id.btnDeliveryASAP);
-        mBtnDeliveryASAP.setOnClickListener(this);
+        mBtnDeliveryASAP = (Spinner) mChartViews.findViewById(R.id.btnDeliveryASAP);
+        initSetUpTime();
+
 
         mBtnMenuScreen = (Button)mChartViews.findViewById(R.id.btnMenuScreen);
         mBtnMenuScreen.setOnClickListener(this);
@@ -103,6 +106,15 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
 
         init();
     }
+
+    private void initSetUpTime() {
+
+        ArrayAdapter<String> mSprFilterAdapter = new ArrayAdapter<String> (getContext(), android.R.layout.simple_spinner_item,colors);
+        mSprFilterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+         mBtnDeliveryASAP.setAdapter(mSprFilterAdapter);
+
+    }
+
     ArrayList<CartDetails> mCartItems=new ArrayList<>();
     String cartList="{\"cartdetails\":[{\"item\":\"pizza\",\"qty\":\"2\",\"price\":\"250\"},{\"item\":\"pizza\",\"qty\":\"2\",\"price\":\"250\"},{\"item\":\"pizza\",\"qty\":\"2\",\"price\":\"250\"},{\"item\":\"pizza\",\"qty\":\"2\",\"price\":\"250\"},{\"item\":\"pizza\",\"qty\":\"2\",\"price\":\"250\"}]}";
     private void init() {
@@ -157,9 +169,6 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
                 // do your code
                 break;
 
-            case R.id.btnDeliveryASAP:
-                // do your code
-                break;
 
             case R.id.txtHaveACoupon:
                 mTxtHaveACoupon.setVisibility(View.GONE);

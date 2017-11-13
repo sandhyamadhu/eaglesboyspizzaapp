@@ -10,8 +10,8 @@
 
     <!-- view border color and width -->
     <stroke
-        android:width="3dp"
-        android:color="#ffffff" >
+        android:width="1.5dp"
+        android:color="#000000" >
     </stroke>
 
     <!-- If you want to add some padding -->
@@ -24,7 +24,7 @@
 
     <!-- Here is the corner radius -->
     <corners
-        android:radius="10dp"   >
+        android:radius="5dp"   >
     </corners>
 
 </shape>

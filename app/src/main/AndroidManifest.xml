@@ -2,15 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.appcare.eaglesboys">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="ANDROID.PERMISSION.ACCESS_NETWORK_STATE" />
 
-
     <application
-        android:name="com.appcare.eaglesboys.utils.AppController"
+        android:name=".utils.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,82 +18,108 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".splash.SplashActivity"
-            android:label="@string/app_name"
             android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".menuotp.MainActivity"
-            android:label="@string/app_name"
             android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="com.example.appcare.myapplication" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".delivery.DeliveryActivity"
-            android:label="@string/title_activity_clickskip"
             android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/title_activity_clickskip"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".menu.MenuActivity"
-            android:label="@string/title_activity_dupe_menu"
             android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/title_activity_dupe_menu"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.AddAddress"
-            android:label="@string/title_activity_add_address"
             android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/title_activity_add_address"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.FullMenu"
-            android:label="@string/title_activity_full_menu"
             android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/title_activity_full_menu"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.OffersPage"
-            android:label="@string/title_activity_offers_page"
             android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/title_activity_offers_page"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.DupeMenu"
-            android:label="@string/title_activity_dupe_menu"
             android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/title_activity_dupe_menu"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.RealMenu"
-            android:label="@string/title_activity_real_menu"
             android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/title_activity_real_menu"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.CartPage"
-            android:label="@string/title_activity_cart_page"
             android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/title_activity_cart_page"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
-            android:name=".activities.Payment"
-            android:label="@string/title_activity_cart_page"
+            android:name=".activities.P"
             android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/title_activity_cart_page"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
 
+        </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCLgTeui7iQvdx6d0U2SwbhEF4P_9wzdRk" />
+
+        <activity
+            android:name=".location.MapsActivity"
+            android:label="@string/title_activity_maps">
+
+        </activity>
+        <activity
+            android:name=".activities.Payment"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/title_activity_cart_page"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

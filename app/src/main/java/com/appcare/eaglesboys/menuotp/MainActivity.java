@@ -16,6 +16,7 @@ import com.appcare.eaglesboys.constants.CommonActivity;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.activities.AddAddress;
 import com.appcare.eaglesboys.delivery.DeliveryActivity;
+import com.appcare.eaglesboys.location.MapsActivity;
 import com.appcare.eaglesboys.utils.HttpHandler;
 
 import org.json.JSONException;
@@ -162,4 +163,12 @@ public class MainActivity extends CommonActivity {
         Intent i=new Intent(MainActivity.this,DeliveryActivity.class);
         startActivity(i);
     }
+
+    public void locateMe(View view){
+        Intent i=new Intent (MainActivity.this, MapsActivity.class);
+        startActivity (i);
+
+    }
+
+
 }

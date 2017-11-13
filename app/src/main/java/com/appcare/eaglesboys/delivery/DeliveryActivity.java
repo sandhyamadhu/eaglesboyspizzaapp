@@ -3,8 +3,6 @@ package com.appcare.eaglesboys.delivery;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,12 +11,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-import com.appcare.eaglesboys.constants.CommonActivity;
 import com.appcare.eaglesboys.R;
+import com.appcare.eaglesboys.constants.CommonActivity;
 import com.appcare.eaglesboys.location.AppLocationService;
-import com.appcare.eaglesboys.location.LocationAddress;
+import com.appcare.eaglesboys.location.MapsActivity;
 import com.appcare.eaglesboys.menu.MenuActivity;
 import com.appcare.eaglesboys.utils.HttpHandler;
 
@@ -53,9 +53,16 @@ public class DeliveryActivity extends CommonActivity {
 
     private Spinner mSpnrCity;
     private Spinner mSpnrArea;
+    private  LinearLayout linearLayout1;
+    private  Button showMenu;
+
     private void initSetUpViews() {
         mSpnrCity = (Spinner) findViewById(R.id.spnrCity);
         mSpnrArea=(Spinner) findViewById(R.id.spnrArea);
+         linearLayout1=(LinearLayout) findViewById (R.id.spinnerLayout);
+
+        showMenu=(Button) findViewById (R.id.btnShow);
+
     }
 
     List<String> mCityName = new ArrayList<>();
@@ -126,6 +133,31 @@ public class DeliveryActivity extends CommonActivity {
 
     }
 
+    public void homeDeliveryClick(View v) {
+//        linearLayout1.setEnabled (false);
+        btnSkipLocateMe.setEnabled (true);
+        for ( int i = 0; i < linearLayout1.getChildCount();  i++ ){
+            v=linearLayout1.getChildAt(i);
+            v.setEnabled(false); // Or whatever you want to do with the view.
+            Toast.makeText (getApplicationContext (),"You have choosen Home Delivery, So please click on Locatee Button",Toast.LENGTH_SHORT).show ();
+        }
+
+
+    }
+
+    public void pickUpClick(View v) {
+
+        btnSkipLocateMe.setEnabled (false);
+        for ( int i = 0; i < linearLayout1.getChildCount();  i++ ){
+            v =linearLayout1.getChildAt(i);
+            v.setEnabled(true); // Or whatever you want to do with the view.
+            Toast.makeText (getApplicationContext (),"You have choosen Pick Up, So please Select the store",Toast.LENGTH_SHORT).show ();
+
+        }
+
+
+    }
+
     private class GeocoderHandler extends Handler {
         @Override
         public void handleMessage(Message message) {
@@ -152,24 +184,26 @@ public class DeliveryActivity extends CommonActivity {
         btnSkipLocateMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-
-                Location location = appLocationService
-                        .getLocation(LocationManager.GPS_PROVIDER);
-
-                //you can hard-code the lat & long if you have issues with getting it
-                //remove the below if-condition and use the following couple of lines
-                //double latitude = 37.422005;
-                //double longitude = -122.084095
-
-                if (location != null) {
-                    double latitude = location.getLatitude();
-                    double longitude = location.getLongitude();
-                    LocationAddress locationAddress = new LocationAddress();
-                    locationAddress.getAddressFromLocation(latitude, longitude,
-                            getApplicationContext(), new GeocoderHandler());
-                } else {
-                    showSettingsAlert();
-                }
+                Intent i =new Intent (DeliveryActivity.this, MapsActivity.class);
+                startActivity (i);
+//
+//                Location location = appLocationService
+//                        .getLocation(LocationManager.GPS_PROVIDER);
+//
+//                //you can hard-code the lat & long if you have issues with getting it
+//                //remove the below if-condition and use the following couple of lines
+//                //double latitude = 37.422005;
+//                //double longitude = -122.084095
+//
+//                if (location != null) {
+//                    double latitude = location.getLatitude();
+//                    double longitude = location.getLongitude();
+//                    LocationAddress locationAddress = new LocationAddress();
+//                    locationAddress.getAddressFromLocation(latitude, longitude,
+//                            getApplicationContext(), new GeocoderHandler());
+//                } else {
+//                    showSettingsAlert();
+//                }
 
             }
         });
@@ -195,5 +229,6 @@ public class DeliveryActivity extends CommonActivity {
                 });
         alertDialog.show();
     }
+
 }
 

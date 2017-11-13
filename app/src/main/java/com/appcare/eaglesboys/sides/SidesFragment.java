@@ -28,7 +28,7 @@ public class SidesFragment extends CommonFragment{
 
     private void initCreateView(View mTopinsView) {
         mSideListView = (ListView)mTopinsView.findViewById(R.id.sidesList);
-        HttpHandler.sendRequest("foods_api/sides",mResponseHandler,"sides");
+        HttpHandler.sendRequest("foods_api/beverage",mResponseHandler,"beverages");
     }
 
     ArrayList<SideDetails> mSideDetails = new ArrayList<>();
@@ -40,7 +40,7 @@ public class SidesFragment extends CommonFragment{
 
         try {
             JSONObject mJSObject = new JSONObject(response.toString());
-            JSONArray jsonarray= mJSObject.getJSONArray("sides");
+            JSONArray jsonarray= mJSObject.getJSONArray("beverages");
             for (int i=0;i<jsonarray.length();i++){
 
                 SideDetails mDetails = new SideDetails();

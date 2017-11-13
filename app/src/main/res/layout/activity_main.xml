@@ -39,6 +39,7 @@
         android:text="Locate Me"
         android:textColor="#C72F82"
         android:textStyle="bold"
+        android:onClick="locateMe"
         android:textAppearance="?android:attr/textAppearanceLargeInverse"/>
     <TextView
         android:id="@+id/skip"

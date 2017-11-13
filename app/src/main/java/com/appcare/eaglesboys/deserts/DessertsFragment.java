@@ -30,7 +30,7 @@ public class DessertsFragment extends CommonFragment{
     private ListView mDesertsList;
     private void initDesertsView(View mDessertsView) {
         mDesertsList = (ListView)mDessertsView.findViewById(R.id.desertsList);
-        HttpHandler.sendRequest("foods_api/sides",mResponseHandler,"sides");
+        HttpHandler.sendRequest("foods_api/beverage",mResponseHandler,"beverages");
 
     }
 
@@ -43,7 +43,7 @@ public class DessertsFragment extends CommonFragment{
 
         try {
             JSONObject mJSObject = new JSONObject(response.toString());
-            JSONArray jsonarray= mJSObject.getJSONArray("sides");
+            JSONArray jsonarray= mJSObject.getJSONArray("beverages");
             for (int i=0;i<jsonarray.length();i++){
 
                 DesertsDetails mDetails = new DesertsDetails();
