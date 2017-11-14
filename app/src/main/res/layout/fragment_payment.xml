@@ -185,7 +185,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:src="@mipmap/voucher"/>
+                    android:src="@mipmap/vocher"/>
 
                 <TextView
                     android:layout_width="match_parent"

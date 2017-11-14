@@ -1,7 +1,6 @@
 package com.appcare.eaglesboys.placeorder;
 
 
-import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,8 +14,8 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.appcare.eaglesboys.Payment.paymentFragment;
 import com.appcare.eaglesboys.R;
-import com.appcare.eaglesboys.activities.Payment;
 import com.appcare.eaglesboys.constants.CommonFragment;
 import com.appcare.eaglesboys.menu.MenuFragment;
 
@@ -161,8 +160,9 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
         switch (v.getId()) {
 
             case R.id.btnPlaceOrder:
-                Intent i=new Intent(getActivity(), Payment.class);
-                startActivity(i);
+//                Intent i=new Intent(getActivity(), Payment.class);
+//                startActivity(i);
+                addFragment (R.id.fragmentContent,new paymentFragment (),false,true);
                 break;
 
             case R.id.btnApply:

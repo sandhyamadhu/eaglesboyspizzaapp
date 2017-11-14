@@ -53,12 +53,14 @@ public class DeliveryActivity extends CommonActivity {
 
     private Spinner mSpnrCity;
     private Spinner mSpnrArea;
+    private Spinner mSpnrStore;
     private  LinearLayout linearLayout1;
     private  Button showMenu;
 
     private void initSetUpViews() {
         mSpnrCity = (Spinner) findViewById(R.id.spnrCity);
         mSpnrArea=(Spinner) findViewById(R.id.spnrArea);
+        mSpnrStore=(Spinner) findViewById (R.id.spnrStore) ;
          linearLayout1=(LinearLayout) findViewById (R.id.spinnerLayout);
 
         showMenu=(Button) findViewById (R.id.btnShow);
@@ -82,6 +84,8 @@ public class DeliveryActivity extends CommonActivity {
                 mCityName.add(cityName);
                 initSetUpCityViews(mCityName);
             }
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -89,7 +93,7 @@ public class DeliveryActivity extends CommonActivity {
 
     }
 
-    private void initSetUpCityViews(List<String> mCityName){
+    private void initSetUpCityViews(final List<String> mCityName){
 
         ArrayAdapter<String> mSprFilterAdapter = new ArrayAdapter<String>(this,R.layout.spinner_list, mCityName);
         mSprFilterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -99,8 +103,9 @@ public class DeliveryActivity extends CommonActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                String mCitiesID = mCityIDs.get(position);
-                //HttpHandler.sendRequest("locality_api/localtiy?city_id="+mCitiesID,mResponseHandler,"CityTab");
+                String mCitiesNames = mCityName.get(position);
+
+                HttpHandler.sendRequest("locality_api/locality",mResponseHandler,"LocalityTab");
             }
 
             @Override
@@ -110,6 +115,7 @@ public class DeliveryActivity extends CommonActivity {
         });
 
     }
+
 
     private void initSetUpLocalViews(List<String> mCityName){
 
@@ -122,7 +128,7 @@ public class DeliveryActivity extends CommonActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 String mCitiesID = mCityIDs.get(position);
-                //HttpHandler.sendRequest("locality_api/localtiy?city_id="+mCitiesID,mResponseHandler,"CityTab");
+//                HttpHandler.sendRequest("locality_api/localtiy?city_id="+mCitiesID,mResponseHandler,"CityTab");
             }
 
             @Override
