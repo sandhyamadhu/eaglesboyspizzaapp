@@ -5,64 +5,64 @@
     android:orientation="vertical"
     android:background="@android:color/black">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:padding="5dp"
-        android:layout_gravity="right"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <!--<LinearLayout-->
+        <!--android:orientation="horizontal"-->
+        <!--android:padding="5dp"-->
+        <!--android:layout_gravity="right"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
 
-        <ImageView
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:paddingRight="10dp"
-            android:src="@drawable/tryyy"/>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:gravity="right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/btnMenuScreen"
-                android:layout_height="50dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:textStyle="italic"
-                android:background="@color/customeColor"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:textColor="@android:color/white"
-                android:textAppearance="?android:attr/textAppearanceSmallInverse"
-                android:text="Show Full &#10; Menu" />
+        <!--<ImageView-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:src="@drawable/tryyy"/>-->
+        <!--<LinearLayout-->
+            <!--android:orientation="horizontal"-->
+            <!--android:gravity="right"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<Button-->
+                <!--android:id="@+id/btnMenuScreen"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:paddingLeft="20dp"-->
+                <!--android:paddingRight="20dp"-->
+                <!--android:textStyle="italic"-->
+                <!--android:background="@color/customeColor"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:textAppearance="?android:attr/textAppearanceSmallInverse"-->
+                <!--android:text="Show Full &#10; Menu" />-->
 
-            <FrameLayout
-                android:layout_width="80dp"
-                android:layout_height="50dp">
+            <!--<FrameLayout-->
+                <!--android:layout_width="80dp"-->
+                <!--android:layout_height="50dp">-->
 
-                <ImageView
-                    android:id="@+id/imgAddToCart"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:background="@android:color/white"
-                    android:src="@drawable/cart"/>
+                <!--<ImageView-->
+                    <!--android:id="@+id/imgAddToCart"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:paddingLeft="5dp"-->
+                    <!--android:paddingRight="5dp"-->
+                    <!--android:background="@android:color/white"-->
+                    <!--android:src="@drawable/cart"/>-->
 
-                <TextView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:text="1"
-                    android:textColor="@android:color/white"
-                    android:layout_gravity="bottom"
-                    android:gravity="center"
-                    android:background="@drawable/black_circle"/>
+                <!--<TextView-->
+                    <!--android:layout_width="30dp"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:text="1"-->
+                    <!--android:textColor="@android:color/white"-->
+                    <!--android:layout_gravity="bottom"-->
+                    <!--android:gravity="center"-->
+                    <!--android:background="@drawable/black_circle"/>-->
 
-            </FrameLayout>
+            <!--</FrameLayout>-->
 
-        </LinearLayout>
-    </LinearLayout>
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
 
 
     <View
@@ -93,7 +93,8 @@
                 android:layout_width="60dp"
                 android:textColor="@android:color/black"
                 android:textAppearance="?android:attr/textAppearanceSmallInverse"
-                android:text="Edit" />
+                android:text="Edit"
+                android:visibility="invisible"/>
 
 
     </LinearLayout>
@@ -161,10 +162,219 @@
 <ListView
     android:id="@+id/cartitemslv"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="145dp"
     >
-
 </ListView>
+        <TextView
+            android:id="@+id/txtNetPrice"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmallInverse"
+            android:background="@color/customeColor"
+            android:textColor="@android:color/white"
+            android:text="Extras"
+           />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btnDelItem"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:text="X"
+                android:textAllCaps="false"
+                android:background="@color/customeColor"
+                android:textColor="#ffffff"
+                android:visibility="invisible"
+                />
+
+            <TextView
+                android:id="@+id/txtPizzaName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textAppearance="?android:attr/textAppearanceSmallInverse"
+                android:textColor="@color/customeColor"
+                android:text="Dips"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/customeColor" />
+
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1.5"
+                android:gravity="center"
+
+                >
+
+                <Button
+                    android:id="@+id/imgSideMinusPrice"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:text=" - "
+                    android:textColor="@color/customeColor"
+                    android:background="@drawable/circle">
+                </Button>
+
+                <TextView
+                    android:id="@+id/edtStartPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:inputType="number"
+                    android:text="1"
+                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                    android:maxLines="1"
+                    android:textColor="@color/customeColor">
+                </TextView>
+
+                <Button
+                    android:id="@+id/imgSidePlusPrice"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:text=" + "
+                    android:textColor="@color/customeColor"
+                    android:background="@drawable/circle">
+                </Button>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/customeColor" />
+
+            <TextView
+                android:id="@+id/txtPizzaPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.6"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="30"
+                android:textAppearance="?android:attr/textAppearanceSmallInverse"
+                android:textColor="@color/customeColor" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/customeColor" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btnDelItem"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:text="X"
+                android:textAllCaps="false"
+                android:background="@color/customeColor"
+                android:textColor="#ffffff"
+                android:visibility="invisible"
+                />
+
+            <TextView
+                android:id="@+id/txtPizzaName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textAppearance="?android:attr/textAppearanceSmallInverse"
+                android:textColor="@color/customeColor"
+                android:text="Ketchup"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/customeColor" />
+
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1.5"
+                android:gravity="center"
+
+                >
+
+                <Button
+                    android:id="@+id/imgSideMinusPrice"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:text=" - "
+                    android:textColor="@color/customeColor"
+                    android:background="@drawable/circle">
+                </Button>
+
+                <TextView
+                    android:id="@+id/edtStartPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:inputType="number"
+                    android:text="1"
+                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                    android:maxLines="1"
+                    android:textColor="@color/customeColor">
+                </TextView>
+
+                <Button
+                    android:id="@+id/imgSidePlusPrice"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:text=" + "
+                    android:textColor="@color/customeColor"
+                    android:background="@drawable/circle">
+                </Button>
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/customeColor" />
+
+            <TextView
+                android:id="@+id/txtPizzaPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.6"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textAppearance="?android:attr/textAppearanceSmallInverse"
+                android:textColor="@color/customeColor"
+                android:text="2"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/customeColor" />
     </LinearLayout>
 
     <View

@@ -12,9 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.appcare.eaglesboys.constants.CommonActivity;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.activities.AddAddress;
+import com.appcare.eaglesboys.constants.CommonActivity;
 import com.appcare.eaglesboys.delivery.DeliveryActivity;
 import com.appcare.eaglesboys.location.MapsActivity;
 import com.appcare.eaglesboys.utils.HttpHandler;
@@ -154,10 +154,6 @@ public class MainActivity extends CommonActivity {
         mMobileNumber = "";
     }
 
-    public void addNewAddress(View view) {
-        Intent i=new Intent(MainActivity.this,AddAddress.class);
-        startActivity(i);
-    }
 
     public void skip(View view) {
         Intent i=new Intent(MainActivity.this,DeliveryActivity.class);
@@ -171,4 +167,8 @@ public class MainActivity extends CommonActivity {
     }
 
 
+    public void addNewAddress(View view) {
+        Intent i = new Intent (MainActivity.this, AddAddress.class);
+        startActivity (i);
+    }
 }

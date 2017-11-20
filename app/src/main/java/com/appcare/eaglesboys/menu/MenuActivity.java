@@ -39,6 +39,7 @@ public class MenuActivity extends CommonActivity {
     private AppBarLayout mAppBarLayout;
     private LinearLayout mHeaderImageLayout;
     private LinearLayout mHeaderSearchLayout;
+    private LinearLayout mHeaderCartLayout;
 
 
     private void initDrawerLayoutView() {
@@ -52,6 +53,7 @@ public class MenuActivity extends CommonActivity {
         });
         mHeaderImageLayout = (LinearLayout)findViewById(R.id.headerImageLayout);
         mHeaderSearchLayout = (LinearLayout)findViewById(R.id.headerSearchLayout);
+        mHeaderCartLayout=(LinearLayout) findViewById (R.id.headerCartLayout);
 
         mAppBarLayout = (AppBarLayout)findViewById(R.id.appBarLayout);
 
@@ -81,6 +83,9 @@ public class MenuActivity extends CommonActivity {
 
     public void hideSearchLayout(int mVisibility){
         mHeaderSearchLayout.setVisibility(mVisibility);
+    }
+    public  void hideCartLayout(int mVisibility){
+        mHeaderCartLayout.setVisibility (mVisibility);
     }
 
     public void hideAppBarLayout(int mVisibility){

@@ -5,18 +5,22 @@ package com.appcare.eaglesboys.constants;
  */
 
 public class Calculations {
-    int oldnum,newnum;
-    String snewnum;
-    public String plus(String currentitem)
+   static int oldnum,newnum;
+     static String snewnum;
+    public static String plus(String currentitemplus)
     {
-        oldnum=Integer.parseInt(currentitem.toString());
+        oldnum=Integer.parseInt(currentitemplus);
         newnum=oldnum+1;
          snewnum  = String.valueOf(newnum);
         return snewnum;
     }
-    public  void minus()
-    {
+    public  static  String minus(String currentitemminus) {
+        oldnum = Integer.parseInt (currentitemminus);
+        if (!((oldnum) <= 1)) {
+            newnum = oldnum - 1;
+            snewnum = String.valueOf (newnum);
 
+        }
+        return snewnum;
     }
-
 }

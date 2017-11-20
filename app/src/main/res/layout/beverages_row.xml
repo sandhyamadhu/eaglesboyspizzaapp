@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:background="@drawable/layout_white_croner"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:padding="5dp"
@@ -73,11 +73,11 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/imgBeveragesPlusPrice"
+                android:id="@+id/imgBeveragesMinusPrice"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
-                android:text=" + "
+                android:text=" - "
                 android:textColor="@color/customeColor"
                 android:background="@drawable/circle">
             </Button>
@@ -97,13 +97,13 @@
             </TextView>
 
             <Button
-                android:id="@+id/imgBeveragesMinusPrice"
+                android:id="@+id/imgBeveragesPlusPrice"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
-                android:text=" - "
+                android:text=" + "
                 android:textColor="@color/customeColor"
                 android:background="@drawable/circle">
             </Button>

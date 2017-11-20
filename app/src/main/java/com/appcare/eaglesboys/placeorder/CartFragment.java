@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.appcare.eaglesboys.Payment.paymentFragment;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.constants.CommonFragment;
-import com.appcare.eaglesboys.menu.MenuFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,7 +25,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class CartFragment extends CommonFragment implements View.OnClickListener{
-
+    public static Button mBtnEdit;
     String colors[] = {"10.30 AM","11.30 AM","12.30 pM","1.30 PM"};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,38 +44,40 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
     }
 
     private void initMenuVisibility() {
-        handleAppBarVisibility(View.GONE);
-        hideHeaderImageVisibility(View.VISIBLE);
+
+        hideHeaderImageVisibility(View.GONE);
         hideHeaderSearchVisibility(View.GONE);
+          hideHeadercartVisibility(View.VISIBLE);
     }
+
+
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        handleAppBarVisibility(View.VISIBLE);
+
         hideHeaderImageVisibility(View.GONE);
-        hideHeaderSearchVisibility(View.VISIBLE);
+        hideHeaderSearchVisibility(View.GONE);
+        hideHeadercartVisibility(View.VISIBLE);
     }
 
-    private TextView mTxtGrandTotal;
     private TextView mTxtDiscount;
     private LinearLayout mCouponLayout;
-    private EditText mEdtCoupon;
     private TextView mTxtHaveACoupon;
     private TextView mTxtNetPrice;
     private TextView mTxtGSTPrice;
 
     private Button mBtnApply;
-    private Button mBtnEdit;
+
     private Button mBtnMenuScreen;
     private Button mBtnPlaceOrder;
     private Spinner mBtnDeliveryASAP;
     private ListView mLvCartItems;
     private Button mBtnDel;
     private void initViews(View mChartViews){
-        mEdtCoupon = (EditText)mChartViews.findViewById(R.id.edtCoupon);
+        EditText mEdtCoupon = (EditText) mChartViews.findViewById (R.id.edtCoupon);
         mTxtDiscount = (TextView)mChartViews.findViewById(R.id.txtDiscount);
-        mTxtGrandTotal = (TextView)mChartViews.findViewById(R.id.txtGrandTotal);
+        TextView mTxtGrandTotal = (TextView) mChartViews.findViewById (R.id.txtGrandTotal);
         mTxtHaveACoupon = (TextView)mChartViews.findViewById(R.id.txtHaveACoupon);
         mTxtNetPrice = (TextView)mChartViews.findViewById(R.id.txtNetPrice);
         mTxtGSTPrice = (TextView)mChartViews.findViewById(R.id.txtGSTPrice);
@@ -98,8 +99,8 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
         initSetUpTime();
 
 
-        mBtnMenuScreen = (Button)mChartViews.findViewById(R.id.btnMenuScreen);
-        mBtnMenuScreen.setOnClickListener(this);
+//        mBtnMenuScreen = (Button)mChartViews.findViewById(R.id.btnMenuScreen);
+//        mBtnMenuScreen.setOnClickListener(this);
         mLvCartItems=(ListView)mChartViews.findViewById(R.id.cartitemslv);
         mBtnDel=(Button) mChartViews.findViewById(R.id.btnDelItem);
 
@@ -145,7 +146,7 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
         mBtnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//
+
                 mCartListAdapter.setButtonVisibility(false);
                mLvCartItems.setAdapter(mCartListAdapter);
             }
@@ -175,9 +176,9 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
                 mCouponLayout.setVisibility(View.VISIBLE);
                 break;
 
-            case R.id.btnMenuScreen:
-                addFragment(R.id.fragmentContent, new MenuFragment(), false, true);
-                break;
+//            case R.id.btnMenuScreen:
+//                addFragment(R.id.fragmentContent, new MenuFragment(), false, true);
+//                break;
 
             default:
                 break;

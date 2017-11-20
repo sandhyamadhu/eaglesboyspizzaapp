@@ -27,8 +27,11 @@ public class MealDealFragment extends CommonFragment{
          return mDeal;
      }
     private ExpandableListView mDealslv;
+
     private void initCreateViews(View mDeal) {
         mDealslv= (ExpandableListView) mDeal.findViewById(R.id.dealsList);
+
+
         init();
 
 
@@ -91,5 +94,6 @@ pDetails.setChildDetails(mChildDetails);
             }
         });
     }
+
 
 }

@@ -3,57 +3,101 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="15dp"
-    android:paddingBottom="15dp"
+
     android:orientation="vertical"
     android:background="#000000">
-
     <LinearLayout
-        android:layout_margin="10dp"
+        android:id="@+id/headerCartLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+
+        >
+        <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center_vertical"
+        android:background="@mipmap/newicon"
+        />
+
 
         <ImageView
-            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:background="@mipmap/ebp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"/>
+        <FrameLayout
+            android:paddingLeft="7dp"
             android:layout_width="80dp"
-            android:layout_height="60dp"
-            android:gravity="left"
-            android:src="@drawable/pizzafinal" />
-
-        <RadioGroup
-            android:layout_weight="1"
-            android:id="@+id/radioGroup1"
-            android:layout_width="100dp"
             android:layout_height="50dp"
-            android:background="@drawable/tabbedbtn"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioAndroid"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/rbtn_selector"
-                android:button="@null"
-                android:checked="true"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="Show Full Menu"
-                android:textColor="@android:color/white"
-                android:textStyle="bold" />
+            android:layout_gravity="center_vertical">
 
             <ImageView
-                android:id="@+id/showcart"
-                android:layout_width="wrap_content"
+                android:id="@+id/imgOrderCount"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="0dp"
-                android:background="@drawable/rbtn_selector"
-                android:src="@drawable/cart" />
-        </RadioGroup>
+                android:layout_margin="5dp"
+                android:padding="5dp"
+                android:background="@android:color/white"
+                android:layout_gravity="center"
+                android:src="@drawable/cart"/>
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="1"
+                android:textColor="@android:color/white"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:background="@drawable/black_circle"/>
+        </FrameLayout>
     </LinearLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_margin="10dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imageView"-->
+            <!--android:layout_width="80dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:gravity="left"-->
+            <!--android:src="@drawable/pizzafinal" />-->
+
+        <!--<RadioGroup-->
+            <!--android:layout_weight="1"-->
+            <!--android:id="@+id/radioGroup1"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:background="@drawable/tabbedbtn"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/radioAndroid"-->
+                <!--android:layout_width="100dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:background="@drawable/rbtn_selector"-->
+                <!--android:button="@null"-->
+                <!--android:checked="true"-->
+                <!--android:gravity="center"-->
+                <!--android:padding="5dp"-->
+                <!--android:text="Show Full Menu"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/showcart"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginBottom="0dp"-->
+                <!--android:background="@drawable/rbtn_selector"-->
+                <!--android:src="@drawable/cart" />-->
+        <!--</RadioGroup>-->
+    <!--</LinearLayout>-->
 
     <View
-        android:layout_marginTop="10dp"
+
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#C72F82"/>

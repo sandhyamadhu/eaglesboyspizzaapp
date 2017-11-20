@@ -6,10 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appcare.eaglesboys.R;
+import com.appcare.eaglesboys.menu.MenuActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -39,7 +41,7 @@ public class DealOneAdapter extends BaseExpandableListAdapter {
     public long getChildId(int groupPosition, int childPosition) {
         return childPosition;
     }
-
+    private Button pizzaclick;
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 //        DealOneAdapter.ViewHolder holder = null;
@@ -48,7 +50,13 @@ public class DealOneAdapter extends BaseExpandableListAdapter {
             LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.deals_row_child, null);
         }
-
+        pizzaclick=(Button) convertView.findViewById (R.id.pizzaDealClick);
+        pizzaclick.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                ( (MenuActivity)mContext).addFragment (R.id.fragmentContent,new InnerMealDealFragment (),true,false);
+            }
+        });
 //            holder = new DealOneAdapter.ViewHolder();
 //            Button pizzaBtn=(Button) convertView.findViewById(R.id.pizzaDeal);
 //            Button drinkBtn=(Button) convertView.findViewById(R.id.drinkDeal);

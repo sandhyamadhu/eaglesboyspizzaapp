@@ -141,7 +141,7 @@ public class RealMenu extends AppCompatActivity {
 //
     private void setupViewPager(ViewPager viewPager)
     {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapterDeal adapter = new ViewPagerAdapterDeal(getSupportFragmentManager());
         veg =new Veg();
         nonveg =new Nonveg();
         pizzamates =new Pizzamates();

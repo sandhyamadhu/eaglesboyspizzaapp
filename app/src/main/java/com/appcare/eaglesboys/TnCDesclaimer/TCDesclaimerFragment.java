@@ -17,8 +17,14 @@ public class TCDesclaimerFragment extends CommonFragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View mDesclaimer=inflater.inflate(R.layout.fragment_desclaimer,null);
+        initMenuVisibility();
         initCreateViews(mDesclaimer);
         return  mDesclaimer;
+    }
+
+    private void initMenuVisibility() {
+        hideHeaderImageVisibility(View.VISIBLE);
+        hideHeaderSearchVisibility(View.GONE);
     }
 
     private void initCreateViews(View mDesclaimer) {

@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appcare.eaglesboys.R;
+import com.appcare.eaglesboys.constants.Calculations;
 import com.appcare.eaglesboys.menu.MenuActivity;
 import com.appcare.eaglesboys.topins.ToppinsFragment;
 import com.squareup.picasso.Picasso;
@@ -28,9 +29,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
- public class VegListAdapter extends BaseExpandableListAdapter {
+public class VegListAdapter extends BaseExpandableListAdapter {
 
-
+   public String currentvalue,newvalue;
 
     private Context mContext;
     private int mColorCode = 0XFFC72F82;
@@ -38,14 +39,17 @@ import java.util.Map;
     int[][] states = new int[][] {new int[] { mColorCode}};
     int[] colors = new int[] {mColorCode};
     ColorStateList mColorStateList = new ColorStateList(states, colors);
-    private List<ClassicVeg> mListDataHeader; // header titles
+    private ArrayList<ClassicVeg> mListDataHeader; // header titles
     private Map<Integer, List<Child>> mListDataChild;
+
+
 
     public VegListAdapter(Context context, ArrayList<ClassicVeg> mVegPizzas, Map<Integer, List<Child>>  mListDataChild) {
 
         this.mContext = context;
         this.mListDataHeader = mVegPizzas;
         this.mListDataChild = mListDataChild;
+
     }
 
     @Override
@@ -60,7 +64,7 @@ import java.util.Map;
 
     private String mCheesePrice;
     @Override
-    public View getChildView(int groupPosition, final int childPosition,
+    public View getChildView(final int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
 
 
@@ -69,6 +73,40 @@ import java.util.Map;
             convertView = mLayoutInflater.inflate(R.layout.non_veg_child, null);
 
         }
+
+         Button plusBtn=(Button)convertView.findViewById (R.id.imgSidePlusPrice) ;
+         Button minusBtn=(Button)convertView.findViewById (R.id.imgSideMinusPrice);
+        final TextView txtBtn=(TextView)convertView.findViewById (R.id.edtStartPrice) ;
+      
+
+
+        plusBtn.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+
+                currentvalue=txtBtn.getText ().toString ();
+                newvalue= Calculations.plus(currentvalue);
+                txtBtn.setText (newvalue);
+                notifyDataSetChanged();
+            }
+
+        });
+
+        minusBtn.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+
+                currentvalue=txtBtn.getText ().toString ();
+                    newvalue= Calculations.minus (currentvalue);
+                    txtBtn.setText (newvalue);
+                notifyDataSetChanged();
+
+
+            }
+        });
+
+
+
 
         TextView mTxtSelectCrust = (TextView)convertView.findViewById(R.id.txtSelectCrust);
         mTxtSelectCrust.setPaintFlags(mTxtSelectCrust.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);

@@ -40,7 +40,7 @@ public class VegPizzaFragment extends CommonFragment{
 
     String mString = "{\"Classic Veg\":[{\"name\":\"Pizza Hut\",\"description\":\"test descrition\",\"price\":\"365\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/43_2017/679a0ae57b87dcb61cb783ad265d2fb2.jpg\",\"child\":[{\"size\":[{\"size_id\":\"24\",\"name\":\"13 inches\",\"price\":\"21\",\"extracheese\":\"55\",\"crust\":[{\"name\":\"New Hand \",\"price\":\"10\"},{\"name\":\"Tossed\",\"price\":\"20\"},{\"name\":\"Thin\",\"price\":\"30\"}]},{\"size_id\":\"25\",\"name\":\"10 inches\",\"price\":\"23\",\"extracheese\":\"65\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"40\"},{\"name\":\"Thick\",\"price\":\"50\"}]},{\"size_id\":\"26\",\"name\":\"7 inches\",\"price\":\"45\",\"extracheese\":\"80\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"60\"}]}]}]},{\"name\":\"Delux Pizza\",\"description\":\"Onion  Capsicum\",\"price\":\"380\",\"image\":\"http://marssofttech.com/demos/eaglepizza//uploads/foods/43_2017/0aee2cd4fd15f77d984c68b4c06d1c0c.jpg\",\"child\":[{\"size\":[{\"size_id\":\"24\",\"name\":\"90 inches\",\"price\":\"90\",\"extracheese\":\"55\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"70\"},{\"name\":\"Thick\",\"price\":\"80\"},{\"name\":\"Thin\",\"price\":\"90\"}]},{\"size_id\":\"25\",\"name\":\"110 inches\",\"price\":\"110\",\"extracheese\":\"65\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"100\"},{\"name\":\"Thick\",\"price\":\"110\"}]},{\"size_id\":\"26\",\"name\":\"201 inches\",\"price\":\"120\",\"extracheese\":\"80\",\"crust\":[{\"name\":\"New Hand Tossed\",\"price\":\"120\"}]}]}]}]}";
 
-    ArrayList<ClassicVeg> mClassicHeaderVegs = new ArrayList<ClassicVeg>();
+    ArrayList<ClassicVeg> mClassicHeaderVegs = new ArrayList<> ();
     Map<Integer, List<Child>> mChild = new HashMap<>();
 
     @Override
@@ -54,7 +54,7 @@ public class VegPizzaFragment extends CommonFragment{
 
             for (int i=0; i<mClassicVegArray.length(); i++) {
 
-                ClassicVeg mClassicVeg = new ClassicVeg();
+                ClassicVeg mClassicVeg = new ClassicVeg ();
 
                 JSONObject mClassVegJSonObject = mClassicVegArray.getJSONObject(i);
 
@@ -107,6 +107,7 @@ public class VegPizzaFragment extends CommonFragment{
                 mChild.put(i, childrens);
                 mClassicHeaderVegs.add(mClassicVeg);
             }
+            initVegPizzaAdapter();
 
 
             initVegPizzaAdapter();

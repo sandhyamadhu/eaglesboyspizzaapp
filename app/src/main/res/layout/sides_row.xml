@@ -71,11 +71,11 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/imgSidePlusPrice"
+                android:id="@+id/imgSideMinusPrice"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
-                android:text=" + "
+                android:text=" - "
                 android:textColor="@color/customeColor"
                 android:background="@drawable/circle">
             </Button>
@@ -95,13 +95,13 @@
             </TextView>
 
             <Button
-                android:id="@+id/imgSideMinusPrice"
+                android:id="@+id/imgSidePlusPrice"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
-                android:text=" - "
+                android:text=" + "
                 android:textColor="@color/customeColor"
                 android:background="@drawable/circle">
             </Button>

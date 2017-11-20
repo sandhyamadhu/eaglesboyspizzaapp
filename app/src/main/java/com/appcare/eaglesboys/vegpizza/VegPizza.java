@@ -15,10 +15,13 @@ public class VegPizza {
     }
 
     public void setClassicVeg(List<ClassicVeg> classicVeg) {
+
         this.classicVeg = classicVeg;
     }
 
-    public Map<String, Object> getAdditionalProperties() {
+    public Map<String, Object> getAdditionalProperties()
+
+    {
         return this.additionalProperties;
     }
 

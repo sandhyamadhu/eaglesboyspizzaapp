@@ -19,7 +19,7 @@
             android:textAllCaps="false"
             android:background="@color/customeColor"
             android:textColor="#ffffff"
-          android:visibility="invisible"
+          android:visibility="visible"
             />
 
         <TextView
@@ -49,11 +49,11 @@
             >
 
             <Button
-                android:id="@+id/imgSidePlusPrice"
+                android:id="@+id/imgSideMinusPrice"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
-                android:text=" + "
+                android:text=" - "
                 android:textColor="@color/customeColor"
                 android:background="@drawable/circle">
             </Button>
@@ -73,11 +73,11 @@
             </TextView>
 
             <Button
-                android:id="@+id/imgSideMinusPrice"
+                android:id="@+id/imgSidePlusPrice"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
-                android:text=" - "
+                android:text=" + "
                 android:textColor="@color/customeColor"
                 android:background="@drawable/circle">
             </Button>

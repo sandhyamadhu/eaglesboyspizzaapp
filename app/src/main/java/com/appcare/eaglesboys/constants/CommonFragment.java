@@ -125,7 +125,10 @@ public class CommonFragment extends Fragment implements EagleResponseListener {
     public void hideHeaderSearchVisibility(int mVisibility){
         ((MenuActivity)mContext).hideSearchLayout(mVisibility);
     }
+    protected void hideHeadercartVisibility(int mVisibility) {
 
+        ((MenuActivity)mContext).hideCartLayout(mVisibility);
+    }
     public void onCartItemSelected(){
         System.out.println("33333");
         ((MenuActivity)mContext).onCartSelected();

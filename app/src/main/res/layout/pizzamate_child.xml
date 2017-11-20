@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
     <LinearLayout
         android:padding="5dp"
         android:orientation="horizontal"
@@ -33,11 +33,11 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/imgSideMinusPrice"
+                    android:id="@+id/imgSidePlusPrice"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
-                    android:text=" - "
+                    android:text=" + "
                     android:textColor="@color/customeColor"
                     android:background="@drawable/circle">
                 </Button>
@@ -57,11 +57,11 @@
                 </TextView>
 
                 <Button
-                    android:id="@+id/imgSidePlusPrice"
+                    android:id="@+id/imgSideMinusPrice"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_gravity="center_vertical"
-                    android:text=" + "
+                    android:text=" - "
                     android:textColor="@color/customeColor"
                     android:background="@drawable/circle">
                 </Button>
@@ -73,32 +73,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/btnCustomizeTopping"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:maxLines="1"
-                android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                android:background="@color/customeColor"
-                android:textColor="@android:color/white"
-                android:text="Customize Topping"
-                android:layout_gravity="bottom"/>
+                <Button
+                    android:id="@+id/btnCustomizeTopping"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:maxLines="1"
+                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                    android:background="@color/customeColor"
+                    android:textColor="@android:color/white"
+                    android:text="Customize Topping"
+                    android:layout_gravity="bottom"/>
 
-            <Button
-                android:id="@+id/btnNVSideAddToCart"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:layout_marginTop="5dp"
-                android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                android:background="@color/customeColor"
-                android:textColor="@android:color/white"
-                android:text="Add To Cart" />
+                <Button
+                    android:id="@+id/btnNVSideAddToCart"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                    android:background="@color/customeColor"
+                    android:textColor="@android:color/white"
+                    android:text="Add To Cart" />
             </LinearLayout>
 
         </LinearLayout>

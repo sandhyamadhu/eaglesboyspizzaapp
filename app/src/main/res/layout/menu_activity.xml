@@ -72,25 +72,57 @@
                         android:id="@+id/edtPizzaSearch"
                         android:layout_width="match_parent"
                         android:layout_weight="1"
+                        android:layout_marginLeft="-5dp"
                         android:hint="Search your Favourites"
                         android:textColorHint="@android:color/darker_gray"
                         android:layout_height="wrap_content"
                         style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:inputType="text"/>
 
-                    <TextView
-                        android:paddingLeft="3dp"
-                        android:paddingRight="3dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="4dp"
-                        android:layout_width="2dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/customeColor"/>
 
                     <FrameLayout
-                        android:paddingLeft="5dp"
+                        android:paddingLeft="7dp"
                         android:layout_width="80dp"
                         android:layout_height="50dp">
+
+                        <ImageView
+                            android:id="@+id/imgOrderCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:padding="5dp"
+                            android:background="@android:color/white"
+                            android:layout_gravity="center"
+                            android:src="@drawable/cart"/>
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:text="1"
+                            android:textColor="@android:color/white"
+                            android:layout_gravity="bottom"
+                            android:gravity="center"
+                            android:background="@drawable/black_circle"/>
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/headerCartLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    >
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@mipmap/ebp"
+                        android:layout_weight="1"/>
+                    <FrameLayout
+                        android:paddingLeft="7dp"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="right">
 
                         <ImageView
                             android:id="@+id/imgOrderCount"
@@ -134,7 +166,8 @@
         app:itemTextAppearance="?android:attr/textAppearanceMediumInverse"
         app:itemBackground="@android:color/white"
         app:itemTextColor="@drawable/nav_item_text"
-        app:theme="@style/NavigationViewStyle">
+        app:theme="@style/NavigationViewStyle"
+       >
     </android.support.design.widget.NavigationView>
 
 

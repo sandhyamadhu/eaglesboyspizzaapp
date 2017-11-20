@@ -20,8 +20,15 @@ public class ProfileFragment extends CommonFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
      View mProfile=inflater.inflate(R.layout.fragment_profile,null);
+        initMenuVisibility();
         initCreateViews(mProfile);
+
         return mProfile;
+    }
+
+    private void initMenuVisibility() {
+        hideHeaderImageVisibility(View.VISIBLE);
+        hideHeaderSearchVisibility(View.GONE);
     }
 
     private void initCreateViews(View mProfile) {

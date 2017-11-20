@@ -10,14 +10,14 @@
         android:maxLines="1"
         android:textAppearance="?android:attr/textAppearanceMediumInverse"
         android:textColor="@android:color/white"
-        android:text="Termd and Conditions"
+        android:text="Terms and Conditions"
         android:background="@color/customeColor"
         android:layout_gravity="center"
         />
     <TextView
         android:id="@+id/txtTC"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:backgroundTint="#ffffff"
         android:background="#ffffff"

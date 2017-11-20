@@ -16,7 +16,13 @@ public class FeedbackFragment extends CommonFragment{
    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
    {
        View mFeed=inflater.inflate(R.layout.fragment_feedback,null);
+       initMenuVisibility();
        return mFeed;
    }
+
+    private void initMenuVisibility() {
+        hideHeaderImageVisibility(View.VISIBLE);
+        hideHeaderSearchVisibility(View.GONE);
+    }
 
 }
