@@ -2,8 +2,8 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:paddingTop="10dp"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    >
     <ListView
         android:id="@+id/vegpizzadeallist"
         android:dividerHeight="10dp"

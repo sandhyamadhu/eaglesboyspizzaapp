@@ -54,7 +54,7 @@ public class DealOneAdapter extends BaseExpandableListAdapter {
         pizzaclick.setOnClickListener (new View.OnClickListener () {
             @Override
             public void onClick(View v) {
-                ( (MenuActivity)mContext).addFragment (R.id.fragmentContent,new InnerMealDealFragment (),true,false);
+                ( (MenuActivity)mContext).addFragment (R.id.fragmentContent,new InnerMealDealFragment (),false,true);
             }
         });
 //            holder = new DealOneAdapter.ViewHolder();
