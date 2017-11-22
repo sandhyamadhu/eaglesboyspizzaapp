@@ -1,24 +1,34 @@
 package com.appcare.eaglesboys.delivery;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.EditText;
+import android.widget.ListView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.constants.CommonActivity;
 import com.appcare.eaglesboys.location.AppLocationService;
-import com.appcare.eaglesboys.location.MapsActivity;
+import com.appcare.eaglesboys.location.LocationAddress;
 import com.appcare.eaglesboys.menu.MenuActivity;
 import com.appcare.eaglesboys.utils.HttpHandler;
 
@@ -29,9 +39,18 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeliveryActivity extends CommonActivity {
+public class DeliveryActivity extends CommonActivity implements View.OnClickListener {
 
+    String name = "chennai";
+    String store;
+    List<String> mLocalityName = new ArrayList<>();
+    List<String> mStoreNameList = new ArrayList<>();
+    List<String> mStoreIDList = new ArrayList<>();
+    List<String> mCityName = new ArrayList<>();
+    List<String> mCityIDs = new ArrayList<>();
+    List<String> mLocalityIDs = new ArrayList<>();
 
+    String str_cityId="", str_location_id="", str_branchid="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,130 +58,152 @@ public class DeliveryActivity extends CommonActivity {
         setContentView(R.layout.activity_clickskip);
 
         initSetUpViews();
-
-        HttpHandler.sendJSONRequest("cities_api/cities",mResponseHandler,"CityTab");
-
+        HttpHandler.sendJSONRequest("cities_api/cities", mResponseHandler, "CityTab");
         initCurrentLocation();
 
     }
 
-    public void onShowMenu(View view) {
-        Intent i=new Intent(DeliveryActivity.this,MenuActivity.class);
-        startActivity(i);
-    }
-
-    private Spinner mSpnrCity;
-    private Spinner mSpnrArea;
-    private Spinner mSpnrStore;
-    private  LinearLayout linearLayout1;
-    private  Button showMenu;
+    private EditText mSpnrCity, mStore;
+    private EditText mSpnrArea;
+    private Button btnShow;
 
     private void initSetUpViews() {
-        mSpnrCity = (Spinner) findViewById(R.id.spnrCity);
-        mSpnrArea=(Spinner) findViewById(R.id.spnrArea);
-        mSpnrStore=(Spinner) findViewById (R.id.spnrStore) ;
-         linearLayout1=(LinearLayout) findViewById (R.id.spinnerLayout);
-
-        showMenu=(Button) findViewById (R.id.btnShow);
-
+        mSpnrCity = (EditText) findViewById(R.id.city);
+        mSpnrArea = (EditText) findViewById(R.id.locality);
+        mStore = (EditText) findViewById(R.id.branch);
+        btnShow = (Button) findViewById(R.id.btnShow);
+        mSpnrCity.setOnClickListener(this);
+        mSpnrArea.setOnClickListener(this);
+        mStore.setOnClickListener(this);
+        btnShow.setOnClickListener(this);
     }
 
-    List<String> mCityName = new ArrayList<>();
-    List<String> mCityIDs = new ArrayList<>();
 
     @Override
     public void handleResponse(Object response, String tag) {
-        super.handleResponse(response,tag);
+        super.handleResponse(response, tag);
 
         try {
             JSONArray jsonObj = new JSONArray(response.toString());
-            for (int i=0; i<jsonObj.length(); i++) {
+            for (int i = 0; i < jsonObj.length(); i++) {
+
                 JSONObject jsonObject = jsonObj.getJSONObject(i);
                 String cityID = jsonObject.getString("id");
                 String cityName = jsonObject.getString("name");
                 mCityIDs.add(cityID);
                 mCityName.add(cityName);
-                initSetUpCityViews(mCityName);
+
             }
-
-
+            //initSetUpCityViews(mCityName);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
     }
 
-    private void initSetUpCityViews(final List<String> mCityName){
+    private void initSetUpCityViews(final List<String> mCityName) {
+        mSpnrCity.setText("");
+        str_cityId = "";
+        if (mCityName.isEmpty()) {
 
-        ArrayAdapter<String> mSprFilterAdapter = new ArrayAdapter<String>(this,R.layout.spinner_list, mCityName);
-        mSprFilterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSpnrCity.setAdapter(mSprFilterAdapter);
+            new AlertDialog.Builder(this).setMessage("it empty").show();
+        } else {
+            // TODO Auto-generated method stub
+            final Dialog dialog = new Dialog(this);
+            dialog.setTitle("Selcet the City");
+            dialog.setContentView(R.layout.city_dailoglayout);
+            ListView listview = (ListView) dialog.findViewById(R.id.listview);
+            ArrayAdapter<String> data = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, mCityName);
+            listview.setAdapter(data);
+            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-        mSpnrCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                    // TODO Auto-generated method stub
 
-                String mCitiesNames = mCityName.get(position);
+                    dialog.dismiss();
+                    name = mCityName.get(arg2);
+                    str_cityId = mCityIDs.get(arg2);
+                    mSpnrCity.setText(name);
 
-                HttpHandler.sendRequest("locality_api/locality",mResponseHandler,"LocalityTab");
-            }
+                    new GetOrFetchData().execute(name);
+                    mSpnrArea.setFocusableInTouchMode(true);
+                    mSpnrArea.requestFocus();
+                }
+            });
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-    }
-
-
-    private void initSetUpLocalViews(List<String> mCityName){
-
-        ArrayAdapter<String> mSprFilterAdapter = new ArrayAdapter<String>(this,R.layout.spinner_list, mCityName);
-        mSprFilterAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSpnrArea.setAdapter(mSprFilterAdapter);
-
-        mSpnrArea.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                String mCitiesID = mCityIDs.get(position);
-//                HttpHandler.sendRequest("locality_api/localtiy?city_id="+mCitiesID,mResponseHandler,"CityTab");
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-    }
-
-    public void homeDeliveryClick(View v) {
-//        linearLayout1.setEnabled (false);
-        btnSkipLocateMe.setEnabled (true);
-        for ( int i = 0; i < linearLayout1.getChildCount();  i++ ){
-            v=linearLayout1.getChildAt(i);
-            v.setEnabled(false); // Or whatever you want to do with the view.
-            Toast.makeText (getApplicationContext (),"You have choosen Home Delivery, So please click on Locatee Button",Toast.LENGTH_SHORT).show ();
-        }
-
-
-    }
-
-    public void pickUpClick(View v) {
-
-        btnSkipLocateMe.setEnabled (false);
-        for ( int i = 0; i < linearLayout1.getChildCount();  i++ ){
-            v =linearLayout1.getChildAt(i);
-            v.setEnabled(true); // Or whatever you want to do with the view.
-            Toast.makeText (getApplicationContext (),"You have choosen Pick Up, So please Select the store",Toast.LENGTH_SHORT).show ();
+            dialog.show();
 
         }
-
-
     }
+
+    private void initSetUpLocalViews(final List<String> mLocatitiesName) {
+        mSpnrArea.setText("");
+        str_location_id = "";
+        if (mLocatitiesName.isEmpty()) {
+
+            new AlertDialog.Builder(this).setMessage("please Select the city").setPositiveButton("Ok", null).show();
+
+        } else {
+            final Dialog dialog = new Dialog(this);
+            dialog.setTitle("Selcet the Area");
+            dialog.setContentView(R.layout.city_dailoglayout);
+            ListView listview = (ListView) dialog.findViewById(R.id.listview);
+            ArrayAdapter<String> data = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, mLocatitiesName);
+            listview.setAdapter(data);
+            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                    // TODO Auto-generated method stub
+                    store = mLocatitiesName.get(arg2);
+                    str_location_id = mLocalityIDs.get(arg2);
+                    mSpnrArea.setText(store);
+
+                    dialog.dismiss();
+                    new GetOrFetchStore().execute(store);
+                    mStore.setFocusableInTouchMode(true);
+                    mStore.requestFocus();
+                }
+            });
+
+            dialog.show();
+        }
+    }
+
+    private void initSetUpStorsViews(final List<String> mStoreName) {
+
+        mStore.setText("");
+        str_branchid = "";
+        if (mStoreName.isEmpty()) {
+
+            new AlertDialog.Builder(this).setMessage("Please select Location").setPositiveButton("Ok", null).show();
+        } else {
+            // TODO Auto-generated method stub
+            final Dialog dialog = new Dialog(this);
+            dialog.setTitle("Selcet the Branch");
+            dialog.setContentView(R.layout.city_dailoglayout);
+            ListView listview = (ListView) dialog.findViewById(R.id.listview);
+            ArrayAdapter<String> data = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,
+                    mStoreName);
+            listview.setAdapter(data);
+            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+                    // TODO Auto-generated method stub
+                    String mStorename = mStoreName.get(position);
+                    str_branchid = mStoreIDList.get(position);
+                    mStore.setText(mStorename);
+                    dialog.dismiss();
+
+                }
+            });
+
+            dialog.show();
+
+        }
+    }
+
 
     private class GeocoderHandler extends Handler {
         @Override
@@ -178,38 +219,38 @@ public class DeliveryActivity extends CommonActivity {
             }
             btnSkipLocateMe.setText(locationAddress);
         }
+
     }
 
     private Button btnSkipLocateMe;
     AppLocationService appLocationService;
+
     private void initCurrentLocation() {
 
-        btnSkipLocateMe = (Button)findViewById(R.id.btnSkipLocateMe);
+        btnSkipLocateMe = (Button) findViewById(R.id.btnSkipLocateMe);
         appLocationService = new AppLocationService(this);
 
         btnSkipLocateMe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                Intent i =new Intent (DeliveryActivity.this, MapsActivity.class);
-                startActivity (i);
-//
-//                Location location = appLocationService
-//                        .getLocation(LocationManager.GPS_PROVIDER);
-//
-//                //you can hard-code the lat & long if you have issues with getting it
-//                //remove the below if-condition and use the following couple of lines
-//                //double latitude = 37.422005;
-//                //double longitude = -122.084095
-//
-//                if (location != null) {
-//                    double latitude = location.getLatitude();
-//                    double longitude = location.getLongitude();
-//                    LocationAddress locationAddress = new LocationAddress();
-//                    locationAddress.getAddressFromLocation(latitude, longitude,
-//                            getApplicationContext(), new GeocoderHandler());
-//                } else {
-//                    showSettingsAlert();
-//                }
+
+                Location location = appLocationService
+                        .getLocation(LocationManager.GPS_PROVIDER);
+
+                //you can hard-code the lat & long if you have issues with getting it
+                //remove the below if-condition and use the following couple of lines
+                //double latitude = 37.422005;
+                //double longitude = -122.084095
+
+                if (location != null) {
+                    double latitude = location.getLatitude();
+                    double longitude = location.getLongitude();
+                    LocationAddress locationAddress = new LocationAddress();
+                    locationAddress.getAddressFromLocation(latitude, longitude,
+                            getApplicationContext(), new GeocoderHandler());
+                } else {
+                    showSettingsAlert();
+                }
 
             }
         });
@@ -236,5 +277,162 @@ public class DeliveryActivity extends CommonActivity {
         alertDialog.show();
     }
 
-}
+    /**
+     * Async Task to make HTTP calls.
+     */
 
+
+    private class GetOrFetchData extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            // This is called before sending actual HTTP call...
+        }
+
+        @Override
+        protected Void doInBackground(String... arg0) {
+            final String identifier = arg0[0];
+
+            String url = "http://marssofttech.com/demos/eaglepizza/api/locality_api/locality";
+            StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String s) {
+                    try {
+                        mLocalityName.clear();
+                        mLocalityIDs.clear();
+
+                        JSONObject result = new JSONObject(s);
+                        JSONArray jsonArray = result.getJSONArray(identifier);
+                        Log.e("hai", identifier);
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            String localityName = jsonObject.getString("locality_name");
+                            String localityID = jsonObject.getString("locality_id");
+                            mLocalityIDs.add(localityID);
+                            mLocalityName.add(localityName);
+
+
+                            Log.e("hai", mLocalityName.toString());
+                        }
+                        initSetUpLocalViews(mLocalityName);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    Log.e("DATA", "Some error occurred!!");
+                }
+            });
+
+
+            RequestQueue rQueue = Volley.newRequestQueue(DeliveryActivity.this);
+            rQueue.add(request);
+
+
+            return null;
+        }
+
+
+    }
+
+
+    private class GetOrFetchStore extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            // This is called before sending actual HTTP call...
+        }
+
+        @Override
+        protected Void doInBackground(String... arg0) {
+            final String identifier = arg0[0];
+
+            String url = "http://marssofttech.com/demos/eaglepizza/api/store_api/list";
+            StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String s) {
+                    try {
+                        mStoreNameList.clear();
+                        mStoreIDList.clear();
+                        JSONObject result = new JSONObject(s);
+                        JSONArray jsonArray = result.getJSONArray(identifier);
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+                            String mStoreName = jsonObject.getString("store_name");
+                            String mStoreId = jsonObject.getString("store_id");
+                            mStoreIDList.add(mStoreId);
+                            mStoreNameList.add(mStoreName);
+                        }
+                        initSetUpStorsViews(mStoreNameList);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    Log.e("DATA", "Some error occurred!!");
+                }
+            });
+
+
+            RequestQueue rQueue = Volley.newRequestQueue(DeliveryActivity.this);
+            rQueue.add(request);
+
+
+            return null;
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.city:
+                initSetUpCityViews(mCityName);
+                break;
+            case R.id.locality:
+                initSetUpLocalViews(mLocalityName);
+                break;
+            case R.id.branch:
+                initSetUpStorsViews(mStoreNameList);
+                break;
+            case R.id.btnShow:
+                validation();
+                break;
+
+        }
+
+    }
+
+
+    private void validation() {
+
+        if (str_cityId.isEmpty()) {
+            new AlertDialog.Builder(this).setMessage("Enter the CityName ").setNegativeButton("Ok", null).show();
+            // mSpnrCity.setError("Please Select the City");
+
+            return;
+        } else if (str_location_id.isEmpty()) {
+            mSpnrArea.setError("Please Select the Location");
+            return;
+        } else if (str_branchid.isEmpty()) {
+            mSpnrArea.setError("Please Select the Barnch");
+            return;
+        } else {
+            Intent i = new Intent(DeliveryActivity.this, MenuActivity.class);
+            startActivity(i);
+            return;
+        }
+    }
+}

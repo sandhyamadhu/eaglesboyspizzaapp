@@ -37,7 +37,7 @@ public class addAddressFragment extends CommonFragment {
         handleAppBarVisibility (View.VISIBLE);
         hideHeaderImageVisibility(View.GONE);
         hideHeaderSearchVisibility(View.GONE);
-        hideHeadercartVisibility (View.VISIBLE);
+//        hideHeadercartVisibility (View.VISIBLE);
     }
 
 }

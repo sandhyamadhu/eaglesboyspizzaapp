@@ -26,7 +26,7 @@ public class ViewPagerAdapterDeal extends FragmentStatePagerAdapter {
             case 0:
                 return new VegPizzaDealFragment ();
             case 1:
-                return new NonVegPizzaFragment();
+                return new NonVegPizzaFragment ();
             default:
                 return null;
         }

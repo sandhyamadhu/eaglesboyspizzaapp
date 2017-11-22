@@ -9,8 +9,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.appcare.eaglesboys.Feedback.FeedbackFragment;
 import com.appcare.eaglesboys.MealDeal.MealDealFragment;
@@ -20,9 +22,14 @@ import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.TnCDesclaimer.TCDesclaimerFragment;
 import com.appcare.eaglesboys.constants.CommonActivity;
 import com.appcare.eaglesboys.placeorder.CartFragment;
+import com.appcare.eaglesboys.utils.CenterRepository;
 
 
 public class MenuActivity extends CommonActivity {
+    private int itemCount = 0;
+    public static   TextView itemCountTextView;
+    protected OnBackPressedListener onBackPressedListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,15 +41,22 @@ public class MenuActivity extends CommonActivity {
         addFragment(R.id.fragmentContent,new HomeFragment(),false,true);
 
     }
-
+    public interface OnBackPressedListener {
+        void doBack();
+    }
+    public void setOnBackPressedListener(OnBackPressedListener onBackPressedListener) {
+        this.onBackPressedListener = onBackPressedListener;
+    }
     private ImageView mImgOrderCount;
     private AppBarLayout mAppBarLayout;
     private LinearLayout mHeaderImageLayout;
     private LinearLayout mHeaderSearchLayout;
-    private LinearLayout mHeaderCartLayout;
 
 
     private void initDrawerLayoutView() {
+
+        itemCount = CenterRepository.getCenterRepository().getListOfProductsInShoppingList()
+                .size();
 
         mImgOrderCount = (ImageView)findViewById(R.id.imgOrderCount);
         mImgOrderCount.setOnClickListener(new View.OnClickListener() {
@@ -53,14 +67,20 @@ public class MenuActivity extends CommonActivity {
         });
         mHeaderImageLayout = (LinearLayout)findViewById(R.id.headerImageLayout);
         mHeaderSearchLayout = (LinearLayout)findViewById(R.id.headerSearchLayout);
-        mHeaderCartLayout=(LinearLayout) findViewById (R.id.headerCartLayout);
 
         mAppBarLayout = (AppBarLayout)findViewById(R.id.appBarLayout);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-//        EditText mEditText = (EditText)toolbar.findViewById(R.id.edtPizzaSearch);
-//        ImageView mImageView = (ImageView)toolbar.findViewById(R.id.imgOrderCount);
+        EditText mEditText = (EditText)toolbar.findViewById(R.id.edtPizzaSearch);
+
+        ImageView mImageView = (ImageView)toolbar.findViewById(R.id.imgOrderCount);
+        itemCountTextView = (TextView)findViewById(R.id.ordercount);
+        itemCountTextView.setSelected(true);
+        itemCountTextView.setText(String.valueOf(itemCount));
+
+
+
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -74,7 +94,7 @@ public class MenuActivity extends CommonActivity {
 
     public void onCartSelected(){
 
-        addFragment(R.id.fragmentContent,new CartFragment(),true,false);
+        addFragment(R.id.fragmentContent,new CartFragment(),false,true);
     }
 
     public void hideImageLayout(int mVisibility){
@@ -83,9 +103,6 @@ public class MenuActivity extends CommonActivity {
 
     public void hideSearchLayout(int mVisibility){
         mHeaderSearchLayout.setVisibility(mVisibility);
-    }
-    public  void hideCartLayout(int mVisibility){
-        mHeaderCartLayout.setVisibility (mVisibility);
     }
 
     public void hideAppBarLayout(int mVisibility){
@@ -111,7 +128,8 @@ public class MenuActivity extends CommonActivity {
                 }
                 else if(id==R.id.menuNewOrders)
                 {
-                    addFragment(R.id.fragmentContent,new MenuFragment(),false,true);
+
+                    addFragment(R.id.fragmentContent,new HomeFragment (),false,true);
                 }
                 else if (id==R.id.menuBackToMenu){
                     addFragment(R.id.fragmentContent,new HomeFragment(),false,true );
@@ -139,19 +157,16 @@ public class MenuActivity extends CommonActivity {
 
             }
         });
+
     }
-
-
-
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
             super.onBackPressed();
+        } else {
+            getFragmentManager().popBackStack();
         }
     }
 
-
 }
+

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,6 +31,7 @@ public class VegPizzaDealAdapter  extends BaseAdapter{
  {
      TextView  mTxtVegPizzaDealName;
      ImageView mImgVegPizzaDeal;
+     CheckBox selectItem;
  }
 
     @Override
@@ -42,6 +44,7 @@ public class VegPizzaDealAdapter  extends BaseAdapter{
             holder=new VegPizzaDealAdapter.ViewHolder ();
             holder.mTxtVegPizzaDealName=(TextView) convertView.findViewById (R.id.txtvegpizzadealName);
             holder.mImgVegPizzaDeal=(ImageView) convertView.findViewById (R.id.imgvegpizzadeal);
+            holder.selectItem=(CheckBox) convertView.findViewById (R.id.selectPizza);
             convertView.setTag(holder);
         }
         else
@@ -52,6 +55,7 @@ public class VegPizzaDealAdapter  extends BaseAdapter{
         VegpizzaDealDetails mDetails= (VegpizzaDealDetails) getItem (position);
         holder.mTxtVegPizzaDealName.setText (mDetails.getTxtVegPizzaDealName  ());
         Picasso.with(context).load(mDetails.getImgVegPizzaDeal ()).into(holder.mImgVegPizzaDeal);
+        holder.selectItem.isChecked ();
         return convertView;
     }
     @Override

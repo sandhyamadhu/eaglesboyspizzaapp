@@ -1,133 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/blackcolor">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/blackcolor"
+              android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:maxLines="1"
+        android:text="Profile"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceMediumInverse"
         android:textColor="@color/customeColor"
-        android:textStyle="bold"
-        android:text="Profile"
-        android:textAllCaps="true"
-        android:layout_gravity="center"
-        />
+        android:textStyle="bold" />
+
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:id="@+id/profilepic"
         android:layout_gravity="center"
-        android:src="@drawable/profilenew"/>
+        android:layout_width="120dp"
+        android:fitsSystemWindows="true"
+        android:layout_height="120dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:src="@drawable/profilenew" />
+
     <Button
         android:id="@+id/btnEdit"
+        android:layout_width="100dp"
         android:layout_height="30dp"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
+        android:layout_marginEnd="12dp"
         android:background="@color/customeColor"
-        android:layout_width="50dp"
-        android:textColor="#ffffff"
-        android:textAppearance="?android:attr/textAppearanceSmallInverse"
         android:text="Edit"
-        android:layout_marginEnd="12dp" />
+        android:textAppearance="?android:attr/textAppearanceSmallInverse"
+        android:textColor="#ffffff" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="horizontal">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingLeft="30dp"
-            >
+            android:paddingLeft="30dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
-                android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                android:textColor="@color/customeColor"
+                android:padding="10dp"
                 android:text="Name"
-                android:textStyle="bold"
-                android:padding="10dp"/>
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="@color/customeColor"
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
-                android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                android:textColor="@color/customeColor"
+                android:padding="10dp"
                 android:text="Mobile"
-                android:textStyle="bold"
-                android:padding="10dp"/>
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="@color/customeColor"
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
+                android:padding="10dp"
+                android:text="Address"
                 android:textAppearance="?android:attr/textAppearanceMediumInverse"
                 android:textColor="@color/customeColor"
-                android:text="Address"
-                android:textStyle="bold"
-                android:padding="10dp"/>
+                android:textStyle="bold" />
 
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingEnd="30dp">
+
             <EditText
                 android:id="@+id/txtname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusable="false"
+                android:text="AppCare"
+                android:singleLine="true"
+                android:maxLines="1"
                 android:textAppearance="?android:attr/textAppearanceMediumInverse"
                 android:textColor="@color/customeColor"
-                android:focusable="false"
 
                 />
+
             <EditText
                 android:id="@+id/txtnumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                android:textColor="@color/customeColor"
                 android:focusable="false"
-                />
+                android:inputType="phone"
+                android:editable="false"
+                android:text="1234567890"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="@color/customeColor" />
+
             <EditText
+                android:maxLines="3"
                 android:id="@+id/txtaddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMediumInverse"
-                android:textColor="@color/customeColor"
                 android:focusable="false"
-                />
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="@color/customeColor" />
 
         </LinearLayout>
     </LinearLayout>
-    <Button
-        android:id="@+id/btnSubmit"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/customeColor"
-        android:layout_width="wrap_content"
-        android:textColor="#ffffff"
-        android:textAppearance="?android:attr/textAppearanceMediumInverse"
-        android:text="Submit"
-        android:textStyle="bold"
-        android:layout_marginTop="30dp"
-         />
-    <Button
-        android:id="@+id/btnLogout"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/customeColor"
-        android:layout_width="wrap_content"
-        android:textColor="#ffffff"
-        android:textAppearance="?android:attr/textAppearanceMediumInverse"
-        android:text="LogOut"
-        android:textStyle="bold"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:background="@color/customeColor"
+            android:text="Submit"
+            android:textAppearance="?android:attr/textAppearanceMediumInverse"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:background="@color/customeColor"
+            android:text="LogOut"
+            android:textAppearance="?android:attr/textAppearanceMediumInverse"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 </LinearLayout>

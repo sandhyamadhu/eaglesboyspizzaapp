@@ -34,5 +34,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="spinner_title">Select Category</string>
     <string name="title_activity_maps">Map</string>
+    <string name="runtime_permissions_txt">Please enable the camera settings</string>
 
 </resources>

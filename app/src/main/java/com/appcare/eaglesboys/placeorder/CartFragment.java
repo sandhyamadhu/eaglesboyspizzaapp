@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.appcare.eaglesboys.Payment.paymentFragment;
 import com.appcare.eaglesboys.R;
 import com.appcare.eaglesboys.constants.CommonFragment;
+import com.appcare.eaglesboys.menu.MenuActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,15 +25,21 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class CartFragment extends CommonFragment implements View.OnClickListener{
+import static com.appcare.eaglesboys.R.id.fragmentContent;
+
+public class CartFragment extends CommonFragment implements View.OnClickListener, MenuActivity.OnBackPressedListener{
     public static Button mBtnEdit;
+    public   LinearLayout linearLayout;
+    public  EditText e1;
+
     String colors[] = {"10.30 AM","11.30 AM","12.30 pM","1.30 PM"};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View mCartView = inflater.inflate(R.layout.fragment_cart,null);
-        initMenuVisibility();
+
         initViews(mCartView);
+        initMenuVisibility();
         return mCartView;
     }
 
@@ -46,20 +53,21 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
     private void initMenuVisibility() {
 
         hideHeaderImageVisibility(View.GONE);
-        hideHeaderSearchVisibility(View.GONE);
-          hideHeadercartVisibility(View.VISIBLE);
+        hideHeaderSearchVisibility(View.VISIBLE);
+
+//          hideHeadercartVisibility(View.VISIBLE);
     }
 
 
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-
-        hideHeaderImageVisibility(View.GONE);
-        hideHeaderSearchVisibility(View.GONE);
-        hideHeadercartVisibility(View.VISIBLE);
-    }
+//
+//    @Override
+//    public void onDestroy() {
+//        super.onDestroy();
+//
+//        hideHeaderImageVisibility(View.GONE);
+//        hideHeaderSearchVisibility(View.GONE);
+////        hideHeadercartVisibility(View.VISIBLE);
+//    }
 
     private TextView mTxtDiscount;
     private LinearLayout mCouponLayout;
@@ -82,6 +90,9 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
         mTxtNetPrice = (TextView)mChartViews.findViewById(R.id.txtNetPrice);
         mTxtGSTPrice = (TextView)mChartViews.findViewById(R.id.txtGSTPrice);
         mCouponLayout = (LinearLayout)mChartViews.findViewById(R.id.couponLayout);
+        linearLayout=(LinearLayout)mChartViews.findViewById (R.id.headerSearchLayout);
+        e1=(EditText) mChartViews.findViewById (R.id.edtPizzaSearch) ;
+//        e1=(EditText)((LinearLayout)mChartViews).getChildAt (0);
 
         mTxtHaveACoupon.setPaintFlags(mTxtHaveACoupon.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         mTxtHaveACoupon.setOnClickListener(this);
@@ -163,7 +174,7 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
             case R.id.btnPlaceOrder:
 //                Intent i=new Intent(getActivity(), Payment.class);
 //                startActivity(i);
-                addFragment (R.id.fragmentContent,new paymentFragment (),false,true);
+                addFragment (fragmentContent,new paymentFragment (),false,true);
                 break;
 
             case R.id.btnApply:
@@ -185,4 +196,11 @@ public class CartFragment extends CommonFragment implements View.OnClickListener
         }
 
     }
+
+
+    @Override
+    public void doBack() {
+
+    }
 }
+

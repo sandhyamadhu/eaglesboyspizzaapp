@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingTop="10dp"
+              android:orientation="vertical"
+    >
+    <ListView
+        android:id="@+id/drinldeallist"
+        android:dividerHeight="10dp"
+        android:divider="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/btnDesertsAddToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textAppearance="?android:attr/textAppearanceMediumInverse"
+            android:background="@color/customeColor"
+            android:textColor="@android:color/white"
+            android:text="Add To Cart"
+            android:layout_weight="1"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"/>
+        <Button
+            android:id="@+id/btnDesertsAddToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textAppearance="?android:attr/textAppearanceMediumInverse"
+            android:background="@color/customeColor"
+            android:textColor="@android:color/white"
+            android:text="Cancel"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>

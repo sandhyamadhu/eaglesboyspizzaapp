@@ -95,6 +95,7 @@ public class CommonActivity extends AppCompatActivity implements EagleResponseLi
             fragmentManager.popBackStack(tag,
                     FragmentManager.POP_BACK_STACK_INCLUSIVE);
         }
+
         fragmentTransaction.commit();
         fragmentManager.executePendingTransactions();
     }
@@ -134,5 +135,8 @@ public class CommonActivity extends AppCompatActivity implements EagleResponseLi
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
+
+
 }

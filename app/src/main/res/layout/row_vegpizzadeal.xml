@@ -27,56 +27,58 @@
             android:textColor="@color/customeColor"
             android:textStyle="bold" />
         <CheckBox
+            android:id="@+id/selectPizza"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtvegpizzadealName"
             android:layout_alignParentEnd="true"/>
 
-    <LinearLayout
-        android:layout_marginLeft="5dp"
-        android:padding="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="90dp"
-        android:layout_alignBottom="@id/imgvegpizzadeal"
-       >
 
-        <Button
-            android:id="@+id/imgDesertsMinusPrice"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center_vertical"
-            android:text=" - "
-            android:textColor="@color/customeColor"
-            android:background="@drawable/circle">
-        </Button>
+    <!--<LinearLayout-->
+        <!--android:layout_marginLeft="5dp"-->
+        <!--android:padding="5dp"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_marginTop="90dp"-->
+        <!--android:layout_alignBottom="@id/imgvegpizzadeal"-->
+       <!--&gt;-->
 
-        <TextView
-            android:id="@+id/edtStartPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:inputType="number"
-            android:text="1"
-            android:textAppearance="?android:attr/textAppearanceMediumInverse"
-            android:maxLines="1"
-            android:textColor="@color/customeColor">
-        </TextView>
+        <!--<Button-->
+            <!--android:id="@+id/imgDesertsMinusPrice"-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_height="25dp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:text=" - "-->
+            <!--android:textColor="@color/customeColor"-->
+            <!--android:background="@drawable/circle">-->
+        <!--</Button>-->
 
-        <Button
-            android:id="@+id/imgDesertsPlusPrice"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:textSize="18sp"
-            android:layout_gravity="center_vertical"
-            android:text=" + "
-            android:textColor="@color/customeColor"
-            android:background="@drawable/circle"
-            android:layout_weight="0.25">
-        </Button>
-    </LinearLayout>
+        <!--<TextView-->
+            <!--android:id="@+id/edtStartPrice"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:inputType="number"-->
+            <!--android:text="1"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMediumInverse"-->
+            <!--android:maxLines="1"-->
+            <!--android:textColor="@color/customeColor">-->
+        <!--</TextView>-->
+
+        <!--<Button-->
+            <!--android:id="@+id/imgDesertsPlusPrice"-->
+            <!--android:layout_width="25dp"-->
+            <!--android:layout_height="25dp"-->
+            <!--android:textSize="18sp"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:text=" + "-->
+            <!--android:textColor="@color/customeColor"-->
+            <!--android:background="@drawable/circle"-->
+            <!--android:layout_weight="0.25">-->
+        <!--</Button>-->
+    <!--</LinearLayout>-->
 
      </RelativeLayout>

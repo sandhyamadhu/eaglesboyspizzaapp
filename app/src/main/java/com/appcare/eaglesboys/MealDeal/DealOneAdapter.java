@@ -41,7 +41,7 @@ public class DealOneAdapter extends BaseExpandableListAdapter {
     public long getChildId(int groupPosition, int childPosition) {
         return childPosition;
     }
-    private Button pizzaclick;
+
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
 //        DealOneAdapter.ViewHolder holder = null;
@@ -50,28 +50,21 @@ public class DealOneAdapter extends BaseExpandableListAdapter {
             LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.deals_row_child, null);
         }
-        pizzaclick=(Button) convertView.findViewById (R.id.pizzaDealClick);
-        pizzaclick.setOnClickListener (new View.OnClickListener () {
+        Button pizzaclick=(Button) convertView.findViewById (R.id.pizzaDealClick);
+              pizzaclick.setOnClickListener (new View.OnClickListener () {
             @Override
             public void onClick(View v) {
                 ( (MenuActivity)mContext).addFragment (R.id.fragmentContent,new InnerMealDealFragment (),false,true);
             }
         });
-//            holder = new DealOneAdapter.ViewHolder();
-//            Button pizzaBtn=(Button) convertView.findViewById(R.id.pizzaDeal);
-//            Button drinkBtn=(Button) convertView.findViewById(R.id.drinkDeal);
-//            Button cartBtn=(Button) convertView.findViewById(R.id.btnMealDealAddCart);
-//            holder.mTxtpizzaCount = (TextView) convertView.findViewById(R.id.pizzaCount);
-//            convertView.setTag(holder);
-//        } else {
-//            holder = (DealOneAdapter.ViewHolder) convertView.getTag();
-//        }
-//       DealOneChildDetails mCDetails=new DealOneChildDetails();
-//        holder.mTxtpizzaCount.setText(mCDetails.getTxtPizzaCount());
-
-
-
-        return convertView;
+//        Button drinkdeal=(Button) convertView.findViewById (R.id.drinkDeal);
+//        drinkdeal.setOnClickListener (new View.OnClickListener () {
+//            @Override
+//            public void onClick(View v) {
+//                ((MenuActivity)mContext).addFragment (R.id.fragmentContent,new DrinksDealFragment (),false,true);
+//            }
+//        });
+return convertView;
     }
 
 

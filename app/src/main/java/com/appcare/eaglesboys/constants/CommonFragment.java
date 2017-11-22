@@ -45,6 +45,10 @@ public class CommonFragment extends Fragment implements EagleResponseListener {
         ((CommonActivity)mContext).addFragment(R.id.fragmentContent,fragment,addStack,isReplace);
     }
 
+    public void removeFragment(Fragment fragment,FragmentManager fragmentManager) {
+        ((CommonActivity)mContext).removeFragment (fragment,fragmentManager);    }
+
+
 
     public class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;
@@ -125,10 +129,10 @@ public class CommonFragment extends Fragment implements EagleResponseListener {
     public void hideHeaderSearchVisibility(int mVisibility){
         ((MenuActivity)mContext).hideSearchLayout(mVisibility);
     }
-    protected void hideHeadercartVisibility(int mVisibility) {
-
-        ((MenuActivity)mContext).hideCartLayout(mVisibility);
-    }
+//    protected void hideHeadercartVisibility(int mVisibility) {
+//
+//        ((MenuActivity)mContext).hideCartLayout(mVisibility);
+//    }
     public void onCartItemSelected(){
         System.out.println("33333");
         ((MenuActivity)mContext).onCartSelected();
@@ -144,4 +148,5 @@ public class CommonFragment extends Fragment implements EagleResponseListener {
     public void handleError(int errorCode, String volleyError) {
 
     }
+
 }
